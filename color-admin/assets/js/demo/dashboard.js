@@ -167,7 +167,7 @@ var handleVectorMap = function () {
             $.gritter.add({
                 title: "Welcome back, Admin!",
                 text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus lacus ut lectus rutrum placerat.",
-                image: "../assets/img/user/user-2.jpg",
+                image: "../color-admin/assets/img/user/user-2.jpg",
                 sticky: !0,
                 time: "",
                 class_name: "my-sticky-class"
@@ -178,7 +178,7 @@ var handleVectorMap = function () {
     "use strict";
     return {
         init: function () {
-            handleDashboardGritterNotification(), handleInteractiveChart(), handleDashboardSparkline(), handleDonutChart(), handleDashboardTodolist(), handleVectorMap(), handleDashboardDatepicker()
+            handleInteractiveChart(), handleDashboardSparkline(), handleDonutChart(), handleDashboardTodolist(), handleVectorMap(), handleDashboardDatepicker()
         }
     }
 }();

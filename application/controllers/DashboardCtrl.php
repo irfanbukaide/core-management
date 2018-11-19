@@ -7,7 +7,8 @@ class DashboardCtrl extends MY_Controller
     {
         parent::__construct();
 
-        //Do your magic here
+        // load page css and js
+        $this->dashboard_css_js();
     }
 
     public function index()

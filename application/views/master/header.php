@@ -2,32 +2,28 @@
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed navbar-toggle-left" data-click="sidebar-minify">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
+        <a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>Color</b> Admin</a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="index.html" class="navbar-brand">
-            Color Admin Material
-        </a>
     </div>
     <!-- end navbar-header -->
 
     <!-- begin header-nav -->
     <ul class="navbar-nav navbar-right">
         <li>
-            <a href="index.html#" data-toggle="navbar-search" class="icon">
-                <i class="material-icons">search</i>
-            </a>
+            <form class="navbar-form">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Enter keyword"/>
+                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
         </li>
         <li class="dropdown">
-            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle icon">
-                <i class="material-icons">inbox</i>
+            <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+                <i class="fa fa-bell"></i>
                 <span class="label">5</span>
             </a>
             <ul class="dropdown-menu media-list dropdown-menu-right">
@@ -47,8 +43,7 @@
                 <li class="media">
                     <a href="javascript:;">
                         <div class="media-left">
-                            <img src="<?= base_url('color-admin/assets/img/user/user-1.jpg'); ?>" class="media-object"
-                                 alt=""/>
+                            <img src="../assets/img/user/user-1.jpg" class="media-object" alt=""/>
                             <i class="fab fa-facebook-messenger text-primary media-object-icon"></i>
                         </div>
                         <div class="media-body">
@@ -61,8 +56,7 @@
                 <li class="media">
                     <a href="javascript:;">
                         <div class="media-left">
-                            <img src="<?= base_url('color-admin/assets/img/user/user-2.jpg'); ?>" class="media-object"
-                                 alt=""/>
+                            <img src="../assets/img/user/user-2.jpg" class="media-object" alt=""/>
                             <i class="fab fa-facebook-messenger text-primary media-object-icon"></i>
                         </div>
                         <div class="media-body">
@@ -102,8 +96,8 @@
         </li>
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="d-none d-md-inline">Hi, John Smith</span>
-                <img src="<?= base_url('color-admin/assets/img/user/user-14.jpg'); ?>" alt=""/>
+                <img src="../assets/img/user/user-13.jpg" alt=""/>
+                <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="javascript:;" class="dropdown-item">Edit Profile</a>
@@ -117,11 +111,5 @@
         </li>
     </ul>
     <!-- end header navigation right -->
-
-    <div class="search-form">
-        <button class="search-btn" type="submit"><i class="material-icons">search</i></button>
-        <input type="text" class="form-control" placeholder="Search Something..."/>
-        <a href="index.html#" class="close" data-dismiss="navbar-search"><i class="material-icons">close</i></a>
-    </div>
 </div>
-<!-- end #header -->
+<!-- end #header -

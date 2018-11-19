@@ -12,7 +12,7 @@ class MY_Controller extends CI_Controller {
 
     public function render($view, $data = array(), $return = false)
 	{
-
+        return $this->template->render($view, $data, $return);
 	}
 
 }

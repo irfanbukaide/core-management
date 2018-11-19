@@ -10,7 +10,7 @@ class MY_Controller extends CI_Controller {
         $this->load->library('Template');
     }
 
-	public function index()
+    public function render($view, $data = array(), $return = false)
 	{
 
 	}

@@ -116,7 +116,8 @@
                         <ul class="media-list media-list-with-divider">
                             <li class="media media-lg">
                                 <a href="javascript:;" class="pull-left">
-                                    <img class="media-object" src="../assets/img/gallery/gallery-1.jpg" alt=""/>
+                                    <img class="media-object"
+                                         src="<?= base_url('color-admin/assets/img/gallery/gallery-1.jpg'); ?>" alt=""/>
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">Aenean viverra arcu nec pellentesque ultrices. In erat
@@ -132,7 +133,9 @@
                             </li>
                             <li class="media media-lg">
                                 <a href="javascript:;" class="pull-left">
-                                    <img class="media-object" src="../assets/img/gallery/gallery-10.jpg" alt=""/>
+                                    <img class="media-object"
+                                         src="<?= base_url('color-admin/assets/img/gallery/gallery-10.jpg'); ?>"
+                                         alt=""/>
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">Vestibulum vitae diam nec odio dapibus placerat. Ut ut
@@ -147,7 +150,8 @@
                             </li>
                             <li class="media media-lg">
                                 <a href="javascript:;" class="pull-left">
-                                    <img class="media-object" src="../assets/img/gallery/gallery-7.jpg" alt=""/>
+                                    <img class="media-object"
+                                         src="<?= base_url('color-admin/assets/img/gallery/gallery-7.jpg'); ?>" alt=""/>
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">Maecenas eget turpis luctus, scelerisque arcu id,
@@ -164,7 +168,8 @@
                             </li>
                             <li class="media media-lg">
                                 <a href="javascript:;" class="pull-left">
-                                    <img class="media-object" src="../assets/img/gallery/gallery-8.jpg" alt=""/>
+                                    <img class="media-object"
+                                         src="<?= base_url('color-admin/assets/img/gallery/gallery-8.jpg'); ?>" alt=""/>
                                 </a>
                                 <div class="media-body">
                                     <h4 class="media-heading">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -198,7 +203,8 @@
                                 <td>13/02/2013</td>
                                 <td class="hidden-sm">
                                     <a href="javascript:;">
-                                        <img src="../assets/img/product/product-1.png" alt=""/>
+                                        <img src="<?= base_url('color-admin/assets/img/product/product-1.png'); ?>"
+                                             alt=""/>
                                     </a>
                                 </td>
                                 <td class="text-nowrap">
@@ -212,7 +218,8 @@
                                 <td>13/02/2013</td>
                                 <td class="hidden-sm">
                                     <a href="javascript:;">
-                                        <img src="../assets/img/product/product-2.png" alt=""/>
+                                        <img src="<?= base_url('color-admin/assets/img/product/product-2.png'); ?>"
+                                             alt=""/>
                                     </a>
                                 </td>
                                 <td class="text-nowrap">
@@ -226,7 +233,8 @@
                                 <td>13/02/2013</td>
                                 <td class="hidden-sm">
                                     <a href="javascript:;">
-                                        <img src="../assets/img/product/product-3.png" alt=""/>
+                                        <img src="<?= base_url('color-admin/assets/img/product/product-3.png'); ?>"
+                                             alt=""/>
                                     </a>
                                 </td>
                                 <td class="text-nowrap">
@@ -240,7 +248,8 @@
                                 <td>13/02/2013</td>
                                 <td class="hidden-sm">
                                     <a href="javascript:;">
-                                        <img src="../assets/img/product/product-4.png" alt=""/>
+                                        <img src="<?= base_url('color-admin/assets/img/product/product-4.png'); ?>"
+                                             alt=""/>
                                     </a>
                                 </td>
                                 <td class="text-nowrap">
@@ -254,7 +263,8 @@
                                 <td>13/02/2013</td>
                                 <td class="hidden-tablet hidden-phone">
                                     <a href="javascript:;">
-                                        <img src="../assets/img/product/product-5.png" alt=""/>
+                                        <img src="<?= base_url('color-admin/assets/img/product/product-5.png'); ?>"
+                                             alt=""/>
                                     </a>
                                 </td>
                                 <td class="text-nowrap">
@@ -273,7 +283,7 @@
                         <ul class="media-list media-list-with-divider">
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-1.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-1.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -292,7 +302,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-2.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-2.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -310,7 +320,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-3.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-3.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -328,7 +338,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-4.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-4.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -404,7 +414,7 @@
                         <ul class="media-list media-list-with-divider media-messaging">
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-5.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-5.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -417,7 +427,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-6.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-6.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -429,7 +439,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-8.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-8.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">
@@ -442,7 +452,7 @@
                             </li>
                             <li class="media media-sm">
                                 <a href="javascript:;" class="pull-left">
-                                    <img src="../assets/img/user/user-7.jpg" alt=""
+                                    <img src="<?= base_url('color-admin/assets/img/user/user-7.jpg'); ?>" alt=""
                                          class="media-object rounded-corner"/>
                                 </a>
                                 <div class="media-body">

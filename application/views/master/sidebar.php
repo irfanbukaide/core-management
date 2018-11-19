@@ -8,7 +8,7 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="../assets/img/user/user-14.jpg" alt=""/>
+                        <img src="<?= base_url('color-admin/assets/img/user/user-14.jpg'); ?>" alt=""/>
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>
@@ -88,7 +88,7 @@
             <li>
                 <a href="bootstrap_4.html">
                     <div class="icon-img">
-                        <img src="../assets/img/logo/logo-bs4.png" alt=""/>
+                        <img src="<?= base_url('color-admin/assets/img/logo/logo-bs4.png'); ?>" alt=""/>
                     </div>
                     <span>Bootstrap 4 <span class="label label-theme m-l-5">NEW</span></span>
                 </a>

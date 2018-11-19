@@ -17,7 +17,7 @@
     <?php echo $scripts_header; ?>
 </head>
 <body>
-<?php require '../master/container.php'; ?>
+<?php require_once(APPPATH . 'views/master/container.php'); ?>
 
 <?php echo $scripts_footer; ?>
 </body>

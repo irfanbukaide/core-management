@@ -12,9 +12,9 @@
 <!-- begin #page-container -->
 <div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
     <?php
-    require 'header.php';
-    require 'sidebar.php';
-    require 'content.php';
+    require_once(APPPATH . 'views/master/header.php');
+    require_once(APPPATH . 'views/master/sidebar.php');
+    require_once(APPPATH . 'views/master/content.php');
     ?>
 
     <!-- begin theme-panel -->

@@ -5,17 +5,28 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            <li class="has-sub active">
+            <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fa fa-th-large"></i>
-                    <span>Dashboard</span>
+                    <span>Monitor</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="active"><a href="<?= site_url('dashboard/counter'); ?>">Counter</a></li>
+                    <li>
+                        <a href="<?= site_url('dashboard/up'); ?>">
+                            <span class="badge badge-success pull-right">10</span>
+                            Up
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= site_url('dashboard/down'); ?>">
+                            <span class="badge badge-danger pull-right">10</span>
+                            Down
+                        </a>
+                    </li>
                     <li>
                         <a href="<?= site_url('dashboard/log'); ?>">
-                            <span class="badge badge-danger pull-right">10 Down</span>
+                            <span class="badge badge-danger pull-right">120</span>
                             Log
                         </a>
                     </li>

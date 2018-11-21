@@ -8,7 +8,6 @@ class DashboardCtrl extends MY_Controller
         parent::__construct();
 
         // load page css and js
-        $this->dashboard_css_js();
     }
 
     public function index()
@@ -21,6 +20,13 @@ class DashboardCtrl extends MY_Controller
         // load page css and js
         $this->dashboard_css_js();
         $this->render('Dashboard');
+    }
+
+    public function up()
+    {
+        // load page css and js
+        $this->dashboard_log_css_js();
+        $this->render('Dashboard_up');
     }
 
     public function log()

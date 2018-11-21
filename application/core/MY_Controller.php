@@ -82,8 +82,21 @@ class MY_Controller extends CI_Controller
 
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/media/js/jquery.dataTables.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/jszip.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js'), TRUE);
-        $this->template->add_js(base_url('color-admin/assets/js/demo/table-manage-responsive.demo.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/AutoFill/js/dataTables.autoFill.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/ColReorder/js/dataTables.colReorder.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/KeyTable/js/dataTables.keyTable.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/RowReorder/js/dataTables.rowReorder.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/js/release/table-manage-combine.js'), TRUE);
         $this->template->add_js(base_url('jsinit/dashboard_log-init.js'), TRUE);
     }
 

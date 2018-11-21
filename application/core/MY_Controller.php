@@ -28,6 +28,11 @@ class MY_Controller extends CI_Controller
         return $this->template->render($view, $data, $return);
     }
 
+    public function title($title = '')
+    {
+        return $this->template->add_title_segment($title);
+    }
+
 //    public function base_css_js()
 //    {
 ////        load base css

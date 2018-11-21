@@ -3,7 +3,7 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
-        <li class="breadcrumb-item">Monitor</li>
+        <li class="breadcrumb-item">Hosts</li>
         <li class="breadcrumb-item active">Up</li>
     </ol>
     <!-- end breadcrumb -->

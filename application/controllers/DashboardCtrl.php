@@ -7,7 +7,8 @@ class DashboardCtrl extends MY_Controller
     {
         parent::__construct();
 
-        // load page css and js
+        // menu expand
+        $this->page['hosts']['root'] = 'active';
     }
 
     public function index()
@@ -24,23 +25,36 @@ class DashboardCtrl extends MY_Controller
 
     public function device_up()
     {
+        // menu expand
+        $this->page['hosts']['device_up'] = 'active';
+
+        // title segment
+        $this->title('Device Up');
         // load page css and js
         $this->dashboard_log_css_js();
-        $this->render('Dashboard_up');
+        $this->render('Dashboard_up', $this->page);
     }
 
     public function device_down()
     {
+        // menu expand
+        $this->page['hosts']['device_down'] = 'active';
+        // title segment
+        $this->title('Device Down');
         // load page css and js
         $this->dashboard_log_css_js();
-        $this->render('Dashboard_down');
+        $this->render('Dashboard_down', $this->page);
     }
 
     public function device_log()
     {
+        // menu expand
+        $this->page['hosts']['device_log'] = 'active';
+        // title segment
+        $this->title('Device Log');
         // load page css and js
         $this->dashboard_log_css_js();
-        $this->render('Dashboard_log');
+        $this->render('Dashboard_log', $this->page);
     }
 
 }

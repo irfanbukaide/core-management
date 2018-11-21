@@ -52,4 +52,4 @@ $config['base_title'] = 'System Monitor';
 /**
  * default title separator
  */
-$config['title_separator'] = ' > ';
+$config['title_separator'] = ' | ';

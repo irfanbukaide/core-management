@@ -5,26 +5,26 @@
         <!-- begin sidebar nav -->
         <ul class="nav">
             <li class="nav-header">Navigation</li>
-            <li class="has-sub">
+            <li class="has-sub <?= isset($hosts['root']) ? $hosts['root'] : ''; ?>">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fa fa-th-large"></i>
                     <span>Monitor</span>
                 </a>
                 <ul class="sub-menu">
-                    <li>
+                    <li class="<?= isset($hosts['device_up']) ? $hosts['device_up'] : ''; ?>">
                         <a href="<?= site_url('dashboard/device_up'); ?>">
                             <span class="badge badge-success pull-right">10</span>
                             Up
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= isset($hosts['device_down']) ? $hosts['device_down'] : ''; ?>">
                         <a href="<?= site_url('dashboard/device_down'); ?>">
                             <span class="badge badge-danger pull-right">10</span>
                             Down
                         </a>
                     </li>
-                    <li>
+                    <li class="<?= isset($hosts['device_log']) ? $hosts['device_log'] : ''; ?>">
                         <a href="<?= site_url('dashboard/device_log'); ?>">
                             <span class="badge badge-danger pull-right">120</span>
                             Log

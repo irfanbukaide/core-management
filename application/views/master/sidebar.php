@@ -1,5 +1,5 @@
 <!-- begin #sidebar -->
-<div id="sidebar" class="sidebar" data-disable-slide-animation="true">
+<div id="sidebar" class="sidebar">
     <!-- begin sidebar scrollbar -->
     <div data-scrollbar="true" data-height="100%">
         <!-- begin sidebar user -->
@@ -8,11 +8,11 @@
                 <a href="javascript:;" data-toggle="nav-profile">
                     <div class="cover with-shadow"></div>
                     <div class="image">
-                        <img src="<?= base_url('color-admin/assets/img/user/user-14.jpg'); ?>" alt=""/>
+                        <img src="<?= base_url('color-admin/assets/img/user/user-13.jpg'); ?>" alt=""/>
                     </div>
                     <div class="info">
                         <b class="caret pull-right"></b>
-                        John Smith
+                        Sean Ngu
                         <small>Front end developer</small>
                     </div>
                 </a>
@@ -32,7 +32,7 @@
             <li class="has-sub active">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">home</i>
+                    <i class="fa fa-th-large"></i>
                     <span>Dashboard</span>
                 </a>
                 <ul class="sub-menu">
@@ -43,7 +43,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <span class="badge pull-right">10</span>
-                    <i class="material-icons">inbox</i>
+                    <i class="fa fa-hdd"></i>
                     <span>Email</span>
                 </a>
                 <ul class="sub-menu">
@@ -54,14 +54,14 @@
             </li>
             <li>
                 <a href="widget.html">
-                    <i class="material-icons">extension</i>
+                    <i class="fab fa-simplybuilt"></i>
                     <span>Widgets <span class="label label-theme m-l-5">NEW</span></span>
                 </a>
             </li>
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">toys</i>
+                    <i class="fa fa-gem"></i>
                     <span>UI Elements <span class="label label-theme m-l-5">NEW</span></span>
                 </a>
                 <ul class="sub-menu">
@@ -96,7 +96,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">insert_drive_file</i>
+                    <i class="fa fa-list-ol"></i>
                     <span>Form Stuff <span class="label label-theme m-l-5">NEW</span></span>
                 </a>
                 <ul class="sub-menu">
@@ -118,7 +118,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">grid_on</i>
+                    <i class="fa fa-table"></i>
                     <span>Tables</span>
                 </a>
                 <ul class="sub-menu">
@@ -145,7 +145,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">polymer</i>
+                    <i class="fa fa-star"></i>
                     <span>Front End</span>
                 </a>
                 <ul class="sub-menu">
@@ -164,7 +164,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">email</i>
+                    <i class="fa fa-envelope"></i>
                     <span>Email Template</span>
                 </a>
                 <ul class="sub-menu">
@@ -175,7 +175,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">insert_chart</i>
+                    <i class="fa fa-chart-pie"></i>
                     <span>Chart</span>
                 </a>
                 <ul class="sub-menu">
@@ -185,11 +185,11 @@
                     <li><a href="chart-d3.html">d3 Chart</a></li>
                 </ul>
             </li>
-            <li><a href="calendar.html"><i class="material-icons">date_range</i> <span>Calendar</span></a></li>
+            <li><a href="calendar.html"><i class="fa fa-calendar"></i> <span>Calendar</span></a></li>
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">place</i>
+                    <i class="fa fa-map"></i>
                     <span>Map</span>
                 </a>
                 <ul class="sub-menu">
@@ -200,7 +200,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">camera</i>
+                    <i class="fa fa-image"></i>
                     <span>Gallery</span>
                 </a>
                 <ul class="sub-menu">
@@ -211,7 +211,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">settings</i>
+                    <i class="fa fa-cogs"></i>
                     <span>Page Options</span>
                 </a>
                 <ul class="sub-menu">
@@ -224,7 +224,7 @@
                     <li><a href="page_with_line_icons.html">Page with Line Icons</a></li>
                     <li><a href="page_with_ionicons.html">Page with Ionicons</a></li>
                     <li><a href="page_full_height.html">Full Height Content</a></li>
-                    <li><a href="page_with_small_sidebar.html">Page with Small Sidebar</a></li>
+                    <li><a href="page_with_wide_sidebar.html">Page with Wide Sidebar</a></li>
                     <li><a href="page_with_light_sidebar.html">Page with Light Sidebar</a></li>
                     <li><a href="page_with_mega_menu.html">Page with Mega Menu</a></li>
                     <li><a href="page_with_top_menu.html">Page with Top Menu</a></li>
@@ -237,7 +237,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">card_giftcard</i>
+                    <i class="fa fa-gift"></i>
                     <span>Extra</span>
                 </a>
                 <ul class="sub-menu">
@@ -252,7 +252,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">lock</i>
+                    <i class="fa fa-key"></i>
                     <span>Login & Register</span>
                 </a>
                 <ul class="sub-menu">
@@ -265,11 +265,11 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">apps</i>
+                    <i class="fa fa-cubes"></i>
                     <span>Version <span class="label label-theme m-l-5">NEW</span></span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="https://seantheme.com/color-admin-v4.2/admin/html/index_v2.html">HTML</a></li>
+                    <li><a href="javascript:;">HTML</a></li>
                     <li><a href="https://seantheme.com/color-admin-v4.2/admin/ajax/index.html">AJAX</a></li>
                     <li><a href="https://seantheme.com/color-admin-v4.2/admin/angularjs/index.html">ANGULAR JS</a>
                     </li>
@@ -279,7 +279,8 @@
                                     class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
                     <li><a href="https://seantheme.com/color-admin-v4.2/admin/vuejs/index.html">VUE JS <i
                                     class="fa fa-paper-plane text-theme m-l-5"></i></a></li>
-                    <li><a href="index_v2.html">MATERIAL DESIGN</a></li>
+                    <li><a href="https://seantheme.com/color-admin-v4.2/admin/material/index_v2.html">MATERIAL
+                            DESIGN</a></li>
                     <li><a href="https://seantheme.com/color-admin-v4.2/admin/apple/index_v2.html">APPLE DESIGN</a>
                     </li>
                     <li><a href="https://seantheme.com/color-admin-v4.2/admin/transparent/index_v2.html">TRANSPARENT
@@ -289,7 +290,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">help</i>
+                    <i class="fa fa-medkit"></i>
                     <span>Helper</span>
                 </a>
                 <ul class="sub-menu">
@@ -299,7 +300,7 @@
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
-                    <i class="material-icons">list</i>
+                    <i class="fa fa-align-left"></i>
                     <span>Menu Level</span>
                 </a>
                 <ul class="sub-menu">

@@ -10,7 +10,7 @@
 <!-- end #page-loader -->
 
 <!-- begin #page-container -->
-<div id="page-container" class="fade page-sidebar-fixed page-header-fixed page-with-wide-sidebar">
+<div id="page-container" class="page-container fade page-without-sidebar page-header-fixed page-with-top-menu">
     <?php
     require_once(APPPATH . 'views/master/header.php');
     require_once(APPPATH . 'views/master/sidebar.php');
@@ -18,8 +18,8 @@
     ?>
 
     <!-- begin scroll to top btn -->
-    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i
-                class="material-icons">keyboard_arrow_up</i></a>
+    <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade show"
+       data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
     <!-- end scroll to top btn -->
 </div>
 <!-- end page container -->

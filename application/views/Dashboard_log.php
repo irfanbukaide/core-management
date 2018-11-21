@@ -9,7 +9,7 @@
     <!-- end breadcrumb -->
     <!-- begin page-header -->
     <h1 class="page-header">Log
-        <small>Monitoring Device</small>
+        <small>Monitoring Hosts</small>
     </h1>
     <!-- end page-header -->
 
@@ -39,7 +39,7 @@
                         <tr>
                             <th class="text-nowrap">Datetime</th>
                             <th class="text-nowrap">IP Address</th>
-                            <th class="text-nowrap">Device Name</th>
+                            <th class="text-nowrap">Hosts Name</th>
                             <th class="text-nowrap">Brand</th>
                             <th class="text-nowrap">Type</th>
                             <th class="text-nowrap">Status</th>

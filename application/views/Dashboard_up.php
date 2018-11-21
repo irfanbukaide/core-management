@@ -8,8 +8,8 @@
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Device Up
-        <small>Monitoring Device</small>
+    <h1 class="page-header">Hosts Up
+        <small>Monitoring Hosts</small>
     </h1>
     <!-- end page-header -->
 
@@ -28,7 +28,7 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
                            data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     </div>
-                    <h4 class="panel-title">Device</h4>
+                    <h4 class="panel-title">Hosts</h4>
                 </div>
                 <!-- end panel-heading -->
 
@@ -38,7 +38,7 @@
                         <thead>
                         <tr>
                             <th class="text-nowrap">IP Address</th>
-                            <th class="text-nowrap">Device Name</th>
+                            <th class="text-nowrap">Hosts Name</th>
                             <th class="text-nowrap">Brand</th>
                             <th class="text-nowrap">Type</th>
                             <th class="text-nowrap">Status</th>

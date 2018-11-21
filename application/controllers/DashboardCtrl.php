@@ -29,7 +29,7 @@ class DashboardCtrl extends MY_Controller
         $this->page['hosts']['device_up'] = 'active';
 
         // title segment
-        $this->title('Device Up');
+        $this->title('Hosts Up');
         // load page css and js
         $this->dashboard_log_css_js();
         $this->render('Dashboard_up', $this->page);
@@ -40,7 +40,7 @@ class DashboardCtrl extends MY_Controller
         // menu expand
         $this->page['hosts']['device_down'] = 'active';
         // title segment
-        $this->title('Device Down');
+        $this->title('Hosts Down');
         // load page css and js
         $this->dashboard_log_css_js();
         $this->render('Dashboard_down', $this->page);
@@ -51,7 +51,7 @@ class DashboardCtrl extends MY_Controller
         // menu expand
         $this->page['hosts']['device_log'] = 'active';
         // title segment
-        $this->title('Device Log');
+        $this->title('Hosts Log');
         // load page css and js
         $this->dashboard_log_css_js();
         $this->render('Dashboard_log', $this->page);

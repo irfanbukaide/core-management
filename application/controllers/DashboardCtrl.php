@@ -13,7 +13,21 @@ class DashboardCtrl extends MY_Controller
 
     public function index()
     {
+        $this->counter();
+    }
+
+    public function counter()
+    {
+        // load page css and js
+        $this->dashboard_css_js();
         $this->render('Dashboard');
+    }
+
+    public function log()
+    {
+        // load page css and js
+        $this->dashboard_log_css_js();
+        $this->render('Dashboard_log');
     }
 
 }

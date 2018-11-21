@@ -26,6 +26,7 @@ $config['template_css'] = array(
  * load javascript on footer: TRUE
  */
 $config['template_js'] = array(
+    base_url('color-admin/assets/plugins/pace/pace.min.js') => FALSE,
     base_url('color-admin/assets/plugins/jquery/jquery-3.3.1.min.js') => TRUE,
     base_url('color-admin/assets/plugins/jquery-ui/jquery-ui.min.js') => TRUE,
     base_url('color-admin/assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js') => TRUE,

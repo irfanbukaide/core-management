@@ -1,22 +1,32 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MY_Controller extends CI_Controller {
+class MY_Controller extends CI_Controller
+{
+
+    public $page;
 
     public function __construct()
     {
-    	parent::__construct();
+        parent::__construct();
         // load template library
         $this->load->library('Template');
+        $this->load->library('Menu');
+
+        // set page array
+        $this->page = array();
+
+        // set menu active
+
 
         // load base css and js
 //        $this->base_css_js();
     }
 
     public function render($view, $data = array(), $return = false)
-	{
+    {
         return $this->template->render($view, $data, $return);
-	}
+    }
 
 //    public function base_css_js()
 //    {
@@ -47,7 +57,6 @@ class MY_Controller extends CI_Controller {
         $this->template->add_css(base_url('color-admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'));
         $this->template->add_css(base_url('color-admin/assets/plugins/gritter/css/jquery.gritter.css'));
 
-        $this->template->add_js(base_url('color-admin/assets/plugins/pace/pace.min.js'));
 
         // load js
         $this->template->add_js(base_url('color-admin/assets/plugins/gritter/js/jquery.gritter.js'), TRUE);
@@ -63,6 +72,19 @@ class MY_Controller extends CI_Controller {
         $this->template->add_js(base_url('jsinit/dashboard-init.js'), TRUE);
 
 
+    }
+
+    public function dashboard_log_css_js()
+    {
+        $this->template->add_css(base_url('color-admin/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css'));
+        $this->template->add_css(base_url('color-admin/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css'));
+
+
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/media/js/jquery.dataTables.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/js/demo/table-manage-responsive.demo.min.js'), TRUE);
+        $this->template->add_js(base_url('jsinit/dashboard_log-init.js'), TRUE);
     }
 
 }

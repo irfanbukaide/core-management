@@ -19,8 +19,6 @@ class MY_Controller extends CI_Controller
         // set menu active
 
 
-        // load base css and js
-//        $this->base_css_js();
     }
 
     public function render($view, $data = array(), $return = false)
@@ -33,27 +31,6 @@ class MY_Controller extends CI_Controller
         return $this->template->add_title_segment($title);
     }
 
-//    public function base_css_js()
-//    {
-////        load base css
-//        $this->template->add_css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-//        $this->template->add_css(base_url('color-admin/assets/plugins/jquery-ui/jquery-ui.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/plugins/font-awesome/5.3/css/all.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/plugins/animate/animate.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/css/default/style.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/css/default/style-responsive.min.css'));
-//        $this->template->add_css(base_url('color-admin/assets/css/default/theme/default.css'));
-//
-////         load base js
-//        $this->template->add_js(base_url('color-admin/assets/plugins/jquery/jquery-3.3.1.min.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/plugins/jquery-ui/jquery-ui.min.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/plugins/slimscroll/jquery.slimscroll.min.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/plugins/js-cookie/js.cookie.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/js/theme/default.min.js'), TRUE);
-//        $this->template->add_js(base_url('color-admin/assets/js/apps.min.js'), TRUE);
-//    }
 
     public function dashboard_css_js()
     {
@@ -79,7 +56,7 @@ class MY_Controller extends CI_Controller
 
     }
 
-    public function dashboard_log_css_js()
+    public function hosts_css_js()
     {
         $this->template->add_css(base_url('color-admin/assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css'));
         $this->template->add_css(base_url('color-admin/assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css'));

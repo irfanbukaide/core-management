@@ -12,25 +12,25 @@
                     <span>Hosts</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="<?= isset($hosts['device_all']) ? $hosts['device_up'] : ''; ?>">
-                        <a href="<?= site_url('dashboard'); ?>">
+                    <li class="<?= isset($hosts['device']) ? $hosts['device'] : ''; ?>">
+                        <a href="<?= site_url('hosts'); ?>">
                             Host All
                         </a>
                     </li>
                     <li class="<?= isset($hosts['device_up']) ? $hosts['device_up'] : ''; ?>">
-                        <a href="<?= site_url('dashboard/device_up'); ?>">
+                        <a href="<?= site_url('hosts/device_up'); ?>">
                             <span class="badge badge-success pull-right">10</span>
                             Host Up
                         </a>
                     </li>
                     <li class="<?= isset($hosts['device_down']) ? $hosts['device_down'] : ''; ?>">
-                        <a href="<?= site_url('dashboard/device_down'); ?>">
+                        <a href="<?= site_url('hosts/device_down'); ?>">
                             <span class="badge badge-danger pull-right">10</span>
                             Host Down
                         </a>
                     </li>
                     <li class="<?= isset($hosts['device_log']) ? $hosts['device_log'] : ''; ?>">
-                        <a href="<?= site_url('dashboard/device_log'); ?>">
+                        <a href="<?= site_url('hosts/device_log'); ?>">
                             <span class="badge badge-danger pull-right">120</span>
                             Host Log
                         </a>

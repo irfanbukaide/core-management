@@ -50,10 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'DashboardCtrl/index';
-$route['dashboard'] = 'DashboardCtrl/index';
-$route['dashboard/counter'] = 'DashboardCtrl/counter';
-$route['dashboard/device_up'] = 'DashboardCtrl/device_up';
-$route['dashboard/device_down'] = 'DashboardCtrl/device_down';
-$route['dashboard/device_log'] = 'DashboardCtrl/device_log';
+$route['hosts'] = 'HostsCtrl/index';
+$route['hosts/counter'] = 'HostsCtrl/counter';
+$route['hosts/device_up'] = 'HostsCtrl/device_up';
+$route['hosts/device_down'] = 'HostsCtrl/device_down';
+$route['hosts/device_log'] = 'HostsCtrl/device_log';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

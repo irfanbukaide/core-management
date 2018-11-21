@@ -40,14 +40,14 @@ $config['template_js'] = array(
  * default variable
  */
 $config['template_vars'] = array(
-    'site_description' => 'System Monitor',
-    'site_keywords' => 'System Monitor'
+    'site_description' => 'NMS',
+    'site_keywords' => 'NMS'
 );
 
 /**
  * default site title
  */
-$config['base_title'] = 'System Monitor';
+$config['base_title'] = 'NMS';
 
 /**
  * default title separator

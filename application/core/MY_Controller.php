@@ -9,12 +9,8 @@ class MY_Controller extends CI_Controller {
         // load template library
         $this->load->library('Template');
 
-        // load helper
-        $this->load->helper('url');
-
-
         // load base css and js
-        $this->base_css_js();
+//        $this->base_css_js();
     }
 
     public function render($view, $data = array(), $return = false)
@@ -22,9 +18,9 @@ class MY_Controller extends CI_Controller {
         return $this->template->render($view, $data, $return);
 	}
 
-    public function base_css_js()
-    {
-        // load base css
+//    public function base_css_js()
+//    {
+////        load base css
 //        $this->template->add_css('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 //        $this->template->add_css(base_url('color-admin/assets/plugins/jquery-ui/jquery-ui.min.css'));
 //        $this->template->add_css(base_url('color-admin/assets/plugins/bootstrap/4.1.3/css/bootstrap.min.css'));
@@ -33,8 +29,8 @@ class MY_Controller extends CI_Controller {
 //        $this->template->add_css(base_url('color-admin/assets/css/default/style.min.css'));
 //        $this->template->add_css(base_url('color-admin/assets/css/default/style-responsive.min.css'));
 //        $this->template->add_css(base_url('color-admin/assets/css/default/theme/default.css'));
-
-        // load base js
+//
+////         load base js
 //        $this->template->add_js(base_url('color-admin/assets/plugins/jquery/jquery-3.3.1.min.js'), TRUE);
 //        $this->template->add_js(base_url('color-admin/assets/plugins/jquery-ui/jquery-ui.min.js'), TRUE);
 //        $this->template->add_js(base_url('color-admin/assets/plugins/bootstrap/4.1.3/js/bootstrap.bundle.min.js'), TRUE);
@@ -42,7 +38,7 @@ class MY_Controller extends CI_Controller {
 //        $this->template->add_js(base_url('color-admin/assets/plugins/js-cookie/js.cookie.js'), TRUE);
 //        $this->template->add_js(base_url('color-admin/assets/js/theme/default.min.js'), TRUE);
 //        $this->template->add_js(base_url('color-admin/assets/js/apps.min.js'), TRUE);
-    }
+//    }
 
     public function dashboard_css_js()
     {

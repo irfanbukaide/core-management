@@ -22,14 +22,21 @@ class DashboardCtrl extends MY_Controller
         $this->render('Dashboard');
     }
 
-    public function up()
+    public function device_up()
     {
         // load page css and js
         $this->dashboard_log_css_js();
         $this->render('Dashboard_up');
     }
 
-    public function log()
+    public function device_down()
+    {
+        // load page css and js
+        $this->dashboard_log_css_js();
+        $this->render('Dashboard_down');
+    }
+
+    public function device_log()
     {
         // load page css and js
         $this->dashboard_log_css_js();

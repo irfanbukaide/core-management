@@ -13,19 +13,19 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="<?= site_url('dashboard/up'); ?>">
+                        <a href="<?= site_url('dashboard/device_up'); ?>">
                             <span class="badge badge-success pull-right">10</span>
                             Up
                         </a>
                     </li>
                     <li>
-                        <a href="<?= site_url('dashboard/down'); ?>">
+                        <a href="<?= site_url('dashboard/device_down'); ?>">
                             <span class="badge badge-danger pull-right">10</span>
                             Down
                         </a>
                     </li>
                     <li>
-                        <a href="<?= site_url('dashboard/log'); ?>">
+                        <a href="<?= site_url('dashboard/device_log'); ?>">
                             <span class="badge badge-danger pull-right">120</span>
                             Log
                         </a>

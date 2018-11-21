@@ -4,11 +4,11 @@
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
         <li class="breadcrumb-item">Monitor</li>
-        <li class="breadcrumb-item active">Up</li>
+        <li class="breadcrumb-item active">Down</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Device Up
+    <h1 class="page-header">Device Down
         <small>Monitoring Device</small>
     </h1>
     <!-- end page-header -->

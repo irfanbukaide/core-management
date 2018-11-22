@@ -21,5 +21,9 @@
     <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade show"
        data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
     <!-- end scroll to top btn -->
+
+    <!-- begin modal crudadd-->
+
+    <!-- end modal crudadd-->
 </div>
 <!-- end page container -->

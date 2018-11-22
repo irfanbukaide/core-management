@@ -17,7 +17,7 @@ class HostsCtrl extends MY_Controller
         $this->page['hosts']['host'] = 'active';
 
         // title segment
-        $this->title('Hosts');
+        $this->title('Host');
         // load page css and js
         $this->hosts_css_js();
         $this->render('Hosts', $this->page);
@@ -29,7 +29,7 @@ class HostsCtrl extends MY_Controller
         $this->page['hosts']['host_up'] = 'active';
 
         // title segment
-        $this->title('Hosts Up');
+        $this->title('Host Up');
         // load page css and js
         $this->hosts_css_js();
         $this->render('Hosts_up', $this->page);
@@ -40,7 +40,7 @@ class HostsCtrl extends MY_Controller
         // menu expand
         $this->page['hosts']['host_down'] = 'active';
         // title segment
-        $this->title('Hosts Down');
+        $this->title('Host Down');
         // load page css and js
         $this->hosts_css_js();
         $this->render('Hosts_down', $this->page);
@@ -51,7 +51,7 @@ class HostsCtrl extends MY_Controller
         // menu expand
         $this->page['hosts']['host_log'] = 'active';
         // title segment
-        $this->title('Hosts Log');
+        $this->title('Host Log');
         // load page css and js
         $this->hosts_css_js();
         $this->render('Hosts_log', $this->page);

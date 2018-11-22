@@ -55,65 +55,27 @@
                     <li><a href="">Edit Host</a></li>
                 </ul>
             </li>
+            <li><a href="javascript:;"><i class="fa fa-share-alt fa-fw"></i> Vlan </a></li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-database fa-fw"></i> Brands <b class="caret"></b>
+                    <i class="fa fa-database fa-fw"></i> Master <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:;"><i class="fas fa-plus-circle fa-fw"></i> Add Brand</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-th-list fa-fw"></i> List</a></li>
+                    <li><a href="<?= site_url('master/brand'); ?>"><i class="fas fa-laptop fa-fw"></i> Brands</a></li>
+                    <li><a href="javascript:;"><i class="fas fa-object-group fa-fw"></i> Types</a></li>
+                    <li><a href="javascript:;"><i class="fas fa-building fa-fw"></i> Locations</a></li>
+                    <li><a href="javascript:;"><i class="fas fa-tags fa-fw"></i> Tags</a></li>
+                    <li><a href="javascript:;"><i class="fas fa-users fa-fw"></i> Users</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-database fa-fw"></i> Types <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:;"><i class="fas fa-plus-circle fa-fw"></i> Add Type</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-th-list fa-fw"></i> List</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-database fa-fw"></i> Locations <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:;"><i class="fas fa-plus-circle fa-fw"></i> Add Location</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-th-list fa-fw"></i> List</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-database fa-fw"></i> Tags <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:;"><i class="fas fa-plus-circle fa-fw"></i> Add Tag</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-th-list fa-fw"></i> List</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fas fa-users fa-fw"></i> Users <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="javascript:;"><i class="fas fa-plus-circle fa-fw"></i> Add User</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-th-list fa-fw"></i> List</a></li>
-                </ul>
-            </li>
+
         </ul>
     </div>
     <!-- end navbar-collapse -->
 
     <!-- begin header-nav -->
     <ul class="navbar-nav navbar-right">
-        <li>
-            <form class="navbar-form">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter keyword"/>
-                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
-        </li>
+
         <li class="dropdown navbar-user">
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="<?= base_url('color-admin/assets/img/user/user-13.jpg'); ?>" alt=""/>

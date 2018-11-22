@@ -6,6 +6,8 @@ class BrandsCtrl extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        // load page css and js
+        $this->page_css_js();
     }
 
     public function index()

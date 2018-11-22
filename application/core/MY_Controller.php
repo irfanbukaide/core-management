@@ -55,7 +55,7 @@ class MY_Controller extends CI_Controller
 
     }
 
-    public function hosts_css_js()
+    public function page_css_js()
     {
         // load css plugin form
         $this->template->add_css(base_url('color-admin/assets/plugins/bootstrap-datepicker/css/bootstrap-datepicker.css'));
@@ -126,7 +126,16 @@ class MY_Controller extends CI_Controller
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/RowReorder/js/dataTables.rowReorder.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/js/release/table-manage-default.js'), TRUE);
+    }
+
+    public function hosts_css_js()
+    {
         $this->template->add_js(base_url('color-admin/assets/js/app/hosts-init.js'), TRUE);
+    }
+
+    public function master_css_js()
+    {
+        $this->template->add_js(base_url('color-admin/assets/js/app/master-init.js'), TRUE);
     }
 
 }

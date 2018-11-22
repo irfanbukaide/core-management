@@ -6,16 +6,12 @@ class HostsCtrl extends MY_Controller
     public function __construct()
     {
         parent::__construct();
-
-        // menu expand
-        $this->page['hosts']['root'] = 'active';
+        // load page css and js
+        $this->page_css_js();
     }
 
     public function index()
     {
-        // menu expand
-        $this->page['hosts']['host'] = 'active';
-
         // title segment
         $this->title('Host');
         // load page css and js
@@ -25,8 +21,6 @@ class HostsCtrl extends MY_Controller
 
     public function host_up()
     {
-        // menu expand
-        $this->page['hosts']['host_up'] = 'active';
 
         // title segment
         $this->title('Host Up');
@@ -37,8 +31,6 @@ class HostsCtrl extends MY_Controller
 
     public function host_down()
     {
-        // menu expand
-        $this->page['hosts']['host_down'] = 'active';
         // title segment
         $this->title('Host Down');
         // load page css and js
@@ -48,8 +40,6 @@ class HostsCtrl extends MY_Controller
 
     public function host_log()
     {
-        // menu expand
-        $this->page['hosts']['host_log'] = 'active';
         // title segment
         $this->title('Host Log');
         // load page css and js

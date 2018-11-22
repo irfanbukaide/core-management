@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class TagsCtrl extends MY_Controller
+class DevicesCtrl extends MY_Controller
 {
     public function __construct()
     {
@@ -10,7 +10,8 @@ class TagsCtrl extends MY_Controller
         $this->page_css_js();
 
         // load model
-        $this->load->model('Tags_model', 'tags');
+        $this->load->model('Devices_model', 'devices');
+
 
         // save session url
         $this->save_session_url(current_url());
@@ -25,14 +26,13 @@ class TagsCtrl extends MY_Controller
         $this->master_css_js();
 
         // title segment
-        $this->title('Tags');
+        $this->title('Devices');
 
         // load data
-        $this->page['tags'] = $this->tags->get_all();
+        $this->page['devices'] = $this->devices->get_all();
 
         // render
-        $this->render('Master_tags', $this->page);
-
+        $this->render('Master_devices', $this->page);
     }
 
     public function save()
@@ -43,13 +43,13 @@ class TagsCtrl extends MY_Controller
         );
 
         try {
-            $tag = $this->tags->where('tag_id', $data_tag['tag_id'])->get();
+            $tag = $this->devices->where('tag_id', $data_tag['tag_id'])->get();
 
             if ($tag) {
-                $this->tags->update($data_tag, 'tag_id');
+                $this->devices->update($data_tag, 'tag_id');
                 $this->pesan->berhasil('Data successfully changed');
             } else {
-                $this->tags->insert($data_tag);
+                $this->devices->insert($data_tag);
                 $this->pesan->berhasil('Data successfully created');
             }
 
@@ -63,7 +63,7 @@ class TagsCtrl extends MY_Controller
     public function delete($id)
     {
         try {
-            $this->tags->where('tag_id', $id)->delete();
+            $this->devices->where('tag_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {
             $this->pesan->gagal('ERROR : ' . $e);

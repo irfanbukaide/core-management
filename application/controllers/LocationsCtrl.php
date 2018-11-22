@@ -11,6 +11,13 @@ class LocationsCtrl extends MY_Controller
 
         // load model
         $this->load->model('Locations_model', 'locations');
+
+        // save session url
+        $this->save_session_url(current_url());
+
+        if (!isset($_SESSION['user_id'])) {
+            redirect('login');
+        }
     }
 
     public function index()

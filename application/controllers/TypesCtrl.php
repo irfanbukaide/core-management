@@ -11,6 +11,14 @@ class TypesCtrl extends MY_Controller
 
         // load model
         $this->load->model('Types_model', 'types');
+
+
+        // save session url
+        $this->save_session_url(current_url());
+
+        if (!isset($_SESSION['user_id'])) {
+            redirect('login');
+        }
     }
 
     public function index()

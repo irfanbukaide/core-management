@@ -10,6 +10,14 @@ class HostsCtrl extends MY_Controller
         $this->page_css_js();
 
 
+        // save session url
+        $this->save_session_url(current_url());
+
+        if (!isset($_SESSION['user_id'])) {
+            redirect('login');
+        }
+
+
     }
 
     public function index()

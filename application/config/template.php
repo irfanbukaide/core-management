@@ -47,7 +47,7 @@ $config['template_vars'] = array(
 /**
  * default site title
  */
-$config['base_title'] = 'NMS';
+$config['base_title'] = 'Core NMS';
 
 /**
  * default title separator

@@ -95,8 +95,11 @@
                                     <td><?= $user->user_id; ?></td>
                                     <td><?= $user->user_name; ?></td>
                                     <td><?= $user->user_email; ?></td>
-                                    <td><a class="btn btn-xs btn-danger"
+                                    <td><a class="btn btn-xs btn-primary"
+                                           href="<?= site_url('master/user/upload/' . $user->user_id); ?>">Upload</a>
+                                        <a class="btn btn-xs btn-danger"
                                            href="<?= site_url('master/user/delete/' . $user->user_id); ?>">Delete</a>
+
                                     </td>
 
                                 </tr>

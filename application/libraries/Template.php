@@ -328,11 +328,13 @@ class Template
         $this->set('content', $this->_ci->load->view($view, $data, TRUE));
 
         // handle site title
+        $this->_data['base_title'] = $this->_base_title;
         $this->_data['site_title'] = '';
         if (count($this->_title_segments) > 0) {
             $this->_data['site_title'] .= implode($this->_title_separator, array_reverse($this->_title_segments)) . $this->_title_separator;
         }
         $this->_data['site_title'] .= $this->_base_title;
+
 
         if ($return === TRUE) {
             $out = $this->_ci->load->view($this->_layout, $this->_data, $return);

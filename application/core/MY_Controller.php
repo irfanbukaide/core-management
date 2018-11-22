@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller
         $this->load->library('Template');
         $this->load->library('Menu');
         $this->load->library('Pesan');
+        $this->load->library('session');
 
         // set page array
         $this->page = array();
@@ -30,6 +31,38 @@ class MY_Controller extends CI_Controller
     public function title($title = '')
     {
         return $this->template->add_title_segment($title);
+    }
+
+    public function get_session_data($name)
+    {
+        return $this->session->userdata($name);
+    }
+
+    public function save_session_data($name, $value)
+    {
+        return $this->session->set_userdata($name, $value);
+    }
+
+    public function get_session_url()
+    {
+        return $this->session->userdata('url');
+    }
+
+    public function save_session_url($value = '/')
+    {
+        $text_save = explode('/', $value);
+        $text_save_length = count($text_save);
+        $hasil = $text_save[$text_save_length - 1];
+
+        if ($hasil == 'save') {
+            $value = str_replace('save', '', $value);
+        } elseif ($hasil == 'do') {
+            $value = str_replace('do', '', $value);
+        } elseif ($hasil == 'login') {
+            $value = str_replace('login', '', $value);
+        }
+
+        return $this->session->set_userdata('url', $value);
     }
 
 

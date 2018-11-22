@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BrandsCtrl extends MY_Controller
+class TagsCtrl extends MY_Controller
 {
     public function __construct()
     {
@@ -10,7 +10,7 @@ class BrandsCtrl extends MY_Controller
         $this->page_css_js();
 
         // load model
-        $this->load->model('Brands_model', 'brands');
+        $this->load->model('Tags_model', 'tags');
     }
 
     public function index()
@@ -18,30 +18,30 @@ class BrandsCtrl extends MY_Controller
         $this->master_css_js();
 
         // title segment
-        $this->title('Brands');
+        $this->title('Tags');
 
         // load data
-        $this->page['brands'] = $this->brands->get_all();
+        $this->page['tags'] = $this->tags->get_all();
 
         // render
-        $this->render('Master_brands', $this->page);
+        $this->render('Master_tags', $this->page);
     }
 
     public function save()
     {
-        $data_brand = array(
-            'brand_id' => $this->input->post('brand_id'),
-            'brand_name' => $this->input->post('brand_name')
+        $data_tag = array(
+            'tag_id' => $this->input->post('tag_id'),
+            'tag_name' => $this->input->post('tag_name')
         );
 
         try {
-            $brand = $this->brands->where('brand_id', $data_brand['brand_id'])->get();
+            $tag = $this->tags->where('tag_id', $data_tag['tag_id'])->get();
 
-            if ($brand) {
-                $this->brands->update($data_brand, 'brand_id');
+            if ($tag) {
+                $this->tags->update($data_tag, 'tag_id');
                 $this->pesan->berhasil('Data successfully changed');
             } else {
-                $this->brands->insert($data_brand);
+                $this->tags->insert($data_tag);
                 $this->pesan->berhasil('Data successfully created');
             }
 
@@ -49,19 +49,19 @@ class BrandsCtrl extends MY_Controller
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('master/brand');
+        redirect('master/tag');
     }
 
     public function delete($id)
     {
         try {
-            $this->brands->where('brand_id', $id)->delete();
+            $this->tags->where('tag_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('master/brand');
+        redirect('master/tag');
     }
 
 

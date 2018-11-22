@@ -17,6 +17,9 @@ class TypesCtrl extends MY_Controller
     {
         $this->master_css_js();
 
+        // title segment
+        $this->title('Types');
+
         // load data
         $this->page['types'] = $this->types->get_all();
 

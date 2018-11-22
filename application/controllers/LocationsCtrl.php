@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class BrandsCtrl extends MY_Controller
+class LocationsCtrl extends MY_Controller
 {
     public function __construct()
     {
@@ -10,7 +10,7 @@ class BrandsCtrl extends MY_Controller
         $this->page_css_js();
 
         // load model
-        $this->load->model('Brands_model', 'brands');
+        $this->load->model('Locations_model', 'locations');
     }
 
     public function index()
@@ -18,30 +18,30 @@ class BrandsCtrl extends MY_Controller
         $this->master_css_js();
 
         // title segment
-        $this->title('Brands');
+        $this->title('Locations');
 
         // load data
-        $this->page['brands'] = $this->brands->get_all();
+        $this->page['locations'] = $this->locations->get_all();
 
         // render
-        $this->render('Master_brands', $this->page);
+        $this->render('Master_locations', $this->page);
     }
 
     public function save()
     {
-        $data_brand = array(
-            'brand_id' => $this->input->post('brand_id'),
-            'brand_name' => $this->input->post('brand_name')
+        $data_location = array(
+            'location_id' => $this->input->post('location_id'),
+            'location_name' => $this->input->post('location_name')
         );
 
         try {
-            $brand = $this->brands->where('brand_id', $data_brand['brand_id'])->get();
+            $location = $this->locations->where('location_id', $data_location['location_id'])->get();
 
-            if ($brand) {
-                $this->brands->update($data_brand, 'brand_id');
+            if ($location) {
+                $this->locations->update($data_location, 'location_id');
                 $this->pesan->berhasil('Data successfully changed');
             } else {
-                $this->brands->insert($data_brand);
+                $this->locations->insert($data_location);
                 $this->pesan->berhasil('Data successfully created');
             }
 
@@ -49,19 +49,19 @@ class BrandsCtrl extends MY_Controller
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('master/brand');
+        redirect('master/location');
     }
 
     public function delete($id)
     {
         try {
-            $this->brands->where('brand_id', $id)->delete();
+            $this->locations->where('location_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('master/brand');
+        redirect('master/location');
     }
 
 

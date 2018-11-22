@@ -58,6 +58,18 @@ $route['master/type'] = 'TypesCtrl/index';
 $route['master/type/save'] = 'TypesCtrl/save';
 $route['master/type/delete/(:num)'] = 'TypesCtrl/delete/$1';
 
+$route['master/location'] = 'LocationsCtrl/index';
+$route['master/location/save'] = 'LocationsCtrl/save';
+$route['master/location/delete/(:num)'] = 'LocationsCtrl/delete/$1';
+
+$route['master/tag'] = 'TagsCtrl/index';
+$route['master/tag/save'] = 'TagsCtrl/save';
+$route['master/tag/delete/(:num)'] = 'TagsCtrl/delete/$1';
+
+$route['master/user'] = 'UsersCtrl/index';
+$route['master/user/save'] = 'UsersCtrl/save';
+$route['master/user/delete/(:num)'] = 'UsersCtrl/delete/$1';
+
 $route['hosts'] = 'HostsCtrl/index';
 $route['hosts/host_up'] = 'HostsCtrl/host_up';
 $route['hosts/host_down'] = 'HostsCtrl/host_down';

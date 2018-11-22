@@ -3,11 +3,11 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="<?= site_url('master'); ?>">Master</a></li>
-        <li class="breadcrumb-item active">Brand</li>
+        <li class="breadcrumb-item active">Brands</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Brand
+    <h1 class="page-header">Brands
         <small>Master</small>
     </h1>
     <!-- end page-header -->
@@ -22,78 +22,21 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
                            data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     </div>
-                    <h4 class="panel-title">Hosts Filter</h4>
+                    <h4 class="panel-title">Input Brand</h4>
                 </div>
                 <!-- end panel-heading -->
 
                 <!-- begin panel-body -->
                 <div class="panel-body">
-                    <form class="form-horizontal col-12 col-md-10" method="get">
-                        <div class="row">
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="ipaddress" class="col-3 col-form-label">IP Address</label>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control" id="ipaddress" name="ipaddress"
-                                               placeholder="Type a ip address">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="hostname" class="col-3 col-form-label">Hostname</label>
-                                    <div class="col-9">
-                                        <input type="text" class="form-control" id="hostname" name="hostname"
-                                               placeholder="Type a hostname">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="brand" class="col-3 col-form-label">Brand</label>
-                                    <div class="col-9">
-                                        <select id="brand" name="brand" class="default-select2 form-control">
-                                            <option value="">Select a brand</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="type" class="col-3 col-form-label">Type</label>
-                                    <div class="col-9">
-                                        <select id="type" name="type" class="default-select2 form-control">
-                                            <option value="">Select a type</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="location" class="col-3 col-form-label">Location</label>
-                                    <div class="col-9">
-                                        <select id="location" name="location" class="default-select2 form-control">
-                                            <option value="">Select a location</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                                <div class="form-group row">
-                                    <label for="tags" class="col-3 col-form-label">Tags</label>
-                                    <div class="col-9">
-                                        <select id="tags" name="tags" class="multiple-select2 form-control"
-                                                multiple="multiple"
-                                                data-placeholder="Select a tags">
-                                            <option value="">Select a tags</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
+                    <form action="<?= site_url('master/brand/save'); ?>" method="post">
+                        <input type="hidden" id="brand_id" name="brand_id">
+                        <div class="form-group">
+                            <label for="brand_name">Brand Name</label>
+                            <input type="text" class="form-control" id="brand_name" name="brand_name"
+                                   placeholder="Type a brand">
                         </div>
-                        <div class="row">
-                            <button type="submit" class="btn btn-primary">Filter</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </div>
 
 
@@ -119,7 +62,7 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
                            data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     </div>
-                    <h4 class="panel-title">Hosts</h4>
+                    <h4 class="panel-title">List</h4>
                 </div>
                 <!-- end panel-heading -->
 
@@ -128,38 +71,18 @@
                     <table id="data-table-responsive" class="table table-sm table-hover">
                         <thead>
                         <tr>
-
-                            <th width="1%" data-orderable="false"></th>
-                            <th class="text-nowrap">IP Address</th>
-                            <th class="text-nowrap">Hosts Name</th>
-                            <th class="text-nowrap">Brand</th>
-                            <th class="text-nowrap">Type</th>
-                            <th class="text-nowrap">Location</th>
-                            <th class="text-nowrap">Tags</th>
-                            <th class="text-nowrap">Status</th>
-                            <th class="text-nowrap">Downtime</th>
-                            <th class="text-nowrap">Last Down</th>
-                            <th class="text-nowrap">Last Checked</th>
-
-
+                            <th width="10%">ID</th>
+                            <th class="text-nowrap">Brand Name</th>
+                            <th class="text-nowrap">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php for ($i = 1; $i < 100; $i++) : ?>
                             <tr>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-primary">Reconnect</button>
-                                </td>
-                                <td><?= $randIP = "" . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255); ?></td>
-                                <td width="15%">PEER-Cengkareng-P</td>
+                                <td><?= $i; ?></td>
                                 <td>Cisco</td>
-                                <td>Router</td>
-                                <td>Jababeka</td>
-                                <td>nms,monitoring listrik</td>
-                                <td class="text-danger">DOWN</td>
-                                <td width="10%">167Days 32Minutes</td>
-                                <td class="text-danger"><?= date('d-m-Y H:i:s'); ?></td>
-                                <td><?= date('d-m-Y H:i:s'); ?></td>
+                                <td><a class="btn btn-xs btn-danger"
+                                       href="<?= site_url('master/brand/delete/' . $i); ?>">Delete</a></td>
 
                             </tr>
                         <?php endfor; ?>

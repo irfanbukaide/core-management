@@ -16,6 +16,11 @@ class BrandsCtrl extends MY_Controller
         $this->render('Master_brands');
     }
 
+    public function save()
+    {
+
+    }
+
 
 }
 

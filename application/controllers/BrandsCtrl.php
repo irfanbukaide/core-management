@@ -12,6 +12,7 @@ class BrandsCtrl extends MY_Controller
 
     public function index()
     {
+        $this->master_css_js();
         $this->render('Master_brands');
     }
 

@@ -31,13 +31,26 @@
                     <form action="<?= site_url('master/location/save'); ?>" method="post">
                         <input type="hidden" id="location_id" name="location_id">
                         <div class="form-group">
-                            <label for="location_name">Location Name</label>
+                            <label for="location_name">Location</label>
                             <input type="text" class="form-control" id="location_name" name="location_name"
-                                   placeholder="Type a location" required>
+                                   placeholder="Type a location" required autofocus>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <label for="location_latitude">Latitude</label>
+                            <input type="text" class="form-control" id="location_latitude" name="location_latitude"
+                                   placeholder="Type a latitude" required>
                         </div>
+                        <div class="form-group">
+                            <label for="location_longitude">Longitude</label>
+                            <input type="text" class="form-control" id="location_longitude" name="location_longitude"
+                                   placeholder="Type a longitude" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location_address">Address</label>
+                            <textarea name="location_address" id="location_address" class="form-control" cols="30"
+                                      maxlength="200" minlength="10" placeholder="Type an address"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
 
 
                     </form>
@@ -72,7 +85,8 @@
                         <thead>
                         <tr>
                             <th width="10%">ID</th>
-                            <th class="text-nowrap">Location Name</th>
+                            <th class="text-nowrap">Location</th>
+                            <th class="text-nowrap">Latitude, Longitude</th>
                             <th class="text-nowrap">Action</th>
                         </tr>
                         </thead>
@@ -82,6 +96,7 @@
                                 <tr>
                                     <td><?= $location->location_id; ?></td>
                                     <td><?= $location->location_name; ?></td>
+                                    <td><?= $location->location_latitude . ', ' . $location->location_longitude; ?></td>
                                     <td><a class="btn btn-xs btn-danger"
                                            href="<?= site_url('master/location/delete/' . $location->location_id); ?>">Delete</a>
                                     </td>

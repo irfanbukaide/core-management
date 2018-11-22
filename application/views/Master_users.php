@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="user_name">User Name</label>
                             <input type="text" class="form-control" id="user_name" name="user_name"
-                                   placeholder="Type a user" required>
+                                   placeholder="Type a user" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="user_email">User Name</label>
@@ -46,9 +46,7 @@
                             <input type="password" class="form-control" id="user_password" name="user_password"
                                    placeholder="Type a password" required>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
 
 
                     </form>

@@ -53,6 +53,7 @@ $route['default_controller'] = 'HostsCtrl/index';
 
 $route['login'] = 'AuthCtrl/login';
 $route['login/do'] = 'AuthCtrl/login/do';
+$route['logout'] = 'AuthCtrl/logout';
 
 $route['master/brand'] = 'BrandsCtrl/index';
 $route['master/brand/save'] = 'BrandsCtrl/save';

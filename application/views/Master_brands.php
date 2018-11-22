@@ -33,11 +33,9 @@
                         <div class="form-group">
                             <label for="brand_name">Brand Name</label>
                             <input type="text" class="form-control" id="brand_name" name="brand_name"
-                                   placeholder="Type a brand" required>
+                                   placeholder="Type a brand" required autofocus>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
 
 
                     </form>

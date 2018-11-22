@@ -38,7 +38,9 @@ class LocationsCtrl extends MY_Controller
     {
         $data_location = array(
             'location_id' => $this->input->post('location_id'),
-            'location_name' => $this->input->post('location_name')
+            'location_name' => $this->input->post('location_name'),
+            'location_latitude' => $this->input->post('location_latitude'),
+            'location_longitude' => $this->input->post('location_longitude')
         );
 
         try {

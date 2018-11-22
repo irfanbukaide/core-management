@@ -42,6 +42,7 @@ class AuthCtrl extends MY_Controller
                     }
                 } else {
                     $this->pesan->gagal('Wrong email or password');
+                    $this->load->view('Login');
                 }
 
             } catch (Exception $e) {
@@ -51,6 +52,16 @@ class AuthCtrl extends MY_Controller
             $this->load->view('Login');
         }
 
+    }
+
+    public function logout()
+    {
+        $data_session = array('user_id', 'user_name', 'user_email');
+        $this->session->unset_userdata($data_session);
+
+        $this->pesan->berhasil('You have successfully logged out');
+
+        redirect('login');
     }
 
 }

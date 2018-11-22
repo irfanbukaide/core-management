@@ -33,11 +33,9 @@
                         <div class="form-group">
                             <label for="tag_name">Tag Name</label>
                             <input type="text" class="form-control" id="tag_name" name="tag_name"
-                                   placeholder="Type a tag" required>
+                                   placeholder="Type a tag" required autofocus>
                         </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
 
 
                     </form>

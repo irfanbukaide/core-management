@@ -51,8 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'HostsCtrl/index';
 $route['hosts'] = 'HostsCtrl/index';
-$route['hosts/device_up'] = 'HostsCtrl/device_up';
-$route['hosts/device_down'] = 'HostsCtrl/device_down';
-$route['hosts/device_log'] = 'HostsCtrl/device_log';
+$route['hosts/host_up'] = 'HostsCtrl/host_up';
+$route['hosts/host_down'] = 'HostsCtrl/host_down';
+$route['hosts/host_log'] = 'HostsCtrl/host_log';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

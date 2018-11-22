@@ -10,10 +10,10 @@
 <!-- end #page-loader -->
 
 <!-- begin #page-container -->
-<div id="page-container" class="page-container fade page-without-sidebar page-header-fixed page-with-top-menu">
+<div id="page-container" class="fade page-without-sidebar page-header-fixed">
     <?php
     require_once(APPPATH . 'views/master/header.php');
-    require_once(APPPATH . 'views/master/sidebar.php');
+    //    require_once(APPPATH . 'views/master/sidebar.php');
     require_once(APPPATH . 'views/master/content.php');
     ?>
 

@@ -3,12 +3,12 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="<?= site_url('hosts'); ?>">Hosts</a></li>
-        <li class="breadcrumb-item active">Hosts Up</li>
+        <li class="breadcrumb-item active">Host Up</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Hosts Up
-        <small>Monitoring Hosts</small>
+    <h1 class="page-header">Host Up
+        <small>Monitoring</small>
     </h1>
     <!-- end page-header -->
 

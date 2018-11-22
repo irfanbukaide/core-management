@@ -14,7 +14,7 @@ class HostsCtrl extends MY_Controller
     public function index()
     {
         // menu expand
-        $this->page['hosts']['device'] = 'active';
+        $this->page['hosts']['host'] = 'active';
 
         // title segment
         $this->title('Hosts');
@@ -23,10 +23,10 @@ class HostsCtrl extends MY_Controller
         $this->render('Hosts', $this->page);
     }
 
-    public function device_up()
+    public function host_up()
     {
         // menu expand
-        $this->page['hosts']['device_up'] = 'active';
+        $this->page['hosts']['host_up'] = 'active';
 
         // title segment
         $this->title('Hosts Up');
@@ -35,10 +35,10 @@ class HostsCtrl extends MY_Controller
         $this->render('Hosts_up', $this->page);
     }
 
-    public function device_down()
+    public function host_down()
     {
         // menu expand
-        $this->page['hosts']['device_down'] = 'active';
+        $this->page['hosts']['host_down'] = 'active';
         // title segment
         $this->title('Hosts Down');
         // load page css and js
@@ -46,10 +46,10 @@ class HostsCtrl extends MY_Controller
         $this->render('Hosts_down', $this->page);
     }
 
-    public function device_log()
+    public function host_log()
     {
         // menu expand
-        $this->page['hosts']['device_log'] = 'active';
+        $this->page['hosts']['host_log'] = 'active';
         // title segment
         $this->title('Hosts Log');
         // load page css and js

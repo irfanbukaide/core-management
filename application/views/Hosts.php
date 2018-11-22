@@ -2,12 +2,13 @@
 <div id="content" class="content">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
-        <li class="breadcrumb-item active">Hosts</li>
+        <li class="breadcrumb-item">Hosts</li>
+        <li class="breadcrumb-item active">Host</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Hosts
-        <small>Monitoring Hosts</small>
+    <h1 class="page-header">Host
+        <small>Monitoring</small>
     </h1>
     <!-- end page-header -->
 
@@ -171,8 +172,6 @@
                     <th class="text-nowrap">Downtime</th>
                     <th class="text-nowrap">Last Up</th>
                     <th class="text-nowrap">Last Down</th>
-                    <th class="text-nowrap">Last Checked</th>
-                    <th class="text-nowrap">Next Run</th>
 
                 </tr>
                 </thead>
@@ -190,8 +189,6 @@
                         <td class="text-danger">194Days 39Minutes</td>
                         <td><?= date('d-m-Y H:i:s'); ?></td>
                         <td class="text-danger"><?= date('d-m-Y H:i:s'); ?></td>
-                        <td><?= date('d-m-Y H:i:s'); ?></td>
-                        <td><?= date('d-m-Y H:i:s'); ?></td>
 
                     </tr>
                 <?php endfor; ?>

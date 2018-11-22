@@ -26,19 +26,19 @@ class TypesCtrl extends MY_Controller
 
     public function save()
     {
-        $data_brand = array(
-            'brand_id' => $this->input->post('brand_id'),
-            'brand_name' => $this->input->post('brand_name')
+        $data_type = array(
+            'type_id' => $this->input->post('type_id'),
+            'type_name' => $this->input->post('type_name')
         );
 
         try {
-            $brand = $this->types->where('brand_id', $data_brand['brand_id'])->get();
+            $type = $this->types->where('type_id', $data_type['type_id'])->get();
 
-            if ($brand) {
-                $this->types->update($data_brand, 'brand_id');
+            if ($type) {
+                $this->types->update($data_type, 'type_id');
                 $this->pesan->berhasil('Data successfully changed');
             } else {
-                $this->types->insert($data_brand);
+                $this->types->insert($data_type);
                 $this->pesan->berhasil('Data successfully created');
             }
 
@@ -52,7 +52,7 @@ class TypesCtrl extends MY_Controller
     public function delete($id)
     {
         try {
-            $this->types->where('brand_id', $id)->delete();
+            $this->types->where('type_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {
             $this->pesan->gagal('ERROR : ' . $e);

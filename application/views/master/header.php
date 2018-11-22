@@ -62,7 +62,8 @@
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="<?= site_url('master/brand'); ?>"><i class="fas fa-laptop fa-fw"></i> Brands</a></li>
-                    <li><a href="javascript:;"><i class="fas fa-object-group fa-fw"></i> Types</a></li>
+                    <li><a href="<?= site_url('master/type'); ?>"><i class="fas fa-object-group fa-fw"></i> Types</a>
+                    </li>
                     <li><a href="javascript:;"><i class="fas fa-building fa-fw"></i> Locations</a></li>
                     <li><a href="javascript:;"><i class="fas fa-tags fa-fw"></i> Tags</a></li>
                     <li><a href="javascript:;"><i class="fas fa-users fa-fw"></i> Users</a></li>

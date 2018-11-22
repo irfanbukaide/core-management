@@ -6,7 +6,7 @@ class Brands_model extends MY_Model
 
     public function __construct()
     {
-        $this->table = 'brand';
+        $this->table = 'brands';
         $this->primary_key = 'brand_id';
         $this->protected = array('created_at', 'update_at', 'deleted_at');
         $this->timestamps = FALSE;

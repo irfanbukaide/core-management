@@ -51,6 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'HostsCtrl/index';
 $route['master/brand'] = 'BrandsCtrl/index';
+$route['master/brand/save'] = 'BrandsCtrl/save';
+$route['master/brand/delete/(:num)'] = 'BrandsCtrl/delete/$1';
+
+$route['master/type'] = 'TypesCtrl/index';
+$route['master/type/save'] = 'TypesCtrl/save';
+$route['master/type/delete/(:num)'] = 'TypesCtrl/delete/$1';
 
 $route['hosts'] = 'HostsCtrl/index';
 $route['hosts/host_up'] = 'HostsCtrl/host_up';

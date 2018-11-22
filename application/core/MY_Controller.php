@@ -12,6 +12,7 @@ class MY_Controller extends CI_Controller
         // load template library
         $this->load->library('Template');
         $this->load->library('Menu');
+        $this->load->library('Pesan');
 
         // set page array
         $this->page = array();

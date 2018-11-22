@@ -3,11 +3,11 @@
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="<?= site_url('master'); ?>">Master</a></li>
-        <li class="breadcrumb-item active">Brands</li>
+        <li class="breadcrumb-item active">Types</li>
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Brands
+    <h1 class="page-header">Types
         <small>Master</small>
     </h1>
     <!-- end page-header -->
@@ -22,18 +22,18 @@
                         <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
                            data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                     </div>
-                    <h4 class="panel-title">Input Brand</h4>
+                    <h4 class="panel-title">Input Type</h4>
                 </div>
                 <!-- end panel-heading -->
 
                 <!-- begin panel-body -->
                 <div class="panel-body">
-                    <form action="<?= site_url('master/brand/save'); ?>" method="post">
-                        <input type="hidden" id="brand_id" name="brand_id">
+                    <form action="<?= site_url('master/type/save'); ?>" method="post">
+                        <input type="hidden" id="type_id" name="type_id">
                         <div class="form-group">
-                            <label for="brand_name">Brand Name</label>
-                            <input type="text" class="form-control" id="brand_name" name="brand_name"
-                                   placeholder="Type a brand" required>
+                            <label for="type_name">Type Name</label>
+                            <input type="text" class="form-control" id="type_name" name="type_name"
+                                   placeholder="Type a type" required>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -72,18 +72,18 @@
                         <thead>
                         <tr>
                             <th width="10%">ID</th>
-                            <th class="text-nowrap">Brand Name</th>
+                            <th class="text-nowrap">Type Name</th>
                             <th class="text-nowrap">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if ($brands != NULL): ?>
-                            <?php foreach ($brands as $brand) : ?>
+                        <?php if ($types != NULL): ?>
+                            <?php foreach ($types as $type) : ?>
                                 <tr>
-                                    <td><?= $brand->brand_id; ?></td>
-                                    <td><?= $brand->brand_name; ?></td>
+                                    <td><?= $type->type_id; ?></td>
+                                    <td><?= $type->type_name; ?></td>
                                     <td><a class="btn btn-xs btn-danger"
-                                           href="<?= site_url('master/brand/delete/' . $brand->brand_id); ?>">Delete</a>
+                                           href="<?= site_url('master/type/delete/' . $type->type_id); ?>">Delete</a>
                                     </td>
 
                                 </tr>

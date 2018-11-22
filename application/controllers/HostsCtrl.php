@@ -8,6 +8,8 @@ class HostsCtrl extends MY_Controller
         parent::__construct();
         // load page css and js
         $this->page_css_js();
+
+
     }
 
     public function index()

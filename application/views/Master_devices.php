@@ -43,7 +43,7 @@ if ($mode == 'create') {
                         <div class="form-group">
                             <label for="device_name">Hostname</label>
                             <input type="text" class="form-control" id="device_name" name="device_name"
-                                   placeholder="Type a device name" value="<?= $device_name; ?>" required autofocus>
+                                   placeholder="Type a hostname" value="<?= $device_name; ?>" required autofocus>
                         </div>
                         <div class="form-group">
                             <label for="device_ipaddr">IP Address</label>

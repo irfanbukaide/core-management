@@ -54,14 +54,14 @@ class AuthCtrl extends MY_Controller
                     }
                 } else {
                     $this->pesan->gagal('Wrong email or password');
-                    $this->load->view('Login');
+                    $this->load->view('Login', $this->page);
                 }
 
             } catch (Exception $e) {
                 $this->pesan->gagal('ERROR : ' . $e);
             }
         } else {
-            $this->load->view('Login');
+            $this->load->view('Login', $this->page);
         }
 
     }

@@ -18,7 +18,11 @@ class MY_Controller extends CI_Controller
         // set page array
         $this->page = array();
 
-        // set menu active
+        // set configuration website
+        $this->load->model('Settings_model', 'settings');
+        $setting = $this->settings->get(1);
+        $this->page['webname'] = $setting->setting_webname;
+        $this->page['organization'] = $setting->setting_organization;
 
 
     }

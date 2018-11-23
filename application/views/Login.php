@@ -40,9 +40,9 @@
             <div class="news-image"
                  style="background-image: url(color-admin/assets/img/login-bg/login-bg-11.jpg)"></div>
             <div class="news-caption">
-                <h4 class="caption-title"><b>Core</b> NMS</h4>
+                <h4 class="caption-title"><?= $webname; ?></h4>
                 <p>
-                    PT. Maxindo Mitra Solusi
+                    <?= $organization; ?>
                 </p>
             </div>
         </div>
@@ -52,7 +52,7 @@
             <!-- begin login-header -->
             <div class="login-header">
                 <div class="brand">
-                    <span class="logo"></span> <b>Core</b> NMS
+                    <span class="logo"></span> <?= $webname; ?>
                     <small>Network Monitoring System</small>
                 </div>
                 <div class="icon">

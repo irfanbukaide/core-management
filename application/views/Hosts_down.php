@@ -33,7 +33,7 @@
                             <label for="ipaddress" class="col-3 col-form-label">IP Address</label>
                             <div class="col-9">
                                 <input type="text" class="form-control" id="ipaddress" name="ipaddress"
-                                       placeholder="Type a ip address">
+                                       placeholder="Type an ip address">
                             </div>
                         </div>
                     </div>
@@ -48,30 +48,48 @@
                     </div>
                     <div class="col-12 col-xs-6 col-md-5 col-lg-4">
                         <div class="form-group row">
-                            <label for="brand" class="col-3 col-form-label">Brand</label>
+                            <label for="brand" class="col-3 col-form-label">Brands</label>
                             <div class="col-9">
-                                <select id="brand" name="brand" class="default-select2 form-control">
-                                    <option value="">Select a brand</option>
+                                <select id="brand" name="brand[]" class="multiple-select2 form-control"
+                                        multiple="multiple"
+                                        data-placeholder="Select a brands">
+                                    <?php if ($brands != NULL): ?>
+                                        <?php foreach ($brands as $brand): ?>
+                                            <option value="<?= $brand->brand_id; ?>"><?= $brand->brand_name; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-xs-6 col-md-5 col-lg-4">
                         <div class="form-group row">
-                            <label for="type" class="col-3 col-form-label">Type</label>
+                            <label for="type" class="col-3 col-form-label">Types</label>
                             <div class="col-9">
-                                <select id="type" name="type" class="default-select2 form-control">
-                                    <option value="">Select a type</option>
+                                <select id="type" name="type[]" class="multiple-select2 form-control"
+                                        multiple="multiple"
+                                        data-placeholder="Select a types">
+                                    <?php if ($types != NULL): ?>
+                                        <?php foreach ($types as $type): ?>
+                                            <option value="<?= $type->type_id; ?>"><?= $type->type_name; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col-12 col-xs-6 col-md-5 col-lg-4">
                         <div class="form-group row">
-                            <label for="location" class="col-3 col-form-label">Location</label>
+                            <label for="location" class="col-3 col-form-label">Locations</label>
                             <div class="col-9">
-                                <select id="location" name="location" class="default-select2 form-control">
-                                    <option value="">Select a location</option>
+                                <select id="location" name="location[]" class="multiple-select2 form-control"
+                                        multiple="multiple"
+                                        data-placeholder="Select a locations">
+                                    <?php if ($locations != NULL): ?>
+                                        <?php foreach ($locations as $location): ?>
+                                            <option value="<?= $location->location_id; ?>"><?= $location->location_name; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                         </div>
@@ -80,9 +98,14 @@
                         <div class="form-group row">
                             <label for="tags" class="col-3 col-form-label">Tags</label>
                             <div class="col-9">
-                                <select id="tags" name="tags" class="multiple-select2 form-control" multiple="multiple"
+                                <select id="tags" name="tags[]" class="multiple-select2 form-control"
+                                        multiple="multiple"
                                         data-placeholder="Select a tags">
-                                    <option value="">Select a tags</option>
+                                    <?php if ($tags != NULL): ?>
+                                        <?php foreach ($tags as $tag): ?>
+                                            <option value="<?= $tag->tag_id; ?>"><?= $tag->tag_name; ?></option>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </select>
                             </div>
                         </div>
@@ -123,11 +146,11 @@
                 <tr>
 
                     <th width="1%" data-orderable="false"></th>
+                    <th class="text-nowrap">Device Name</th>
                     <th class="text-nowrap">IP Address</th>
-                    <th class="text-nowrap">Hosts Name</th>
                     <th class="text-nowrap">Brand</th>
                     <th class="text-nowrap">Type</th>
-                    <th class="text-nowrap">Location</th>
+                    <th class="text-nowrap">Locations</th>
                     <th class="text-nowrap">Tags</th>
                     <th class="text-nowrap">Status</th>
                     <th class="text-nowrap">Downtime</th>
@@ -138,24 +161,54 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php for ($i = 1; $i < 100; $i++) : ?>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn btn-xs btn-primary">Reconnect</button>
-                        </td>
-                        <td><?= $randIP = "" . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255); ?></td>
-                        <td width="15%">PEER-Cengkareng-P</td>
-                        <td>Cisco</td>
-                        <td>Router</td>
-                        <td>Jababeka</td>
-                        <td>nms,monitoring listrik</td>
-                        <td class="text-danger">DOWN</td>
-                        <td width="10%">167Days 32Minutes</td>
-                        <td class="text-danger"><?= date('d-m-Y H:i:s'); ?></td>
-                        <td><?= date('d-m-Y H:i:s'); ?></td>
+                <?php if ($devices != NULL): ?>
+                    <?php foreach ($devices as $device) : ?>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-xs btn-primary">Reconnect</button>
+                            </td>
+                            <td><?= $device->device_name; ?></td>
+                            <td><?= $device->device_ipaddr; ?></td>
+                            <td>
+                                <?php if ($device->device_brand != NULL): ?>
+                                    <?php foreach ($device->device_brand as $db): ?>
+                                        <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
+                                        <span class="label label-dark"><?= $brand->brand_name; ?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if ($device->device_type != NULL): ?>
+                                    <?php foreach ($device->device_type as $db): ?>
+                                        <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
+                                        <span class="label label-dark"><?= $type->type_name; ?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if ($device->device_location != NULL): ?>
+                                    <?php foreach ($device->device_location as $db): ?>
+                                        <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
+                                        <span class="label label-dark"><?= $location->location_name; ?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <?php if ($device->device_tag != NULL): ?>
+                                    <?php foreach ($device->device_tag as $db): ?>
+                                        <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
+                                        <span class="label label-dark"><?= $tag->tag_name; ?></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </td>
+                            <td class="text-danger">DOWN</td>
+                            <td width="10%">167Days 32Minutes</td>
+                            <td class="text-danger"><?= date('d-m-Y H:i:s'); ?></td>
+                            <td><?= date('d-m-Y H:i:s'); ?></td>
 
-                    </tr>
-                <?php endfor; ?>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 </tbody>
             </table>
         </div>

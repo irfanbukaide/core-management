@@ -156,7 +156,7 @@ if ($mode == 'create') {
                                             <?php if ($device->device_brand != NULL): ?>
                                                 <?php foreach ($device->device_brand as $db): ?>
                                                     <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
-                                                    <span class="label label-info"><?= $brand->brand_name; ?></span>
+                                                    <span class="label label-dark"><?= $brand->brand_name; ?></span>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -164,7 +164,7 @@ if ($mode == 'create') {
                                             <?php if ($device->device_type != NULL): ?>
                                                 <?php foreach ($device->device_type as $db): ?>
                                                     <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
-                                                    <span class="label label-info"><?= $type->type_name; ?></span>
+                                                    <span class="label label-dark"><?= $type->type_name; ?></span>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -172,7 +172,7 @@ if ($mode == 'create') {
                                             <?php if ($device->device_location != NULL): ?>
                                                 <?php foreach ($device->device_location as $db): ?>
                                                     <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
-                                                    <span class="label label-info"><?= $location->location_name; ?></span>
+                                                    <span class="label label-dark"><?= $location->location_name; ?></span>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -180,7 +180,7 @@ if ($mode == 'create') {
                                             <?php if ($device->device_tag != NULL): ?>
                                                 <?php foreach ($device->device_tag as $db): ?>
                                                     <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
-                                                    <span class="label label-info"><?= $tag->tag_name; ?></span>
+                                                    <span class="label label-dark"><?= $tag->tag_name; ?></span>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>

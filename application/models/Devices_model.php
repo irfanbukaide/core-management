@@ -6,8 +6,8 @@ class Devices_model extends MY_Model
 
     public function __construct()
     {
-        $this->table = 'tags';
-        $this->primary_key = 'tag_id';
+        $this->table = 'devices';
+        $this->primary_key = 'device_id';
         $this->protected = array('created_at', 'update_at', 'deleted_at');
         $this->timestamps = FALSE;
         $this->soft_deletes = FALSE;

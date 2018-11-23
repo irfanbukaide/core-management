@@ -61,10 +61,10 @@ $route['login'] = 'AuthCtrl/login';
 $route['login/do'] = 'AuthCtrl/login/do';
 $route['logout'] = 'AuthCtrl/logout';
 
-$route['master/device'] = 'DevicesCtrl/index';
-$route['master/device/save'] = 'DevicesCtrl/save';
-$route['master/device/edit/(:num)'] = 'DevicesCtrl/edit/$1';
-$route['master/device/delete/(:num)'] = 'DevicesCtrl/delete/$1';
+$route['device'] = 'DevicesCtrl/index';
+$route['device/save'] = 'DevicesCtrl/save';
+$route['device/edit/(:num)'] = 'DevicesCtrl/edit/$1';
+$route['device/delete/(:num)'] = 'DevicesCtrl/delete/$1';
 
 $route['master/brand'] = 'BrandsCtrl/index';
 $route['master/brand/save'] = 'BrandsCtrl/save';

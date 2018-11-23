@@ -11,6 +11,7 @@ class BrandsCtrl extends MY_Controller
 
         // load model
         $this->load->model('Brands_model', 'brands');
+        $this->load->model('Device_brand_model', 'device_brand');
 
         // save session url
         $this->save_session_url(current_url());
@@ -75,6 +76,7 @@ class BrandsCtrl extends MY_Controller
     public function delete($id)
     {
         try {
+            $this->device_brand->where('brand_id', $id)->delete();
             $this->brands->where('brand_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {

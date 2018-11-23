@@ -3,7 +3,7 @@
     <!-- begin navbar-header -->
     <div class="navbar-header">
         <a href="<?= site_url(); ?>" class="navbar-brand"><span class="navbar-logo"></span>
-            <b><?php echo $base_title; ?></b></a>
+            <b><?php echo $webname; ?></b></a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>

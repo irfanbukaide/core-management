@@ -2,9 +2,11 @@
 if ($mode == 'create') {
     $device_id = '';
     $device_name = '';
+    $device_ipaddr = '';
 } else {
     $device_id = $device->device_id;
     $device_name = $device->device_name;
+    $device_ipaddr = $device->device_ipaddr;
 }
 ?>
 <!-- begin #content -->
@@ -36,16 +38,71 @@ if ($mode == 'create') {
 
                 <!-- begin panel-body -->
                 <div class="panel-body">
-                    <form action="<?= site_url('master/device/save'); ?>" method="post">
+                    <form action="<?= site_url('device/save'); ?>" method="post">
                         <input type="hidden" id="device_id" name="device_id" value="<?= $device_id; ?>">
                         <div class="form-group">
                             <label for="device_name">Device Name</label>
                             <input type="text" class="form-control" id="device_name" name="device_name"
-                                   placeholder="Type a device" value="<?= $device_name; ?>" required autofocus>
+                                   placeholder="Type a device name" value="<?= $device_name; ?>" required autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label for="device_ipaddr">IP Address</label>
+                            <input type="text" class="form-control" id="device_ipaddr" name="device_ipaddr"
+                                   placeholder="Type a IP Address" value="<?= $device_ipaddr; ?>" required autofocus>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="brands">Brand</label>
+                                    <select id="brands" name="brands[]" class="multiple-select2 form-control"
+                                            multiple="multiple" data-placeholder="Select a brands">
+                                        <?php if ($brands != NULL): ?>
+                                            <?php foreach ($brands as $brand): ?>
+                                                <option value="<?= $brand->brand_id; ?>"><?= $brand->brand_name; ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="types">Type</label>
+                                    <select id="types" name="types[]" class="multiple-select2 form-control"
+                                            multiple="multiple" data-placeholder="Select a types">
+                                        <?php if ($types != NULL): ?>
+                                            <?php foreach ($types as $type): ?>
+                                                <option value="<?= $type->type_id; ?>"><?= $type->type_name; ?></option>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="locations">Locations</label>
+                            <select id="locations" name="locations[]" class="multiple-select2 form-control"
+                                    multiple="multiple" data-placeholder="Select a locations">
+                                <?php if ($locations != NULL): ?>
+                                    <?php foreach ($locations as $location): ?>
+                                        <option value="<?= $location->location_id; ?>"><?= $location->location_name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tags">Tags</label>
+                            <select id="tags" name="tags[]" class="multiple-select2 form-control"
+                                    multiple="multiple" data-placeholder="Select a tags">
+                                <?php if ($tags != NULL): ?>
+                                    <?php foreach ($tags as $tag): ?>
+                                        <option value="<?= $tag->tag_id; ?>"><?= $tag->tag_name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
                         <?php if ($mode == 'edit'): ?>
-                            <a href="<?= site_url('master/device'); ?>" class="btn btn-danger">Back</a>
+                            <a href="<?= site_url('device'); ?>" class="btn btn-danger">Back</a>
                         <?php endif; ?>
 
                     </form>
@@ -80,8 +137,12 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">Device Name</th>
+                                <th class="text-nowrap">IP Address</th>
+                                <th class="text-nowrap">Brand</th>
+                                <th class="text-nowrap">Type</th>
+                                <th class="text-nowrap">Locations</th>
+                                <th class="text-nowrap">Tags</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
                             </thead>
@@ -89,12 +150,44 @@ if ($mode == 'create') {
                             <?php if ($devices != NULL): ?>
                                 <?php foreach ($devices as $device) : ?>
                                     <tr>
-                                        <td><?= $device->device_id; ?></td>
                                         <td><?= $device->device_name; ?></td>
+                                        <td><?= $device->device_ipaddr; ?></td>
+                                        <td>
+                                            <?php if ($device->device_brand != NULL): ?>
+                                                <?php foreach ($device->device_brand as $db): ?>
+                                                    <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
+                                                    <span class="label label-info"><?= $brand->brand_name; ?></span>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($device->device_type != NULL): ?>
+                                                <?php foreach ($device->device_type as $db): ?>
+                                                    <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
+                                                    <span class="label label-info"><?= $type->type_name; ?></span>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($device->device_location != NULL): ?>
+                                                <?php foreach ($device->device_location as $db): ?>
+                                                    <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
+                                                    <span class="label label-info"><?= $location->location_name; ?></span>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?php if ($device->device_tag != NULL): ?>
+                                                <?php foreach ($device->device_tag as $db): ?>
+                                                    <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
+                                                    <span class="label label-info"><?= $tag->tag_name; ?></span>
+                                                <?php endforeach; ?>
+                                            <?php endif; ?>
+                                        </td>
                                         <td><a class="btn btn-xs btn-primary"
-                                               href="<?= site_url('master/device/edit/' . $device->device_id); ?>">Edit</a>
+                                               href="<?= site_url('device/edit/' . $device->device_id); ?>">Edit</a>
                                             <a class="btn btn-xs btn-danger"
-                                               href="<?= site_url('master/device/delete/' . $device->device_id); ?>">Delete</a>
+                                               href="<?= site_url('device/delete/' . $device->device_id); ?>">Delete</a>
                                         </td>
 
                                     </tr>

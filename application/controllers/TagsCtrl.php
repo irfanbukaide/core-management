@@ -11,6 +11,7 @@ class TagsCtrl extends MY_Controller
 
         // load model
         $this->load->model('Tags_model', 'tags');
+        $this->load->model('Device_tag_model', 'device_tag');
 
         // save session url
         $this->save_session_url(current_url());
@@ -76,6 +77,7 @@ class TagsCtrl extends MY_Controller
     public function delete($id)
     {
         try {
+            $this->device_tag->where('tag_id', $id)->delete();
             $this->tags->where('tag_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {

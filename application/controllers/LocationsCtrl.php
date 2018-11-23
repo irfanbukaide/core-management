@@ -11,6 +11,7 @@ class LocationsCtrl extends MY_Controller
 
         // load model
         $this->load->model('Locations_model', 'locations');
+        $this->load->model('Device_location_model', 'device_location');
 
         // save session url
         $this->save_session_url(current_url());
@@ -78,6 +79,7 @@ class LocationsCtrl extends MY_Controller
     public function delete($id)
     {
         try {
+            $this->device_location->where('location_id', $id)->delete();
             $this->locations->where('location_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {

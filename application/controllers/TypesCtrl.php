@@ -11,6 +11,7 @@ class TypesCtrl extends MY_Controller
 
         // load model
         $this->load->model('Types_model', 'types');
+        $this->load->model('Device_type_model', 'device_type');
 
 
         // save session url
@@ -76,6 +77,7 @@ class TypesCtrl extends MY_Controller
     public function delete($id)
     {
         try {
+            $this->device_type->where('type_id', $id)->delete();
             $this->types->where('type_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {

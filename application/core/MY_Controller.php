@@ -23,6 +23,8 @@ class MY_Controller extends CI_Controller
         $setting = $this->settings->get(1);
         $this->page['webname'] = $setting->setting_webname;
         $this->page['organization'] = $setting->setting_organization;
+        $this->config->load('template');
+        $this->config->set_item('base_title', $setting->setting_webname);
 
 
     }

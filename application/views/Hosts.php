@@ -184,7 +184,7 @@
             <table id="data-table-responsive" class="table table-sm table-hover">
                 <thead>
                 <tr>
-                    <th class="text-nowrap">Device Name</th>
+                    <th class="text-nowrap">Hostname</th>
                     <th class="text-nowrap">IP Address</th>
                     <th class="text-nowrap">Brand</th>
                     <th class="text-nowrap">Type</th>

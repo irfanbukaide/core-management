@@ -41,7 +41,7 @@ if ($mode == 'create') {
                     <form action="<?= site_url('device/save'); ?>" method="post">
                         <input type="hidden" id="device_id" name="device_id" value="<?= $device_id; ?>">
                         <div class="form-group">
-                            <label for="device_name">Device Name</label>
+                            <label for="device_name">Hostname</label>
                             <input type="text" class="form-control" id="device_name" name="device_name"
                                    placeholder="Type a device name" value="<?= $device_name; ?>" required autofocus>
                         </div>
@@ -137,7 +137,7 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th class="text-nowrap">Device Name</th>
+                                <th class="text-nowrap">Hostname</th>
                                 <th class="text-nowrap">IP Address</th>
                                 <th class="text-nowrap">Brand</th>
                                 <th class="text-nowrap">Type</th>

@@ -9,17 +9,17 @@ class AuthCtrl extends MY_Controller
         parent::__construct();
 
         $this->load->model('Users_model', 'users');
+        $this->load->model('Settings_model', 'settings');
 
         $user = $this->users->get_all();
-        if (!$user) {
-            $user_data = array(
-                'user_id' => 1,
-                'user_name' => 'admin',
-                'user_email' => 'admin@localhost.local',
-                'user_password' => 'p1nacate88',
-            );
+        $setting = $this->settings->get_all();
 
-            $this->users->insert($user_data);
+
+        if (!$setting) {
+            redirect('setup/step1');
+        }
+        if (!$user) {
+            redirect('setup/step2');
         }
     }
 

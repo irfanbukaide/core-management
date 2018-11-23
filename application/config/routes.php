@@ -51,6 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'HostsCtrl/index';
 
+$route['setup'] = 'SetupCtrl/step1';
+$route['setup/step1'] = 'SetupCtrl/step1';
+$route['setup/step1/do'] = 'SetupCtrl/step1/do';
+$route['setup/step2'] = 'SetupCtrl/step2';
+$route['setup/step2/do'] = 'SetupCtrl/step2/do';
+
 $route['login'] = 'AuthCtrl/login';
 $route['login/do'] = 'AuthCtrl/login/do';
 $route['logout'] = 'AuthCtrl/logout';
@@ -84,5 +90,6 @@ $route['hosts'] = 'HostsCtrl/index';
 $route['hosts/host_up'] = 'HostsCtrl/host_up';
 $route['hosts/host_down'] = 'HostsCtrl/host_down';
 $route['hosts/host_log'] = 'HostsCtrl/host_log';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -54,12 +54,12 @@ if ($mode == 'create') {
                         <div class="form-group">
                             <label for="location_latitude">Latitude</label>
                             <input type="text" class="form-control" id="location_latitude" name="location_latitude"
-                                   placeholder="Type a latitude" value="<?= $location_latitude; ?>" required>
+                                   placeholder="Type a latitude" value="<?= $location_latitude; ?>">
                         </div>
                         <div class="form-group">
                             <label for="location_longitude">Longitude</label>
                             <input type="text" class="form-control" id="location_longitude" name="location_longitude"
-                                   placeholder="Type a longitude" value="<?= $location_longitude; ?>" required>
+                                   placeholder="Type a longitude" value="<?= $location_longitude; ?>">
                         </div>
                         <div class="form-group">
                             <label for="location_address">Address</label>

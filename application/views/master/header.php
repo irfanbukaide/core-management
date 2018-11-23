@@ -50,12 +50,10 @@
                             Host Log
                         </a>
                     </li>
-                    <li class="divider"></li>
-                    <li><a href=""><i class="fas fa-plus-circle fa-fw"></i> Add Host</a></li>
-                    <li><a href="">Edit Host</a></li>
                 </ul>
             </li>
             <li><a href="javascript:;"><i class="fa fa-share-alt fa-fw"></i> Vlan </a></li>
+            <li><a href="<?= site_url('device'); ?>"><i class="fas fa-desktop fa-fw"></i> Device </a></li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-database fa-fw"></i> Master <b class="caret"></b>

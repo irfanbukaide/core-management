@@ -28,7 +28,20 @@ class LocationsCtrl extends MY_Controller
         $this->title('Locations');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['locations'] = $this->locations->get_all();
+
+        // render
+        $this->render('Master_locations', $this->page);
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['location'] = $this->locations->where('location_id', $id)->get();
 
         // render
         $this->render('Master_locations', $this->page);
@@ -40,7 +53,8 @@ class LocationsCtrl extends MY_Controller
             'location_id' => $this->input->post('location_id'),
             'location_name' => $this->input->post('location_name'),
             'location_latitude' => $this->input->post('location_latitude'),
-            'location_longitude' => $this->input->post('location_longitude')
+            'location_longitude' => $this->input->post('location_longitude'),
+            'location_address' => $this->input->post('location_address')
         );
 
         try {

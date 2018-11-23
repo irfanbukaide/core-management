@@ -28,7 +28,20 @@ class BrandsCtrl extends MY_Controller
         $this->title('Brands');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['brands'] = $this->brands->get_all();
+
+        // render
+        $this->render('Master_brands', $this->page);
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['brand'] = $this->brands->where('brand_id', $id)->get();
 
         // render
         $this->render('Master_brands', $this->page);

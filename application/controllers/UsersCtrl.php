@@ -29,7 +29,20 @@ class UsersCtrl extends MY_Controller
         $this->title('Users');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['users'] = $this->users->get_all();
+
+        // render
+        $this->render('Master_users', $this->page);
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['user'] = $this->users->where('user_id', $id)->get();
 
         // render
         $this->render('Master_users', $this->page);

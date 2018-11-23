@@ -28,11 +28,24 @@ class TagsCtrl extends MY_Controller
         $this->title('Tags');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['tags'] = $this->tags->get_all();
 
         // render
         $this->render('Master_tags', $this->page);
 
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['tag'] = $this->tags->where('tag_id', $id)->get();
+
+        // render
+        $this->render('Master_tags', $this->page);
     }
 
     public function save()

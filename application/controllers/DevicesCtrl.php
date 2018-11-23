@@ -29,7 +29,20 @@ class DevicesCtrl extends MY_Controller
         $this->title('Devices');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['devices'] = $this->devices->get_all();
+
+        // render
+        $this->render('Master_devices', $this->page);
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['device'] = $this->devices->where('device_id', $id)->get();
 
         // render
         $this->render('Master_devices', $this->page);

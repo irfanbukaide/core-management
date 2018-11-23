@@ -29,7 +29,20 @@ class TypesCtrl extends MY_Controller
         $this->title('Types');
 
         // load data
+        $this->page['mode'] = 'create';
         $this->page['types'] = $this->types->get_all();
+
+        // render
+        $this->render('Master_types', $this->page);
+    }
+
+    public function edit($id)
+    {
+        $this->master_css_js();
+
+        // load data
+        $this->page['mode'] = 'edit';
+        $this->page['type'] = $this->types->where('type_id', $id)->get();
 
         // render
         $this->render('Master_types', $this->page);

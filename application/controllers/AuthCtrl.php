@@ -9,6 +9,18 @@ class AuthCtrl extends MY_Controller
         parent::__construct();
 
         $this->load->model('Users_model', 'users');
+
+        $user = $this->users->get_all();
+        if (!$user) {
+            $user_data = array(
+                'user_id' => 1,
+                'user_name' => 'admin',
+                'user_email' => 'admin@localhost.local',
+                'user_password' => 'p1nacate88',
+            );
+
+            $this->users->insert($user_data);
+        }
     }
 
     public function index()

@@ -61,19 +61,98 @@ class DevicesCtrl extends MY_Controller
 
         // load data
         $this->page['mode'] = 'edit';
-        $this->page['brands'] = $this->brands->get_all();
-        $this->page['locations'] = $this->locations->get_all();
-        $this->page['types'] = $this->types->get_all();
-        $this->page['tags'] = $this->tags->get_all();
-        $this->page['devices'] = $this->devices->where('device_id', $id)
+        $brands = $this->brands->with_device_brand()->get_all();
+        $brands = function () use ($id, $brands) {
+            foreach ($brands as $brand) {
+                if (isset($brand->device_brand) && $brand->device_brand != NULL) {
+                    foreach ($brand->device_brand as $db) {
+                        if ($db->device_id == $id) {
+                            $brand->selected = 'selected';
+                        } else {
+                            $brand->selected = '';
+                        }
+                    }
+                } else {
+                    $brand->selected = '';
+                }
+            }
+
+            return $brands;
+
+        };
+        $this->page['brands'] = $brands();
+        $locations = $this->locations->with_device_location()->get_all();
+        $locations = function () use ($id, $locations) {
+            foreach ($locations as $location) {
+                if (isset($location->device_location) && $location->device_location != NULL) {
+                    foreach ($location->device_location as $db) {
+                        if ($db->device_id == $id) {
+                            $location->selected = 'selected';
+                        } else {
+                            $location->selected = '';
+                        }
+                    }
+                } else {
+                    $location->selected = '';
+                }
+            }
+
+            return $locations;
+
+        };
+        $this->page['locations'] = $locations();
+        $types = $this->types->with_device_type()->get_all();
+        $types = function () use ($id, $types) {
+            foreach ($types as $type) {
+                if (isset($type->device_type) && $type->device_type != NULL) {
+                    foreach ($type->device_type as $db) {
+                        if ($db->device_id == $id) {
+                            $type->selected = 'selected';
+                        } else {
+                            $type->selected = '';
+                        }
+                    }
+                } else {
+                    $type->selected = '';
+                }
+            }
+
+            return $types;
+
+        };
+        $this->page['types'] = $types();
+        $tags = $this->tags->with_device_tag()->get_all();
+        $tags = function () use ($id, $tags) {
+            foreach ($tags as $tag) {
+                if (isset($tag->device_tag) && $tag->device_tag != NULL) {
+                    foreach ($tag->device_tag as $db) {
+                        if ($db->device_id == $id) {
+                            $tag->selected = 'selected';
+                        } else {
+                            $tag->selected = '';
+                        }
+                    }
+                } else {
+                    $tag->selected = '';
+                }
+            }
+
+            return $tags;
+
+        };
+        $this->page['tags'] = $tags();
+        $this->page['device'] = $this->devices->where('device_id', $id)
             ->with_device_brand()
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
-            ->get_all();
+            ->get();
 
         // render
         $this->render('Master_devices', $this->page);
+//        echo '<pre>';
+//        var_dump($this->page['brands']);
+//        echo '</pre>';
     }
 
     public function save()
@@ -85,6 +164,12 @@ class DevicesCtrl extends MY_Controller
             'device_ipaddr' => $this->input->post('device_ipaddr')
         );
 
+        $data_device_update = array(
+            'device_id' => $this->input->post('device_id'),
+            'device_name' => $this->input->post('device_name'),
+            'device_ipaddr' => $this->input->post('device_ipaddr')
+        );
+
         $data_brands = $this->input->post('brands');
         $data_types = $this->input->post('types');
         $data_locations = $this->input->post('locations');
@@ -92,35 +177,39 @@ class DevicesCtrl extends MY_Controller
 
 
         try {
-            $device = $this->devices->where('device_id', $data_device['device_id'])->get();
+            $device = $this->devices->where('device_id', $data_device_update['device_id'])->get();
 
             if ($device) {
-                $this->devices->update($data_device, 'device_id');
+                $this->devices->update($data_device_update, 'device_id');
+                $this->device_brand->where('device_id', $data_device_update['device_id'])->delete();
+                $this->device_type->where('device_id', $data_device_update['device_id'])->delete();
+                $this->device_location->where('device_id', $data_device_update['device_id'])->delete();
+                $this->device_tag->where('device_id', $data_device_update['device_id'])->delete();
                 foreach ($data_brands as $brand) {
-                    $this->device_brand->update(array(
-                        'device_id' => $device_id,
+                    $this->device_brand->insert(array(
+                        'device_id' => $data_device_update['device_id'],
                         'brand_id' => $brand
-                    ), 'device_id');
+                    ));
                 }
                 foreach ($data_types as $type) {
-                    $this->device_type->update(array(
-                        'device_id' => $device_id,
+                    $this->device_type->insert(array(
+                        'device_id' => $data_device_update['device_id'],
                         'type_id' => $type
-                    ), 'device_id');
+                    ));
                 }
 
                 foreach ($data_locations as $location) {
-                    $this->device_location->update(array(
-                        'device_id' => $device_id,
+                    $this->device_location->insert(array(
+                        'device_id' => $data_device_update['device_id'],
                         'location_id' => $location
-                    ), 'device_id');
+                    ));
                 }
 
                 foreach ($data_tags as $tag) {
-                    $this->device_tag->update(array(
-                        'device_id' => $device_id,
+                    $this->device_tag->insert(array(
+                        'device_id' => $data_device_update['device_id'],
                         'tag_id' => $tag
-                    ), 'device_id');
+                    ));
                 }
                 $this->pesan->berhasil('Data successfully changed');
             } else {

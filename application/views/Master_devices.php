@@ -58,7 +58,7 @@ if ($mode == 'create') {
                                             multiple="multiple" data-placeholder="Select a brands">
                                         <?php if ($brands != NULL): ?>
                                             <?php foreach ($brands as $brand): ?>
-                                                <option value="<?= $brand->brand_id; ?>"><?= $brand->brand_name; ?></option>
+                                                <option value="<?= $brand->brand_id; ?>" <?= isset($brand->selected) ? $brand->selected : ''; ?>><?= $brand->brand_name; ?></option>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
@@ -71,7 +71,7 @@ if ($mode == 'create') {
                                             multiple="multiple" data-placeholder="Select a types">
                                         <?php if ($types != NULL): ?>
                                             <?php foreach ($types as $type): ?>
-                                                <option value="<?= $type->type_id; ?>"><?= $type->type_name; ?></option>
+                                                <option value="<?= $type->type_id; ?>" <?= isset($type->selected) ? $type->selected : ''; ?>><?= $type->type_name; ?></option>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
                                     </select>
@@ -84,7 +84,7 @@ if ($mode == 'create') {
                                     multiple="multiple" data-placeholder="Select a locations">
                                 <?php if ($locations != NULL): ?>
                                     <?php foreach ($locations as $location): ?>
-                                        <option value="<?= $location->location_id; ?>"><?= $location->location_name; ?></option>
+                                        <option value="<?= $location->location_id; ?>" <?= isset($location->selected) ? $location->selected : ''; ?>><?= $location->location_name; ?></option>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </select>
@@ -95,7 +95,7 @@ if ($mode == 'create') {
                                     multiple="multiple" data-placeholder="Select a tags">
                                 <?php if ($tags != NULL): ?>
                                     <?php foreach ($tags as $tag): ?>
-                                        <option value="<?= $tag->tag_id; ?>"><?= $tag->tag_name; ?></option>
+                                        <option value="<?= $tag->tag_id; ?>" <?= isset($tag->selected) ? $tag->selected : ''; ?>><?= $tag->tag_name; ?></option>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </select>
@@ -156,7 +156,9 @@ if ($mode == 'create') {
                                             <?php if ($device->device_brand != NULL): ?>
                                                 <?php foreach ($device->device_brand as $db): ?>
                                                     <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
-                                                    <span class="label label-dark"><?= $brand->brand_name; ?></span>
+                                                    <span class="label label-dark mb-2"><?= $brand->brand_name; ?></span>
+                                                    <br>
+                                                    <div class="mb-2"></div>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -164,7 +166,9 @@ if ($mode == 'create') {
                                             <?php if ($device->device_type != NULL): ?>
                                                 <?php foreach ($device->device_type as $db): ?>
                                                     <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
-                                                    <span class="label label-dark"><?= $type->type_name; ?></span>
+                                                    <span class="label label-dark mb-2"><?= $type->type_name; ?></span>
+                                                    <br>
+                                                    <div class="mb-2"></div>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -172,7 +176,9 @@ if ($mode == 'create') {
                                             <?php if ($device->device_location != NULL): ?>
                                                 <?php foreach ($device->device_location as $db): ?>
                                                     <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
-                                                    <span class="label label-dark"><?= $location->location_name; ?></span>
+                                                    <span class="label label-dark mb-2"><?= $location->location_name; ?></span>
+                                                    <br>
+                                                    <div class="mb-2"></div>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>
@@ -181,6 +187,8 @@ if ($mode == 'create') {
                                                 <?php foreach ($device->device_tag as $db): ?>
                                                     <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
                                                     <span class="label label-dark"><?= $tag->tag_name; ?></span>
+                                                    <br>
+                                                    <div class="mb-2"></div>
                                                 <?php endforeach; ?>
                                             <?php endif; ?>
                                         </td>

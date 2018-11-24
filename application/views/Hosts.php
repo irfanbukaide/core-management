@@ -191,10 +191,7 @@
                     <th class="text-nowrap">Locations</th>
                     <th class="text-nowrap">Tags</th>
                     <th class="text-nowrap">Status</th>
-                    <th class="text-nowrap">Uptime</th>
-                    <th class="text-nowrap">Downtime</th>
-                    <th class="text-nowrap">Last Up</th>
-                    <th class="text-nowrap">Last Down</th>
+                    <th class="text-nowrap">Event</th>
 
                 </tr>
                 </thead>
@@ -208,7 +205,9 @@
                                 <?php if ($device->device_brand != NULL): ?>
                                     <?php foreach ($device->device_brand as $db): ?>
                                         <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
-                                        <span class="label label-dark"><?= $brand->brand_name; ?></span>
+                                        <span class="label label-dark mb-2"><?= $brand->brand_name; ?></span>
+                                        <br>
+                                        <div class="mb-2"></div>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
@@ -216,7 +215,9 @@
                                 <?php if ($device->device_type != NULL): ?>
                                     <?php foreach ($device->device_type as $db): ?>
                                         <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
-                                        <span class="label label-dark"><?= $type->type_name; ?></span>
+                                        <span class="label label-dark mb-2"><?= $type->type_name; ?></span>
+                                        <br>
+                                        <div class="mb-2"></div>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
@@ -224,7 +225,9 @@
                                 <?php if ($device->device_location != NULL): ?>
                                     <?php foreach ($device->device_location as $db): ?>
                                         <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
-                                        <span class="label label-dark"><?= $location->location_name; ?></span>
+                                        <span class="label label-dark mb-2"><?= $location->location_name; ?></span>
+                                        <br>
+                                        <div class="mb-2"></div>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
@@ -233,14 +236,42 @@
                                     <?php foreach ($device->device_tag as $db): ?>
                                         <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
                                         <span class="label label-dark"><?= $tag->tag_name; ?></span>
+                                        <br>
+                                        <div class="mb-2"></div>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
                             <td class="text-success">UP</td>
-                            <td>194Days 39Minutes</td>
-                            <td class="text-danger">194Days 39Minutes</td>
-                            <td><?= date('d-m-Y H:i:s'); ?></td>
-                            <td class="text-danger"><?= date('d-m-Y H:i:s'); ?></td>
+                            <td>
+                                <div class="row">
+                                    <div class="col mb-2">
+                                        <b>Uptime :</b><br>
+                                        <span class="text-success">15Days 45Minutes</span>
+                                    </div>
+                                    <div class="col mb-2">
+                                        <b>Downtime :</b><br>
+                                        <span class="text-danger">15Days 45Minutes</span>
+                                    </div>
+                                    <div class="col mb-2">
+                                        <b>Last up at :</b> <br>
+                                        <?= date('d-m-Y H:i:s'); ?>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col mb-2">
+                                        <b>Last down at :</b> <br>
+                                        <?= date('d-m-Y H:i:s'); ?>
+                                    </div>
+                                    <div class="col mb-2">
+                                        <b>Last checked at :</b><br>
+                                        <?= date('d-m-Y H:i:s'); ?>
+                                    </div>
+                                    <div class="col mb-2">
+                                        <b>Next run at :</b><br>
+                                        <?= date('d-m-Y H:i:s'); ?>
+                                    </div>
+                                </div>
+                            </td>
 
                         </tr>
                     <?php endforeach; ?>

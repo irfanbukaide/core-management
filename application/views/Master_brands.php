@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $brand_id = '';
     $brand_name = '';
 } else {
     $brand_id = $brand->brand_id;
@@ -81,7 +80,6 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">Brand Name</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
@@ -90,7 +88,6 @@ if ($mode == 'create') {
                             <?php if ($brands != NULL): ?>
                                 <?php foreach ($brands as $brand) : ?>
                                     <tr>
-                                        <td><?= $brand->brand_id; ?></td>
                                         <td><?= $brand->brand_name; ?></td>
                                         <td><a class="btn btn-xs btn-primary"
                                                href="<?= site_url('master/brand/edit/' . $brand->brand_id); ?>">Edit</a>

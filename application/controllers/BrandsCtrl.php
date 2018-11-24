@@ -31,6 +31,7 @@ class BrandsCtrl extends MY_Controller
         // load data
         $this->page['mode'] = 'create';
         $this->page['brands'] = $this->brands->get_all();
+        $this->page['brand_id'] = $this->uuid->v4();
 
         // render
         $this->render('Master_brands', $this->page);

@@ -13,6 +13,7 @@ class MY_Controller extends CI_Controller
         $this->load->library('Template');
         $this->load->library('Menu');
         $this->load->library('Pesan');
+        $this->load->library('Uuid');
         $this->load->library('session');
 
         // set page array
@@ -20,7 +21,7 @@ class MY_Controller extends CI_Controller
 
         // set configuration website
         $this->load->model('Settings_model', 'settings');
-        $setting = $this->settings->get(1);
+        $setting = $this->settings->get();
         $this->page['webname'] = $setting->setting_webname;
         $this->page['organization'] = $setting->setting_organization;
         $this->config->load('template');

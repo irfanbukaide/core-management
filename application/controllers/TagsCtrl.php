@@ -31,6 +31,7 @@ class TagsCtrl extends MY_Controller
         // load data
         $this->page['mode'] = 'create';
         $this->page['tags'] = $this->tags->get_all();
+        $this->page['tag_id'] = $this->uuid->v4();
 
         // render
         $this->render('Master_tags', $this->page);

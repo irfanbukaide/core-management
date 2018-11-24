@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $location_id = '';
     $location_name = '';
     $location_latitude = '';
     $location_longitude = '';
@@ -104,7 +103,6 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">Location</th>
                                 <th class="text-nowrap">Latitude, Longitude</th>
                                 <th class="text-nowrap">Action</th>
@@ -114,7 +112,6 @@ if ($mode == 'create') {
                             <?php if ($locations != NULL): ?>
                                 <?php foreach ($locations as $location) : ?>
                                     <tr>
-                                        <td><?= $location->location_id; ?></td>
                                         <td><?= $location->location_name; ?></td>
                                         <td><?= $location->location_latitude . ', ' . $location->location_longitude; ?></td>
                                         <td><a class="btn btn-xs btn-primary"

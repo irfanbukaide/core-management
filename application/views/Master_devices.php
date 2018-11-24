@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $device_id = '';
     $device_name = '';
     $device_ipaddr = '';
 } else {

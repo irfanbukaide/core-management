@@ -32,6 +32,7 @@ class TypesCtrl extends MY_Controller
         // load data
         $this->page['mode'] = 'create';
         $this->page['types'] = $this->types->get_all();
+        $this->page['type_id'] = $this->uuid->v4();
 
         // render
         $this->render('Master_types', $this->page);

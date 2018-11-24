@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $tag_id = '';
     $tag_name = '';
 } else {
     $tag_id = $tag->tag_id;
@@ -81,7 +80,6 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">Tag Name</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
@@ -90,7 +88,6 @@ if ($mode == 'create') {
                             <?php if ($tags != NULL): ?>
                                 <?php foreach ($tags as $tag) : ?>
                                     <tr>
-                                        <td><?= $tag->tag_id; ?></td>
                                         <td><?= $tag->tag_name; ?></td>
                                         <td><a class="btn btn-xs btn-primary"
                                                href="<?= site_url('master/tag/edit/' . $tag->tag_id); ?>">Edit</a>

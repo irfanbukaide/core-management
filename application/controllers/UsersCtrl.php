@@ -31,6 +31,7 @@ class UsersCtrl extends MY_Controller
         // load data
         $this->page['mode'] = 'create';
         $this->page['users'] = $this->users->get_all();
+        $this->page['user_id'] = $this->uuid->v4();
 
         // render
         $this->render('Master_users', $this->page);

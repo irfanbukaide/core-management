@@ -31,6 +31,7 @@ class LocationsCtrl extends MY_Controller
         // load data
         $this->page['mode'] = 'create';
         $this->page['locations'] = $this->locations->get_all();
+        $this->page['location_id'] = $this->uuid->v4();
 
         // render
         $this->render('Master_locations', $this->page);

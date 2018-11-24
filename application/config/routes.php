@@ -63,33 +63,33 @@ $route['logout'] = 'AuthCtrl/logout';
 
 $route['device'] = 'DevicesCtrl/index';
 $route['device/save'] = 'DevicesCtrl/save';
-$route['device/edit/(:num)'] = 'DevicesCtrl/edit/$1';
-$route['device/delete/(:num)'] = 'DevicesCtrl/delete/$1';
+$route['device/edit/(:any)'] = 'DevicesCtrl/edit/$1';
+$route['device/delete/(:any)'] = 'DevicesCtrl/delete/$1';
 
 $route['master/brand'] = 'BrandsCtrl/index';
 $route['master/brand/save'] = 'BrandsCtrl/save';
-$route['master/brand/edit/(:num)'] = 'BrandsCtrl/edit/$1';
-$route['master/brand/delete/(:num)'] = 'BrandsCtrl/delete/$1';
+$route['master/brand/edit/(:any)'] = 'BrandsCtrl/edit/$1';
+$route['master/brand/delete/(:any)'] = 'BrandsCtrl/delete/$1';
 
 $route['master/type'] = 'TypesCtrl/index';
 $route['master/type/save'] = 'TypesCtrl/save';
-$route['master/type/edit/(:num)'] = 'TypesCtrl/edit/$1';
-$route['master/type/delete/(:num)'] = 'TypesCtrl/delete/$1';
+$route['master/type/edit/(:any)'] = 'TypesCtrl/edit/$1';
+$route['master/type/delete/(:any)'] = 'TypesCtrl/delete/$1';
 
 $route['master/location'] = 'LocationsCtrl/index';
 $route['master/location/save'] = 'LocationsCtrl/save';
-$route['master/location/edit/(:num)'] = 'LocationsCtrl/edit/$1';
-$route['master/location/delete/(:num)'] = 'LocationsCtrl/delete/$1';
+$route['master/location/edit/(:any)'] = 'LocationsCtrl/edit/$1';
+$route['master/location/delete/(:any)'] = 'LocationsCtrl/delete/$1';
 
 $route['master/tag'] = 'TagsCtrl/index';
 $route['master/tag/save'] = 'TagsCtrl/save';
-$route['master/tag/edit/(:num)'] = 'TagsCtrl/edit/$1';
-$route['master/tag/delete/(:num)'] = 'TagsCtrl/delete/$1';
+$route['master/tag/edit/(:any)'] = 'TagsCtrl/edit/$1';
+$route['master/tag/delete/(:any)'] = 'TagsCtrl/delete/$1';
 
 $route['master/user'] = 'UsersCtrl/index';
 $route['master/user/save'] = 'UsersCtrl/save';
-$route['master/user/edit/(:num)'] = 'UsersCtrl/edit/$1';
-$route['master/user/delete/(:num)'] = 'UsersCtrl/delete/$1';
+$route['master/user/edit/(:any)'] = 'UsersCtrl/edit/$1';
+$route['master/user/delete/(:any)'] = 'UsersCtrl/delete/$1';
 
 $route['hosts'] = 'HostsCtrl/index';
 $route['hosts/host_up'] = 'HostsCtrl/host_up';

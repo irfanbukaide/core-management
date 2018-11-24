@@ -78,7 +78,6 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm table-hover">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">Type Name</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
@@ -87,7 +86,6 @@ if ($mode == 'create') {
                             <?php if ($types != NULL): ?>
                                 <?php foreach ($types as $type) : ?>
                                     <tr>
-                                        <td><?= $type->type_id; ?></td>
                                         <td><?= $type->type_name; ?></td>
                                         <td><a class="btn btn-xs btn-primary"
                                                href="<?= site_url('master/type/edit/' . $type->type_id); ?>">Edit</a>

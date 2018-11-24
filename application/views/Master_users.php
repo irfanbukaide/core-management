@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $user_id = '';
     $user_name = '';
     $user_email = '';
     $user_password = '';
@@ -97,7 +96,6 @@ if ($mode == 'create') {
                         <table id="data-table-responsive" class="table table-sm">
                             <thead>
                             <tr>
-                                <th width="10%">ID</th>
                                 <th class="text-nowrap">User Name</th>
                                 <th class="text-nowrap">User Email</th>
                                 <th class="text-nowrap">Action</th>
@@ -107,7 +105,6 @@ if ($mode == 'create') {
                             <?php if ($users != NULL): ?>
                                 <?php foreach ($users as $user) : ?>
                                     <tr>
-                                        <td><?= $user->user_id; ?></td>
                                         <td><?= $user->user_name; ?></td>
                                         <td><?= $user->user_email; ?></td>
                                         <td><a class="btn btn-xs btn-info"

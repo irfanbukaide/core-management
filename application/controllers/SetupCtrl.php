@@ -46,8 +46,10 @@ class SetupCtrl extends CI_Controller
 
     public function step2($post = '')
     {
+        $this->load->library('Uuid');
         if ($post == 'do') {
             $user_data = array(
+                'user_id' => $this->uuid->v4(),
                 'user_name' => 'admin',
                 'user_email' => $this->input->post('user_email'),
                 'user_password' => $this->input->post('user_password'),

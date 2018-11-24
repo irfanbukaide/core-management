@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class DevicesCtrl extends MY_Controller
+class VlansCtrl extends MY_Controller
 {
     public function __construct()
     {

@@ -11,6 +11,12 @@ class Devices_model extends MY_Model
         $this->protected = array('created_at', 'update_at', 'deleted_at');
         $this->timestamps = FALSE;
         $this->soft_deletes = FALSE;
+        $this->has_one['device_setting'] = array(
+            'foreign_model' => 'Device_setting_model',
+            'foreign_table' => 'device_setting',
+            'foreign_key' => 'device_id',
+            'local_key' => 'device_id'
+        );
         $this->has_many['device_tag'] = array(
             'foreign_model' => 'Device_tag_model',
             'foreign_table' => 'device_tag',

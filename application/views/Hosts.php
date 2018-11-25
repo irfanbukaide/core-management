@@ -181,9 +181,10 @@
 
         <!-- begin panel-body -->
         <div class="panel-body">
-            <table id="data-table-responsive" class="table table-sm table-hover">
+            <table id="data-table-responsive" class="table table-sm">
                 <thead>
                 <tr>
+                    <th width="1%"></th>
                     <th class="text-nowrap">Hostname</th>
                     <th class="text-nowrap">IP Address</th>
                     <th class="text-nowrap">Brand</th>
@@ -199,6 +200,7 @@
                 <?php if ($devices != NULL): ?>
                     <?php foreach ($devices as $device) : ?>
                         <tr>
+                            <td><a href=""><i class="fas fa-play-circle fa-2x"></i></a></td>
                             <td><?= $device->device_name; ?></td>
                             <td><?= $device->device_ipaddr; ?></td>
                             <td>

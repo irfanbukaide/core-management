@@ -73,6 +73,16 @@
                                name="setting_organization"
                                placeholder="Organization / Company" required/>
                     </div>
+                    <div class="form-group m-b-15">
+                        <input type="text" class="form-control form-control-lg" id="setting_interval"
+                               name="setting_interval"
+                               placeholder="Interval 'default is 60 Second'" required/>
+                    </div>
+                    <div class="form-group m-b-15">
+                        <input type="text" class="form-control form-control-lg" id="setting_interval"
+                               name="setting_interval"
+                               placeholder="Timeout 'default is 10 Second'" required/>
+                    </div>
                     <div class="login-buttons">
                         <button type="submit" class="btn btn-success btn-block btn-lg">Go Step 2</button>
                     </div>

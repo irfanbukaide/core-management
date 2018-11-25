@@ -20,6 +20,7 @@ class DevicesCtrl extends MY_Controller
         $this->load->model('device_location_model', 'device_location');
         $this->load->model('device_type_model', 'device_type');
         $this->load->model('device_tag_model', 'device_tag');
+        $this->load->model('device_setting_model', 'device_setting');
 
 
         // save session url
@@ -220,6 +221,7 @@ class DevicesCtrl extends MY_Controller
                 $this->pesan->berhasil('Data successfully changed');
             } else {
                 $this->devices->insert($data_device);
+                $this->device_setting->insert(array('device_id' => $data_device['device_id'], 'device_status' => 0));
                 foreach ($data_brands as $brand) {
                     $this->device_brand->insert(array(
                         'device_id' => $data_device['device_id'],

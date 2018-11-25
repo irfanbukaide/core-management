@@ -27,6 +27,8 @@ class SetupCtrl extends CI_Controller
                 'setting_id' => $this->uuid->v4(),
                 'setting_webname' => $this->input->post('setting_webname'),
                 'setting_organization' => $this->input->post('setting_organization'),
+                'setting_interval' => $this->input->post('setting_interval'),
+                'setting_timeout' => $this->input->post('setting_timeout'),
             );
 
             try {

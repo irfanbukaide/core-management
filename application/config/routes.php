@@ -61,10 +61,20 @@ $route['login'] = 'AuthCtrl/login';
 $route['login/do'] = 'AuthCtrl/login/do';
 $route['logout'] = 'AuthCtrl/logout';
 
+$route['vlan'] = 'VlansCtrl/index';
+$route['vlan/save'] = 'VlansCtrl/save';
+$route['vlan/edit/(:any)'] = 'VlansCtrl/edit/$1';
+$route['vlan/delete/(:any)'] = 'VlansCtrl/delete/$1';
+
 $route['device'] = 'DevicesCtrl/index';
 $route['device/save'] = 'DevicesCtrl/save';
 $route['device/edit/(:any)'] = 'DevicesCtrl/edit/$1';
 $route['device/delete/(:any)'] = 'DevicesCtrl/delete/$1';
+
+$route['master/vendor'] = 'VendorsCtrl/index';
+$route['master/vendor/save'] = 'VendorsCtrl/save';
+$route['master/vendor/edit/(:any)'] = 'VendorsCtrl/edit/$1';
+$route['master/vendor/delete/(:any)'] = 'VendorsCtrl/delete/$1';
 
 $route['master/brand'] = 'BrandsCtrl/index';
 $route['master/brand/save'] = 'BrandsCtrl/save';

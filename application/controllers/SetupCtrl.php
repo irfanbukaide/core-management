@@ -21,15 +21,21 @@ class SetupCtrl extends CI_Controller
 
     public function step1($post = '')
     {
+        $this->load->library('Uuid');
         if ($post == 'do') {
             $setting_data = array(
+                'setting_id' => $this->uuid->v4(),
                 'setting_webname' => $this->input->post('setting_webname'),
                 'setting_organization' => $this->input->post('setting_organization'),
             );
 
             try {
-                $setting = $this->settings->insert($setting_data);
+                $setting = $this->settings->where($setting_data)->get();
                 if ($setting) {
+                    $this->settings->update($setting_data, 'setting_id');
+                    $this->pesan->gagal('Successfull');
+                } else {
+                    $this->settings->insert($setting_data);
                     $this->pesan->gagal('Successfull');
                 }
             } catch (Exception $e) {
@@ -43,7 +49,6 @@ class SetupCtrl extends CI_Controller
 
 
     }
-
     public function step2($post = '')
     {
         $this->load->library('Uuid');

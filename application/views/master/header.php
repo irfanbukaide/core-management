@@ -52,13 +52,15 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="javascript:;"><i class="fa fa-share-alt fa-fw"></i> Vlan </a></li>
+            <li><a href="<?= site_url('vlan'); ?>"><i class="fa fa-share-alt fa-fw"></i> Vlan </a></li>
             <li><a href="<?= site_url('device'); ?>"><i class="fas fa-desktop fa-fw"></i> Device </a></li>
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="fa fa-database fa-fw"></i> Master <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="<?= site_url('master/vendor'); ?>"><i class="fas fa-user-md fa-fw"></i> Vendors</a>
+                    </li>
                     <li><a href="<?= site_url('master/brand'); ?>"><i class="fas fa-laptop fa-fw"></i> Brands</a></li>
                     <li><a href="<?= site_url('master/type'); ?>"><i class="fas fa-object-group fa-fw"></i> Types</a>
                     </li>

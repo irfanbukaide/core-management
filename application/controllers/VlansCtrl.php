@@ -10,17 +10,11 @@ class VlansCtrl extends MY_Controller
         $this->page_css_js();
 
         // load model
-        $this->load->model('Devices_model', 'devices');
-        $this->load->model('Brands_model', 'brands');
+        $this->load->model('Vlans_model', 'vlans');
+        $this->load->model('Vendors_model', 'vendors');
         $this->load->model('Locations_model', 'locations');
-        $this->load->model('Types_model', 'types');
-        $this->load->model('Tags_model', 'tags');
-
-        $this->load->model('device_brand_model', 'device_brand');
-        $this->load->model('device_location_model', 'device_location');
-        $this->load->model('device_type_model', 'device_type');
-        $this->load->model('device_tag_model', 'device_tag');
-
+        $this->load->model('vlan_vendor_model', 'vlan_vendor');
+        $this->load->model('vlan_location_model', 'vlan_location');
 
         // save session url
         $this->save_session_url(current_url());
@@ -35,25 +29,21 @@ class VlansCtrl extends MY_Controller
         $this->master_css_js();
 
         // title segment
-        $this->title('Devices');
+        $this->title('Vlans');
 
         // load data
         $this->page['mode'] = 'create';
-        $this->page['brands'] = $this->brands->get_all();
+        $this->page['vendors'] = $this->vendors->get_all();
         $this->page['locations'] = $this->locations->get_all();
-        $this->page['types'] = $this->types->get_all();
-        $this->page['tags'] = $this->tags->get_all();
-        $this->page['devices'] = $this->devices
-            ->with_device_brand()
-            ->with_device_type()
-            ->with_device_location()
-            ->with_device_tag()
+        $this->page['vlans'] = $this->vlans
+            ->with_vlan_vendor()
+            ->with_vlan_location()
             ->get_all();
-        $this->page['device_id'] = $this->uuid->v4();
+        $this->page['vlan_id'] = $this->uuid->v4();
 
         // render
-        $this->render('Devices', $this->page);
-//        var_dump($this->page['devices']);
+        $this->render('Vlans', $this->page);
+//        var_dump($this->page['vlans']);
     }
 
     public function edit($id)
@@ -62,33 +52,34 @@ class VlansCtrl extends MY_Controller
 
         // load data
         $this->page['mode'] = 'edit';
-        $brands = $this->brands->with_device_brand()->get_all();
-        $brands = function () use ($id, $brands) {
-            foreach ($brands as $brand) {
-                if (isset($brand->device_brand) && $brand->device_brand != NULL) {
-                    foreach ($brand->device_brand as $db) {
-                        if ($db->device_id == $id) {
-                            $brand->selected = 'selected';
+        $vendors = $this->vendors->with_vlan_vendor()->get_all();
+        $vendors = function () use ($id, $vendors) {
+            foreach ($vendors as $vendor) {
+                if (isset($vendor->vlan_vendor) && $vendor->vlan_vendor != NULL) {
+                    foreach ($vendor->vlan_vendor as $db) {
+                        if ($db->vlan_id == $id) {
+                            $vendor->selected = 'selected';
                             break;
                         } else {
-                            $brand->selected = '';
+                            $vendor->selected = '';
                         }
                     }
                 } else {
-                    $brand->selected = '';
+                    $vendor->selected = '';
                 }
             }
 
-            return $brands;
+            return $vendors;
 
         };
-        $this->page['brands'] = $brands();
-        $locations = $this->locations->with_device_location()->get_all();
+        $this->page['vendors'] = $vendors();
+
+        $locations = $this->locations->with_vlan_location()->get_all();
         $locations = function () use ($id, $locations) {
             foreach ($locations as $location) {
-                if (isset($location->device_location) && $location->device_location != NULL) {
-                    foreach ($location->device_location as $db) {
-                        if ($db->device_id == $id) {
+                if (isset($location->vlan_location) && $location->vlan_location != NULL) {
+                    foreach ($location->vlan_location as $db) {
+                        if ($db->vlan_id == $id) {
                             $location->selected = 'selected';
                             break;
                         } else {
@@ -104,57 +95,12 @@ class VlansCtrl extends MY_Controller
 
         };
         $this->page['locations'] = $locations();
-        $types = $this->types->with_device_type()->get_all();
-        $types = function () use ($id, $types) {
-            foreach ($types as $type) {
-                if (isset($type->device_type) && $type->device_type != NULL) {
-                    foreach ($type->device_type as $db) {
-                        if ($db->device_id == $id) {
-                            $type->selected = 'selected';
-                            break;
-                        } else {
-                            $type->selected = '';
-                        }
-                    }
-                } else {
-                    $type->selected = '';
-                }
-            }
-
-            return $types;
-
-        };
-        $this->page['types'] = $types();
-        $tags = $this->tags->with_device_tag()->get_all();
-        $tags = function () use ($id, $tags) {
-            foreach ($tags as $tag) {
-                if (isset($tag->device_tag) && $tag->device_tag != NULL) {
-                    foreach ($tag->device_tag as $db) {
-                        if ($db->device_id == $id) {
-                            $tag->selected = 'selected';
-                            break;
-                        } else {
-                            $tag->selected = '';
-                        }
-                    }
-                } else {
-                    $tag->selected = '';
-                }
-            }
-
-            return $tags;
-
-        };
-        $this->page['tags'] = $tags();
-        $this->page['device'] = $this->devices->where('device_id', $id)
-            ->with_device_brand()
-            ->with_device_type()
-            ->with_device_location()
-            ->with_device_tag()
+        $this->page['vlan'] = $this->vlans->where('vlan_id', $id)
+            ->with_vlan_vendor()
             ->get();
 
         // render
-        $this->render('Devices', $this->page);
+        $this->render('Vlans', $this->page);
 //        echo '<pre>';
 //        var_dump($this->page['brands']);
 //        echo '</pre>';
@@ -162,80 +108,51 @@ class VlansCtrl extends MY_Controller
 
     public function save()
     {
-        $data_device = array(
-            'device_id' => $this->input->post('device_id'),
-            'device_name' => $this->input->post('device_name'),
-            'device_ipaddr' => $this->input->post('device_ipaddr')
+        $data_vlan = array(
+            'vlan_id' => $this->input->post('vlan_id'),
+            'vlan_name' => $this->input->post('vlan_name'),
+            'vlan_bandwidth' => $this->input->post('vlan_bandwidth'),
+            'vlan_speedtype' => $this->input->post('vlan_speedtype'),
         );
 
-        $data_brands = $this->input->post('brands');
-        $data_types = $this->input->post('types');
+        $data_vendors = $this->input->post('vendors');
         $data_locations = $this->input->post('locations');
-        $data_tags = $this->input->post('tags');
 
 
         try {
-            $device = $this->devices->where('device_id', $data_device['device_id'])->get();
+            $vlan = $this->vlans->where('vlan_id', $data_vlan['vlan_id'])->get();
 
-            if ($device) {
-                $this->devices->update($data_device, 'device_id');
-                $this->device_brand->where('device_id', $data_device['device_id'])->delete();
-                $this->device_type->where('device_id', $data_device['device_id'])->delete();
-                $this->device_location->where('device_id', $data_device['device_id'])->delete();
-                $this->device_tag->where('device_id', $data_device['device_id'])->delete();
-                foreach ($data_brands as $brand) {
-                    $this->device_brand->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'brand_id' => $brand
+            if ($vlan) {
+                $this->vlans->update($data_vlan, 'vlan_id');
+                $this->vlan_vendor->where('vlan_id', $data_vlan['vlan_id'])->delete();
+                $this->vlan_location->where('vlan_id', $data_vlan['vlan_id'])->delete();
+                foreach ($data_vendors as $vendor) {
+                    $this->vlan_vendor->insert(array(
+                        'vlan_id' => $data_vlan['vlan_id'],
+                        'vendor_id' => $vendor
                     ));
                 }
-                foreach ($data_types as $type) {
-                    $this->device_type->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'type_id' => $type
-                    ));
-                }
-
                 foreach ($data_locations as $location) {
-                    $this->device_location->insert(array(
-                        'device_id' => $data_device['device_id'],
+                    $this->vlan_location->insert(array(
+                        'vlan_id' => $data_vlan['vlan_id'],
                         'location_id' => $location
-                    ));
-                }
-
-                foreach ($data_tags as $tag) {
-                    $this->device_tag->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'tag_id' => $tag
                     ));
                 }
                 $this->pesan->berhasil('Data successfully changed');
             } else {
-                $this->devices->insert($data_device);
-                foreach ($data_brands as $brand) {
-                    $this->device_brand->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'brand_id' => $brand
-                    ));
-                }
-                foreach ($data_types as $type) {
-                    $this->device_type->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'type_id' => $type
+                $this->vlans->insert($data_vlan);
+
+                foreach ($data_vendors as $vendor) {
+                    $this->vlan_vendor->insert(array(
+                        'vlan_id' => $data_vlan['vlan_id'],
+                        'vendor_id' => $vendor
                     ));
                 }
 
                 foreach ($data_locations as $location) {
-                    $this->device_location->insert(array(
-                        'device_id' => $data_device['device_id'],
+                    $this->vlan_location->insert(array(
+                        'vlan_id' => $data_vlan['vlan_id'],
                         'location_id' => $location
-                    ));
-                }
-
-                foreach ($data_tags as $tag) {
-                    $this->device_tag->insert(array(
-                        'device_id' => $data_device['device_id'],
-                        'tag_id' => $tag
                     ));
                 }
 
@@ -246,23 +163,21 @@ class VlansCtrl extends MY_Controller
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('device');
+        redirect('vlan');
     }
 
     public function delete($id)
     {
         try {
-            $this->device_brand->where('device_id', $id)->delete();
-            $this->device_type->where('device_id', $id)->delete();
-            $this->device_location->where('device_id', $id)->delete();
-            $this->device_tag->where('device_id', $id)->delete();
-            $this->devices->where('device_id', $id)->delete();
+            $this->vlan_vendor->where('vlan_id', $id)->delete();
+            $this->vlan_location->where('vlan_id', $id)->delete();
+            $this->vlans->where('vlan_id', $id)->delete();
             $this->pesan->berhasil('Data successfully deleted');
         } catch (Exception $e) {
             $this->pesan->gagal('ERROR : ' . $e);
         }
 
-        redirect('device');
+        redirect('vlan');
     }
 
 

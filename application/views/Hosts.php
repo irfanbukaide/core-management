@@ -181,7 +181,7 @@
 
         <!-- begin panel-body -->
         <div class="panel-body">
-            <table id="data-table-responsive" class="table table-sm">
+            <table id="data-table-responsive" class="table">
                 <thead>
                 <tr>
                     <th width="5%"></th>

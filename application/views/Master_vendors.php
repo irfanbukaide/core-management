@@ -77,7 +77,7 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table id="data-table-responsive" class="table table-sm table-hover">
+                        <table id="data-table-responsive" class="table">
                             <thead>
                             <tr>
                                 <th class="text-nowrap">Vendor Name</th>

@@ -1,6 +1,5 @@
 <?php
 if ($mode == 'create') {
-    $type_id = '';
     $type_name = '';
 } else {
     $type_id = $type->type_id;

@@ -64,18 +64,20 @@ class DevicesCtrl extends MY_Controller
         $this->page['mode'] = 'edit';
         $brands = $this->brands->with_device_brand()->get_all();
         $brands = function () use ($id, $brands) {
-            foreach ($brands as $brand) {
-                if (isset($brand->device_brand) && $brand->device_brand != NULL) {
-                    foreach ($brand->device_brand as $db) {
-                        if ($db->device_id == $id) {
-                            $brand->selected = 'selected';
-                            break;
-                        } else {
-                            $brand->selected = '';
+            if ($brands) {
+                foreach ($brands as $brand) {
+                    if (isset($brand->device_brand) && $brand->device_brand != NULL) {
+                        foreach ($brand->device_brand as $db) {
+                            if ($db->device_id == $id) {
+                                $brand->selected = 'selected';
+                                break;
+                            } else {
+                                $brand->selected = '';
+                            }
                         }
+                    } else {
+                        $brand->selected = '';
                     }
-                } else {
-                    $brand->selected = '';
                 }
             }
 
@@ -85,18 +87,20 @@ class DevicesCtrl extends MY_Controller
         $this->page['brands'] = $brands();
         $locations = $this->locations->with_device_location()->get_all();
         $locations = function () use ($id, $locations) {
-            foreach ($locations as $location) {
-                if (isset($location->device_location) && $location->device_location != NULL) {
-                    foreach ($location->device_location as $db) {
-                        if ($db->device_id == $id) {
-                            $location->selected = 'selected';
-                            break;
-                        } else {
-                            $location->selected = '';
+            if ($locations) {
+                foreach ($locations as $location) {
+                    if (isset($location->device_location) && $location->device_location != NULL) {
+                        foreach ($location->device_location as $db) {
+                            if ($db->device_id == $id) {
+                                $location->selected = 'selected';
+                                break;
+                            } else {
+                                $location->selected = '';
+                            }
                         }
+                    } else {
+                        $location->selected = '';
                     }
-                } else {
-                    $location->selected = '';
                 }
             }
 
@@ -106,18 +110,20 @@ class DevicesCtrl extends MY_Controller
         $this->page['locations'] = $locations();
         $types = $this->types->with_device_type()->get_all();
         $types = function () use ($id, $types) {
-            foreach ($types as $type) {
-                if (isset($type->device_type) && $type->device_type != NULL) {
-                    foreach ($type->device_type as $db) {
-                        if ($db->device_id == $id) {
-                            $type->selected = 'selected';
-                            break;
-                        } else {
-                            $type->selected = '';
+            if ($types) {
+                foreach ($types as $type) {
+                    if (isset($type->device_type) && $type->device_type != NULL) {
+                        foreach ($type->device_type as $db) {
+                            if ($db->device_id == $id) {
+                                $type->selected = 'selected';
+                                break;
+                            } else {
+                                $type->selected = '';
+                            }
                         }
+                    } else {
+                        $type->selected = '';
                     }
-                } else {
-                    $type->selected = '';
                 }
             }
 
@@ -127,18 +133,20 @@ class DevicesCtrl extends MY_Controller
         $this->page['types'] = $types();
         $tags = $this->tags->with_device_tag()->get_all();
         $tags = function () use ($id, $tags) {
-            foreach ($tags as $tag) {
-                if (isset($tag->device_tag) && $tag->device_tag != NULL) {
-                    foreach ($tag->device_tag as $db) {
-                        if ($db->device_id == $id) {
-                            $tag->selected = 'selected';
-                            break;
-                        } else {
-                            $tag->selected = '';
+            if ($tags) {
+                foreach ($tags as $tag) {
+                    if (isset($tag->device_tag) && $tag->device_tag != NULL) {
+                        foreach ($tag->device_tag as $db) {
+                            if ($db->device_id == $id) {
+                                $tag->selected = 'selected';
+                                break;
+                            } else {
+                                $tag->selected = '';
+                            }
                         }
+                    } else {
+                        $tag->selected = '';
                     }
-                } else {
-                    $tag->selected = '';
                 }
             }
 

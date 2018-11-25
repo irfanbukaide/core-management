@@ -54,18 +54,20 @@ class VlansCtrl extends MY_Controller
         $this->page['mode'] = 'edit';
         $vendors = $this->vendors->with_vlan_vendor()->get_all();
         $vendors = function () use ($id, $vendors) {
-            foreach ($vendors as $vendor) {
-                if (isset($vendor->vlan_vendor) && $vendor->vlan_vendor != NULL) {
-                    foreach ($vendor->vlan_vendor as $db) {
-                        if ($db->vlan_id == $id) {
-                            $vendor->selected = 'selected';
-                            break;
-                        } else {
-                            $vendor->selected = '';
+            if ($vendors) {
+                foreach ($vendors as $vendor) {
+                    if (isset($vendor->vlan_vendor) && $vendor->vlan_vendor != NULL) {
+                        foreach ($vendor->vlan_vendor as $db) {
+                            if ($db->vlan_id == $id) {
+                                $vendor->selected = 'selected';
+                                break;
+                            } else {
+                                $vendor->selected = '';
+                            }
                         }
+                    } else {
+                        $vendor->selected = '';
                     }
-                } else {
-                    $vendor->selected = '';
                 }
             }
 
@@ -76,18 +78,20 @@ class VlansCtrl extends MY_Controller
 
         $locations = $this->locations->with_vlan_location()->get_all();
         $locations = function () use ($id, $locations) {
-            foreach ($locations as $location) {
-                if (isset($location->vlan_location) && $location->vlan_location != NULL) {
-                    foreach ($location->vlan_location as $db) {
-                        if ($db->vlan_id == $id) {
-                            $location->selected = 'selected';
-                            break;
-                        } else {
-                            $location->selected = '';
+            if ($locations) {
+                foreach ($locations as $location) {
+                    if (isset($location->vlan_location) && $location->vlan_location != NULL) {
+                        foreach ($location->vlan_location as $db) {
+                            if ($db->vlan_id == $id) {
+                                $location->selected = 'selected';
+                                break;
+                            } else {
+                                $location->selected = '';
+                            }
                         }
+                    } else {
+                        $location->selected = '';
                     }
-                } else {
-                    $location->selected = '';
                 }
             }
 
@@ -97,6 +101,7 @@ class VlansCtrl extends MY_Controller
         $this->page['locations'] = $locations();
         $this->page['vlan'] = $this->vlans->where('vlan_id', $id)
             ->with_vlan_vendor()
+            ->with_vlan_location()
             ->get();
 
         // render

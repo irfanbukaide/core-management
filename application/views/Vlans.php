@@ -124,6 +124,7 @@ if ($mode == 'create') {
                                 <th class="text-nowrap">Vlan ID</th>
                                 <th class="text-nowrap">Bandwidth</th>
                                 <th class="text-nowrap">Vendor</th>
+                                <th class="text-nowrap">Location</th>
                                 <th class="text-nowrap">Action</th>
                             </tr>
                             </thead>
@@ -132,7 +133,7 @@ if ($mode == 'create') {
                                 <?php foreach ($vlans as $vlan) : ?>
                                     <tr>
                                         <td><?= $vlan->vlan_name; ?></td>
-                                        <td><?= $vlan->vlan_bandwidth; ?></td>
+                                        <td><?= $vlan->vlan_bandwidth . ' ' . $vlan->vlan_speedtype; ?></td>
                                         <td>
                                             <?php if ($vlan->vlan_vendor != NULL): ?>
                                                 <?php foreach ($vlan->vlan_vendor as $db): ?>

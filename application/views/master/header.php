@@ -29,24 +29,25 @@
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="<?= site_url('hosts'); ?>">
+                            <span class="badge badge-info pull-right"><?= $hosts_total_count; ?></span>
                             Host
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_up'); ?>">
-                            <span class="badge badge-success pull-right">10</span>
+                            <span class="badge badge-success pull-right"><?= $hosts_up_count; ?></span>
                             Host Up
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_down'); ?>">
-                            <span class="badge badge-danger pull-right">10</span>
+                            <span class="badge badge-danger pull-right"><?= $hosts_down_count; ?></span>
                             Host Down
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_log'); ?>">
-                            <span class="badge badge-danger pull-right">120</span>
+                            <span class="badge badge-danger pull-right"><?= $hosts_log_count; ?></span>
                             Host Log
                         </a>
                     </li>

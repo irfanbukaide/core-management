@@ -6,6 +6,10 @@ class HostsCtrl extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+
+        // load library
+        $this->load->library('Secondstotime');
+
         // load page css and js
         $this->page_css_js();
 
@@ -20,6 +24,7 @@ class HostsCtrl extends MY_Controller
         $this->load->model('device_location_model', 'device_location');
         $this->load->model('device_type_model', 'device_type');
         $this->load->model('device_tag_model', 'device_tag');
+        $this->load->model('device_log_model', 'device_log');
 
 
         // save session url
@@ -48,6 +53,7 @@ class HostsCtrl extends MY_Controller
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
+            ->with_device_setting()
             ->get_all();
 
         $this->render('Hosts', $this->page);
@@ -70,6 +76,7 @@ class HostsCtrl extends MY_Controller
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
+            ->with_device_setting('where: device_status=1')
             ->get_all();
         $this->render('Hosts_up', $this->page);
     }
@@ -90,6 +97,7 @@ class HostsCtrl extends MY_Controller
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
+            ->with_device_setting('where: device_status=0')
             ->get_all();
 
         $this->render('Hosts_down', $this->page);

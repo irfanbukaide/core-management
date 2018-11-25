@@ -19,6 +19,19 @@ class MY_Controller extends CI_Controller
         // set page array
         $this->page = array();
 
+        // setup hosts
+        $this->load->model('Device_setting_model', 'device_setting');
+        $this->load->model('Device_log_model', 'device_log');
+        $hosts_total_count = $this->device_setting->count_rows();
+        $hosts_up_count = $this->device_setting->where(array('device_status' => 1, 'device_running' => 1))->count_rows();
+        $hosts_down_count = $this->device_setting->where(array('device_status' => 0, 'device_running' => 1))->count_rows();
+        $hosts_log_count = $this->device_log->where(array('device_logchecked' => 0))->count_rows();
+
+        $this->page['hosts_total_count'] = $hosts_total_count;
+        $this->page['hosts_up_count'] = $hosts_up_count;
+        $this->page['hosts_down_count'] = $hosts_down_count;
+        $this->page['hosts_log_count'] = $hosts_log_count;
+
         // set configuration website
         $this->load->model('Settings_model', 'settings');
         $setting = $this->settings->get();

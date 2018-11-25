@@ -184,7 +184,7 @@
             <table id="data-table-responsive" class="table table-sm">
                 <thead>
                 <tr>
-                    <th width="1%"></th>
+                    <th width="5%"></th>
                     <th class="text-nowrap">Hostname</th>
                     <th class="text-nowrap">IP Address</th>
                     <th class="text-nowrap">Brand</th>
@@ -200,7 +200,14 @@
                 <?php if ($devices != NULL): ?>
                     <?php foreach ($devices as $device) : ?>
                         <tr>
-                            <td><a href=""><i class="fas fa-play-circle fa-2x"></i></a></td>
+                            <td>
+                                <?php if ($device->device_setting->device_running == 0): ?>
+                                    <a href="" class="btn btn-xs btn-primary"><i class="fas fa-play-circle"></i>
+                                        Start</a>
+                                <?php else: ?>
+                                    <a href="" class="btn btn-xs btn-danger"><i class="fas fa-stop-circle"></i> Stop</a>
+                                <?php endif; ?>
+                            </td>
                             <td><?= $device->device_name; ?></td>
                             <td><?= $device->device_ipaddr; ?></td>
                             <td>
@@ -248,29 +255,33 @@
                                 <div class="row">
                                     <div class="col mb-2">
                                         <b>Uptime :</b><br>
-                                        <span class="text-success">15Days 45Minutes</span>
+                                        <span class="text-success"><?= $this->secondstotime->generate($device->device_setting->device_uptime); ?></span>
                                     </div>
                                     <div class="col mb-2">
                                         <b>Downtime :</b><br>
-                                        <span class="text-danger">15Days 45Minutes</span>
+                                        <span class="text-danger"><?= $this->secondstotime->generate($device->device_setting->device_downtime); ?></span>
                                     </div>
-                                    <div class="col mb-2">
-                                        <b>Last up at :</b> <br>
-                                        <?= date('d-m-Y H:i:s'); ?>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col mb-2">
-                                        <b>Last down at :</b> <br>
-                                        <?= date('d-m-Y H:i:s'); ?>
+                                        <b>Last up at :</b> <br>
+                                        <?= $device->device_setting->device_last_up; ?>
                                     </div>
                                     <div class="col mb-2">
+                                        <b>Last down at :</b> <br>
+                                        <?= $device->device_setting->device_last_down; ?>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col mb-2">
                                         <b>Last checked at :</b><br>
-                                        <?= date('d-m-Y H:i:s'); ?>
+                                        <?= $device->device_setting->device_last_checked; ?>
                                     </div>
                                     <div class="col mb-2">
                                         <b>Next run at :</b><br>
-                                        <?= date('d-m-Y H:i:s'); ?>
+                                        <?= $device->device_setting->device_next_run; ?>
                                     </div>
                                 </div>
                             </td>

@@ -79,8 +79,8 @@
                                placeholder="Interval 'default is 60 Second'" required/>
                     </div>
                     <div class="form-group m-b-15">
-                        <input type="text" class="form-control form-control-lg" id="setting_interval"
-                               name="setting_interval"
+                        <input type="text" class="form-control form-control-lg" id="setting_timeout"
+                               name="setting_timeout"
                                placeholder="Timeout 'default is 10 Second'" required/>
                     </div>
                     <div class="login-buttons">

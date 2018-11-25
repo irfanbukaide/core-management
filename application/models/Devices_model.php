@@ -43,6 +43,13 @@ class Devices_model extends MY_Model
             'foreign_key' => 'device_id',
             'local_key' => 'device_id'
         );
+
+        $this->has_many['device_log'] = array(
+            'foreign_model' => 'Device_log_model',
+            'foreign_table' => 'device_log',
+            'foreign_key' => 'device_id',
+            'local_key' => 'device_id'
+        );
         parent::__construct();
     }
 }

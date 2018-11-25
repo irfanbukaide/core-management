@@ -34,12 +34,9 @@
                 <thead>
                 <tr>
                     <th class="text-nowrap">Datetime</th>
+                    <th class="text-nowrap">Hostname</th>
                     <th class="text-nowrap">IP Address</th>
-                    <th class="text-nowrap">Hosts Name</th>
-                    <th class="text-nowrap">Brand</th>
-                    <th class="text-nowrap">Type</th>
                     <th class="text-nowrap">Status</th>
-                    <th class="text-nowrap">Last Checked</th>
                     <th class="text-nowrap"></th>
                 </tr>
                 </thead>
@@ -48,12 +45,10 @@
                     <?php $v = 2; ?>
                     <tr class="<?= $hasil = $i % $v == 0 ? '' : ''; ?>">
                         <td><?= date('d/m/Y H:i:s'); ?></td>
-                        <td><?= $randIP = "" . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255); ?></td>
                         <td>PEER-Cengkareng-P</td>
-                        <td>Cisco</td>
-                        <td>Router</td>
+                        <td><?= $randIP = "" . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255) . "." . mt_rand(0, 255); ?></td>
+
                         <td class="<?= $hasil = $i % $v == 0 ? 'text-danger' : 'text-success'; ?>"><?= $hasil = $i % $v == 0 ? 'DOWN' : 'UP'; ?></td>
-                        <td><?= date('d-m-Y H:i:s'); ?></td>
                         <td>
                             <a href="#" class="btn btn-xs btn-success">Acknowledge</a>
                         </td>

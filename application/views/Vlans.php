@@ -135,7 +135,7 @@ if ($mode == 'create') {
                                         <td><?= $vlan->vlan_name; ?></td>
                                         <td><?= $vlan->vlan_bandwidth . ' ' . $vlan->vlan_speedtype; ?></td>
                                         <td>
-                                            <?php if ($vlan->vlan_vendor != NULL): ?>
+                                            <?php if (isset($vlan->vlan_vendor) && $vlan->vlan_vendor != NULL): ?>
                                                 <?php foreach ($vlan->vlan_vendor as $db): ?>
                                                     <?php $vendor = $this->vendors->where('vendor_id', $db->vendor_id)->get(); ?>
                                                     <span class="label label-dark"><?= $vendor->vendor_name; ?></span>
@@ -145,7 +145,7 @@ if ($mode == 'create') {
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <?php if ($vlan->vlan_location != NULL): ?>
+                                            <?php if (isset($vlan->vlan_location) && $vlan->vlan_location != NULL): ?>
                                                 <?php foreach ($vlan->vlan_location as $db): ?>
                                                     <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
                                                     <span class="label label-dark"><?= $location->location_name; ?></span>

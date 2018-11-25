@@ -168,7 +168,7 @@
                             <td><?= $device->device_name; ?></td>
                             <td><?= $device->device_ipaddr; ?></td>
                             <td>
-                                <?php if ($device->device_brand != NULL): ?>
+                                <?php if (isset($device->device_brand) && $device->device_brand != NULL): ?>
                                     <?php foreach ($device->device_brand as $db): ?>
                                         <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
                                         <span class="label label-dark mb-2"><?= $brand->brand_name; ?></span>
@@ -178,7 +178,7 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if ($device->device_type != NULL): ?>
+                                <?php if (isset($device->device_type) && $device->device_type != NULL): ?>
                                     <?php foreach ($device->device_type as $db): ?>
                                         <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
                                         <span class="label label-dark mb-2"><?= $type->type_name; ?></span>
@@ -188,7 +188,7 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if ($device->device_location != NULL): ?>
+                                <?php if (isset($device->device_location) && $device->device_location != NULL): ?>
                                     <?php foreach ($device->device_location as $db): ?>
                                         <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
                                         <span class="label label-dark mb-2"><?= $location->location_name; ?></span>
@@ -198,7 +198,7 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <?php if ($device->device_tag != NULL): ?>
+                                <?php if (isset($device->device_tag) && $device->device_tag != NULL): ?>
                                     <?php foreach ($device->device_tag as $db): ?>
                                         <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
                                         <span class="label label-dark"><?= $tag->tag_name; ?></span>

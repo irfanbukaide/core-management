@@ -173,8 +173,8 @@ class DevicesCtrl extends MY_Controller
     {
         $data_device = array(
             'device_id' => $this->input->post('device_id'),
-            'device_name' => $this->input->post('device_name'),
-            'device_ipaddr' => $this->input->post('device_ipaddr')
+            'device_name' => $this->whitespace->remove($this->input->post('device_name')),
+            'device_ipaddr' => $this->whitespace->remove($this->input->post('device_ipaddr'))
         );
 
         $data_brands = $this->input->post('brands');

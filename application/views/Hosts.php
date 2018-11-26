@@ -12,168 +12,40 @@
     </h1>
     <!-- end page-header -->
 
-    <!-- begin panel -->
-    <div class="panel panel-inverse">
-        <!-- begin panel-heading -->
-        <div class="panel-heading">
-            <div class="panel-heading-btn">
-                <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
-                   data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+    <!-- Modal -->
+    <div class="modal fade" id="filter" tabindex="-1" role="dialog" aria-labelledby="filterLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filterLabel">Filter</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
             </div>
-            <h4 class="panel-title">Hosts Filter</h4>
         </div>
-        <!-- end panel-heading -->
-
-        <!-- begin panel-body -->
-        <div class="panel-body">
-            <form class="form-horizontal col-12 col-md-10" method="get">
-                <div class="row">
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="ipaddress" class="col-3 col-form-label">IP Address</label>
-                            <div class="col-9">
-                                <input type="text" class="form-control" id="ipaddress" name="ipaddress"
-                                       placeholder="Type an ip address">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="hostname" class="col-3 col-form-label">Hostname</label>
-                            <div class="col-9">
-                                <input type="text" class="form-control" id="hostname" name="hostname"
-                                       placeholder="Type a hostname">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="brand" class="col-3 col-form-label">Brands</label>
-                            <div class="col-9">
-                                <select id="brand" name="brand[]" class="multiple-select2 form-control"
-                                        multiple="multiple"
-                                        data-placeholder="Select a brands">
-                                    <?php if ($brands != NULL): ?>
-                                        <?php foreach ($brands as $brand): ?>
-                                            <option value="<?= $brand->brand_id; ?>"><?= $brand->brand_name; ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="type" class="col-3 col-form-label">Types</label>
-                            <div class="col-9">
-                                <select id="type" name="type[]" class="multiple-select2 form-control"
-                                        multiple="multiple"
-                                        data-placeholder="Select a types">
-                                    <?php if ($types != NULL): ?>
-                                        <?php foreach ($types as $type): ?>
-                                            <option value="<?= $type->type_id; ?>"><?= $type->type_name; ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="location" class="col-3 col-form-label">Locations</label>
-                            <div class="col-9">
-                                <select id="location" name="location[]" class="multiple-select2 form-control"
-                                        multiple="multiple"
-                                        data-placeholder="Select a locations">
-                                    <?php if ($locations != NULL): ?>
-                                        <?php foreach ($locations as $location): ?>
-                                            <option value="<?= $location->location_id; ?>"><?= $location->location_name; ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="tags" class="col-3 col-form-label">Tags</label>
-                            <div class="col-9">
-                                <select id="tags" name="tags[]" class="multiple-select2 form-control"
-                                        multiple="multiple"
-                                        data-placeholder="Select a tags">
-                                    <?php if ($tags != NULL): ?>
-                                        <?php foreach ($tags as $tag): ?>
-                                            <option value="<?= $tag->tag_id; ?>"><?= $tag->tag_name; ?></option>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label for="status" class="col-3 col-form-label">Status</label>
-                            <div class="col-9">
-                                <select id="status" name="status" class="form-control">
-                                    <option value="">Select a status</option>
-                                    <option value="1">UP</option>
-                                    <option value="0">DOWN</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label class="col-3 col-form-label">Last Up</label>
-                            <div class="col-9">
-                                <div class="input-group input-daterange">
-                                    <input type="text" class="form-control" name="start_lastup"
-                                           placeholder="Date Start"/>
-                                    <span class="input-group-addon">to</span>
-                                    <input type="text" class="form-control" name="end_lastup" placeholder="Date End"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-xs-6 col-md-5 col-lg-4">
-                        <div class="form-group row">
-                            <label class="col-3 col-form-label">Last Down</label>
-                            <div class="col-9">
-                                <div class="input-group input-daterange">
-                                    <input type="text" class="form-control" name="start_lastdown"
-                                           placeholder="Date Start"/>
-                                    <span class="input-group-addon">to</span>
-                                    <input type="text" class="form-control" name="end_lastdown" placeholder="Date End"/>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn btn-primary">Filter</button>
-                </div>
-
-
-            </form>
-        </div>
-        <!-- end panel-body -->
     </div>
-    <!-- end panel -->
 
     <!-- begin panel -->
     <div class="panel panel-inverse">
         <!-- begin panel-heading -->
         <div class="panel-heading">
             <div class="panel-heading-btn">
+                <button type="button" onclick="filter($(this))" data-url="<?= site_url('hosts/filter'); ?>"
+                        data-toggle="modal" data-target="#filter" class="btn btn-xs btn-primary"><i
+                            class="fas fa-filter"></i> Filter
+                </button>
+                <a href="" class="btn btn-xs btn-primary"><i class="fas fa-play-circle"></i> Start All</a>
+                <a href="" class="btn btn-xs btn-danger"><i class="fas fa-stop-circle"></i> Stop All</a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default"
                    data-click="panel-expand"><i class="fa fa-expand"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"
                    data-click="panel-reload"><i class="fa fa-redo"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning"
                    data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+
             </div>
             <h4 class="panel-title">Hosts</h4>
         </div>
@@ -298,3 +170,13 @@
 
 </div>
 <!-- end #content -->
+<script>
+    function filter(data) {
+        var d = data,
+            url = d.data('url'),
+            modal = $('#filter'),
+            modalbody = modal.find('.modal-body');
+
+        modalbody.load(url);
+    }
+</script>

@@ -22,7 +22,7 @@ if ($mode == 'create') {
     <!-- end page-header -->
 
     <div class="row">
-        <div class="col-12 col-md-4 col-lg-4">
+        <div class="col-12 col-md-3 col-lg-3">
             <!-- begin panel -->
             <div class="panel panel-inverse">
                 <!-- begin panel-heading -->
@@ -49,33 +49,27 @@ if ($mode == 'create') {
                             <input type="text" class="form-control" id="device_ipaddr" name="device_ipaddr"
                                    placeholder="Type an IP Address" value="<?= $device_ipaddr; ?>" required autofocus>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="brands">Brand</label>
-                                    <select id="brands" name="brands[]" class="multiple-select2 form-control"
-                                            multiple="multiple" data-placeholder="Select a brands">
-                                        <?php if ($brands != NULL): ?>
-                                            <?php foreach ($brands as $brand): ?>
-                                                <option value="<?= $brand->brand_id; ?>" <?= isset($brand->selected) ? $brand->selected : ''; ?>><?= $brand->brand_name; ?></option>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="types">Type</label>
-                                    <select id="types" name="types[]" class="multiple-select2 form-control"
-                                            multiple="multiple" data-placeholder="Select a types">
-                                        <?php if ($types != NULL): ?>
-                                            <?php foreach ($types as $type): ?>
-                                                <option value="<?= $type->type_id; ?>" <?= isset($type->selected) ? $type->selected : ''; ?>><?= $type->type_name; ?></option>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="brands">Brand</label>
+                            <select id="brands" name="brands[]" class="multiple-select2 form-control"
+                                    multiple="multiple" data-placeholder="Select a brands">
+                                <?php if ($brands != NULL): ?>
+                                    <?php foreach ($brands as $brand): ?>
+                                        <option value="<?= $brand->brand_id; ?>" <?= isset($brand->selected) ? $brand->selected : ''; ?>><?= $brand->brand_name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="types">Type</label>
+                            <select id="types" name="types[]" class="multiple-select2 form-control"
+                                    multiple="multiple" data-placeholder="Select a types">
+                                <?php if ($types != NULL): ?>
+                                    <?php foreach ($types as $type): ?>
+                                        <option value="<?= $type->type_id; ?>" <?= isset($type->selected) ? $type->selected : ''; ?>><?= $type->type_name; ?></option>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="locations">Locations</label>
@@ -114,7 +108,7 @@ if ($mode == 'create') {
         </div>
 
         <?php if ($mode == 'create'): ?>
-            <div class="col-12 col-md-8 col-lg-8">
+            <div class="col-12 col-md-9 col-lg-9">
                 <!-- begin panel -->
                 <div class="panel panel-inverse">
                     <!-- begin panel-heading -->

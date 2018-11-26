@@ -112,6 +112,16 @@ class HostsCtrl extends MY_Controller
         $this->render('Hosts_log', $this->page);
     }
 
+    public function filter()
+    {
+        $this->page['brands'] = $this->brands->get_all();
+        $this->page['locations'] = $this->locations->get_all();
+        $this->page['types'] = $this->types->get_all();
+        $this->page['tags'] = $this->tags->get_all();
+
+        $this->load->view('FilterHosts', $this->page);
+    }
+
 }
 
 /* End of file HostsCtrl.php */

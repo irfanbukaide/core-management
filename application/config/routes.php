@@ -105,6 +105,7 @@ $route['hosts'] = 'HostsCtrl/index';
 $route['hosts/host_up'] = 'HostsCtrl/host_up';
 $route['hosts/host_down'] = 'HostsCtrl/host_down';
 $route['hosts/host_log'] = 'HostsCtrl/host_log';
+$route['hosts/filter'] = 'HostsCtrl/filter';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -11,6 +11,7 @@ class MY_Controller extends CI_Controller
         parent::__construct();
         // load template library
         $this->load->library('Template');
+        $this->load->library('Whitespace');
         $this->load->library('Menu');
         $this->load->library('Pesan');
         $this->load->library('Uuid');

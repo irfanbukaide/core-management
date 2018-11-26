@@ -63,8 +63,10 @@
                     <th class="text-nowrap">Type</th>
                     <th class="text-nowrap">Locations</th>
                     <th class="text-nowrap">Tags</th>
-                    <th class="text-nowrap">Status</th>
-                    <th class="text-nowrap">Event</th>
+                    <th class="text-nowrap">Datetime</th>
+                    <th class="text-nowrap">Seq</th>
+                    <th class="text-nowrap">TTL</th>
+                    <th class="text-nowrap">Time</th>
 
                 </tr>
                 </thead>
@@ -122,41 +124,10 @@
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
-                            <td class="text-success">UP</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col mb-2">
-                                        <b>Uptime :</b><br>
-                                        <span class="text-success"><?= $this->secondstotime->generate($device->device_setting->device_uptime); ?></span>
-                                    </div>
-                                    <div class="col mb-2">
-                                        <b>Downtime :</b><br>
-                                        <span class="text-danger"><?= $this->secondstotime->generate($device->device_setting->device_downtime); ?></span>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col mb-2">
-                                        <b>Last up at :</b> <br>
-                                        <?= $device->device_setting->device_last_up; ?>
-                                    </div>
-                                    <div class="col mb-2">
-                                        <b>Last down at :</b> <br>
-                                        <?= $device->device_setting->device_last_down; ?>
-                                    </div>
-
-                                </div>
-                                <div class="row">
-                                    <div class="col mb-2">
-                                        <b>Last checked at :</b><br>
-                                        <?= $device->device_setting->device_last_checked; ?>
-                                    </div>
-                                    <div class="col mb-2">
-                                        <b>Next run at :</b><br>
-                                        <?= $device->device_setting->device_next_run; ?>
-                                    </div>
-                                </div>
-                            </td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
+                            <td>test</td>
 
                         </tr>
                     <?php endforeach; ?>

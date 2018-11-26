@@ -25,6 +25,7 @@ class HostsCtrl extends MY_Controller
         $this->load->model('device_type_model', 'device_type');
         $this->load->model('device_tag_model', 'device_tag');
         $this->load->model('device_log_model', 'device_log');
+        $this->load->model('device_result_model', 'device_result');
 
 
         // save session url
@@ -44,16 +45,13 @@ class HostsCtrl extends MY_Controller
         // load page css and js
         $this->hosts_css_js();
 
-        $this->page['brands'] = $this->brands->get_all();
-        $this->page['locations'] = $this->locations->get_all();
-        $this->page['types'] = $this->types->get_all();
-        $this->page['tags'] = $this->tags->get_all();
         $this->page['devices'] = $this->devices
             ->with_device_brand()
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
             ->with_device_setting()
+            ->with_device_result()
             ->get_all();
 
         $this->render('Hosts', $this->page);
@@ -67,16 +65,13 @@ class HostsCtrl extends MY_Controller
         // load page css and js
         $this->hosts_css_js();
 
-        $this->page['brands'] = $this->brands->get_all();
-        $this->page['locations'] = $this->locations->get_all();
-        $this->page['types'] = $this->types->get_all();
-        $this->page['tags'] = $this->tags->get_all();
         $this->page['devices'] = $this->devices
             ->with_device_brand()
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
             ->with_device_setting('where: device_status=1')
+            ->with_device_result()
             ->get_all();
         $this->render('Hosts_up', $this->page);
     }
@@ -88,16 +83,13 @@ class HostsCtrl extends MY_Controller
         // load page css and js
         $this->hosts_css_js();
 
-        $this->page['brands'] = $this->brands->get_all();
-        $this->page['locations'] = $this->locations->get_all();
-        $this->page['types'] = $this->types->get_all();
-        $this->page['tags'] = $this->tags->get_all();
         $this->page['devices'] = $this->devices
             ->with_device_brand()
             ->with_device_type()
             ->with_device_location()
             ->with_device_tag()
             ->with_device_setting('where: device_status=0')
+            ->with_device_result()
             ->get_all();
 
         $this->render('Hosts_down', $this->page);

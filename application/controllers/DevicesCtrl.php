@@ -21,6 +21,7 @@ class DevicesCtrl extends MY_Controller
         $this->load->model('device_type_model', 'device_type');
         $this->load->model('device_tag_model', 'device_tag');
         $this->load->model('device_setting_model', 'device_setting');
+        $this->load->model('device_result_model', 'device_result');
 
 
         // save session url

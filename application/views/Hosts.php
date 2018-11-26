@@ -80,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table id="data-table-responsive" class="table">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th width="5%"></th>
@@ -101,10 +101,12 @@
                                 <tr>
                                     <td>
                                         <?php if ($device->device_setting->device_running == 0): ?>
-                                            <a href="" class="btn btn-xs btn-primary"><i class="fas fa-play-circle"></i>
+                                            <a href="<?= site_url('hosts/start/' . $device->device_id); ?>"
+                                               class="btn btn-xs btn-primary"><i class="fas fa-play-circle"></i>
                                                 Start</a>
                                         <?php else: ?>
-                                            <a href="" class="btn btn-xs btn-danger"><i class="fas fa-pause-circle"></i>
+                                            <a href="<?= site_url('hosts/stop/' . $device->device_id); ?>"
+                                               class="btn btn-xs btn-danger"><i class="fas fa-pause-circle"></i>
                                                 Pause</a>
                                         <?php endif; ?>
                                     </td>

@@ -118,9 +118,51 @@ class HostsCtrl extends MY_Controller
     {
         $this->page['device'] = $this->devices->with_device_setting()->where('device_id', $id)->get();
 
-//        $this->load->view('HostsEvent', $this->page);
+        $this->load->view('HostsEvent', $this->page);
 
-        var_dump($this->page['device_setting']);
+//        var_dump($this->page['device']);
+    }
+
+    public function start($id)
+    {
+        try {
+            $this->device_setting->where('device_id', $id)->update(array('device_running' => 1));
+        } catch (Exception $e) {
+            $this->pesan->gagal('ERROR : ' . $e);
+        }
+
+        redirect('hosts');
+
+    }
+
+    public function stop($id)
+    {
+        try {
+            $this->device_setting->where('device_id', $id)->update(array('device_running' => 0));
+        } catch (Exception $e) {
+            $this->pesan->gagal('ERROR : ' . $e);
+        }
+
+        redirect('hosts');
+
+    }
+
+    public function ajax_all()
+    {
+        $brands = $this->brands->get_all();
+        $locations = $this->locations->get_all();
+        $types = $this->types->get_all();
+        $tags = $this->tags->get_all();
+        $devices = $this->devices
+            ->with_device_brand()
+            ->with_device_type()
+            ->with_device_location()
+            ->with_device_tag()
+            ->with_device_setting()
+            ->with_device_result()
+            ->get_all();
+
+
     }
 
 }

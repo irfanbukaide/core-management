@@ -6,7 +6,7 @@ Website: http://www.seantheme.com/color-admin-v4.2/admin/
 */
 var handleDataTableCombinationSetting = function () {
     "use strict";
-    if (0 !== $(".table").length) {
+    if (0 !== $("#data-table-combine").length) {
         var e = {
             dom: "lBfrtip",
             buttons: [{extend: "excel", className: "btn-sm"}, {extend: "pdf", className: "btn-sm"}, {

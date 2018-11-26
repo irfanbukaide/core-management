@@ -116,9 +116,11 @@ class HostsCtrl extends MY_Controller
 
     public function show_event($id)
     {
-        $this->page['device_setting'] = $this->device_setting->where('device_id', $id)->get();
+        $this->page['device'] = $this->devices->with_device_setting()->where('device_id', $id)->get();
 
-        $this->load->view('HostsEvent', $this->page);
+//        $this->load->view('HostsEvent', $this->page);
+
+        var_dump($this->page['device_setting']);
     }
 
 }

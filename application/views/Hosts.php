@@ -152,7 +152,7 @@
                                     </td>
                                     <td>test</td>
                                     <td>
-                                        <button class="btn btn-xs btn-info" onclick="event($(this))" type="button"
+                                        <button class="btn btn-xs btn-info" onclick="show_event($(this))" type="button"
                                                 data-url="<?= site_url('hosts/show_event/' . $device->device_id); ?>"
                                                 data-toggle="modal" data-target="#event">Show
                                         </button>
@@ -182,7 +182,7 @@
         modalbody.load(url);
     }
 
-    function event(data) {
+    function show_event(data) {
         var d = data,
             url = d.data('url'),
             modal = $('#event'),

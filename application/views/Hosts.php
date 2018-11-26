@@ -80,7 +80,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <table class="table">
+                    <table id="#data-table-default" class="table">
                         <thead>
                         <tr>
                             <th width="5%"></th>

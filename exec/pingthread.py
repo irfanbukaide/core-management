@@ -26,12 +26,12 @@ connection = pymysql.connect(
 ips = []
 
 with connection.cursor() as cursor:
-    sql = "SELECT ipv4 FROM destination"
+    sql = "SELECT devices.device_id, devices.device_ipaddr, device_setting.* FROM devices lEFT JOIN device_setting ON devices.device_id = device_setting.device_id where device_setting.device_running =1;"
     cursor.execute(sql)
     result = cursor.fetchall()
 
 for i in result:
-    ips.append((i['ipv4']))
+    ips.append((i['device_ipaddr']))
 
 # thread code : wraps system ping command
 def thread_pinger(i, q):
@@ -61,7 +61,7 @@ def thread_pinger(i, q):
         # print(item)
         with connection.cursor() as cursor:
             #sql insert data from collected items
-            sql = "INSERT INTO `ping_result_ipv4` (`destination`, `icmp_seq`, `icmp_ttl`, `icmp_time`) VALUES " + str(item)
+            sql = "INSERT INTO `device_result` (`destination`, `icmp_seq`, `icmp_ttl`, `icmp_time`) VALUES " + str(item)
             cursor.execute(sql)
             connection.commit()
 

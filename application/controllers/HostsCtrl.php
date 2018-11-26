@@ -114,6 +114,13 @@ class HostsCtrl extends MY_Controller
         $this->load->view('FilterHosts', $this->page);
     }
 
+    public function show_event($id)
+    {
+        $this->page['device_setting'] = $this->device_setting->where('device_id', $id)->get();
+
+        $this->load->view('HostsEvent', $this->page);
+    }
+
 }
 
 /* End of file HostsCtrl.php */

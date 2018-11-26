@@ -66,16 +66,25 @@
         <div class="panel-body">
             <div class="row mb-2">
                 <div class="col">
-                    <a href="" class="btn btn-sm btn-primary"><i class="fas fa-play-circle"></i> Start Monitoring</a>
-                    <a href="" class="btn btn-sm btn-danger"><i class="fas fa-stop-circle"></i> Stop Monitoring</a>
-
-
+                    <?php if ($running): ?>
+                        <a href="" class="btn btn-sm btn-danger"><i class="fas fa-stop-circle"></i> Stop Monitoring</a>
+                    <?php else: ?>
+                        <a href="" class="btn btn-sm btn-primary"><i class="fas fa-play-circle"></i> Start
+                            Monitoring</a>
+                    <?php endif; ?>
                 </div>
                 <div class="col">
                     <button type="button" onclick="filter($(this))" data-url="<?= site_url('hosts/filter'); ?>"
                             data-toggle="modal" data-target="#filter" class="btn btn-sm btn-info pull-right"><i
                                 class="fas fa-filter"></i> Filter
                     </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="searching">Search</label>
+                    <input type="text" class="form-control" id="searching" name="searching"
+                           placeholder="Search anything">
                 </div>
             </div>
             <div class="row">

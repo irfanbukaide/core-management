@@ -262,6 +262,7 @@ class DevicesCtrl extends MY_Controller
     public function delete($id)
     {
         try {
+            $this->device_setting->where('device_id', $id)->delete();
             $this->device_brand->where('device_id', $id)->delete();
             $this->device_type->where('device_id', $id)->delete();
             $this->device_location->where('device_id', $id)->delete();

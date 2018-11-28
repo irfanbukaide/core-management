@@ -140,6 +140,9 @@ if ($mode == 'create') {
                             </tr>
                             </thead>
                             <tbody>
+                            <tr ng-repeat="device in devices">
+
+                            </tr>
                             <?php if ($devices != NULL): ?>
                                 <?php foreach ($devices as $device) : ?>
                                     <tr>

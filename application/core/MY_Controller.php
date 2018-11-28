@@ -194,6 +194,11 @@ class MY_Controller extends CI_Controller
         $this->template->add_js(base_url('color-admin/assets/js/app/vlans-init.js'), TRUE);
     }
 
+    public function devices_css_js()
+    {
+        $this->template->add_js(base_url('color-admin/assets/js/app/devices-init.js'), TRUE);
+    }
+
     public function master_css_js()
     {
         $this->template->add_js(base_url('color-admin/assets/js/app/master-init.js'), TRUE);

@@ -182,6 +182,7 @@ class MY_Controller extends CI_Controller
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/RowReorder/js/dataTables.rowReorder.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/js/release/table-manage-default.js'), TRUE);
+        $this->template->add_js(base_url('color-admin/assets/js/angularjs/angular.min.js'), TRUE);
     }
 
     public function hosts_css_js()

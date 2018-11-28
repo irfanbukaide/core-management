@@ -127,7 +127,7 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table id="data-table-responsive" class="table">
+                        <table id="data-table-default" class="table">
                             <thead>
                             <tr>
                                 <th class="text-nowrap">Hostname</th>

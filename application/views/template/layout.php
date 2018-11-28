@@ -16,7 +16,7 @@
     <!-- JS -->
     <?php echo $scripts_header; ?>
 </head>
-<body>
+<body ng-app="myApp">
 <?php require_once(APPPATH . 'views/master/container.php'); ?>
 
 <?php echo $scripts_footer; ?>

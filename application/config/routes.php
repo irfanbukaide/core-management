@@ -110,5 +110,10 @@ $route['hosts/show_event/(:any)'] = 'HostsCtrl/show_event/$1';
 $route['hosts/start/(:any)'] = 'HostsCtrl/start/$1';
 $route['hosts/stop/(:any)'] = 'HostsCtrl/stop/$1';
 
+
+$route['api'] = 'ApiCtrl/index';
+$route['api/all'] = 'ApiCtrl/hosts_all';
+$route['api/up'] = 'ApiCtrl/hosts_up';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

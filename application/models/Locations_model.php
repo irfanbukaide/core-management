@@ -17,6 +17,13 @@ class Locations_model extends MY_Model
             'foreign_key' => 'location_id',
             'local_key' => 'location_id'
         );
+
+        $this->has_many['vlan_location'] = array(
+            'foreign_model' => 'Vlan_location_model',
+            'foreign_table' => 'vlan_location',
+            'foreign_key' => 'location_id',
+            'local_key' => 'location_id'
+        );
         parent::__construct();
     }
 }

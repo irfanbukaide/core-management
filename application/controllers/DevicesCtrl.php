@@ -73,11 +73,13 @@ class DevicesCtrl extends MY_Controller
                         foreach ($brand->device_brand as $db) {
                             if ($db->device_id == $id) {
                                 $brand->selected = 'selected';
-                                unset($brand->device_brand);
+
                                 break;
                             }
                         }
                     }
+
+                    unset($brand->device_brand);
                 }
             }
 
@@ -94,11 +96,13 @@ class DevicesCtrl extends MY_Controller
                         foreach ($location->device_location as $db) {
                             if ($db->device_id == $id) {
                                 $location->selected = 'selected';
-                                unset($location->device_location);
+
                                 break;
                             }
                         }
                     }
+
+                    unset($location->device_location);
                 }
             }
 
@@ -115,11 +119,13 @@ class DevicesCtrl extends MY_Controller
                         foreach ($type->device_type as $db) {
                             if ($db->device_id == $id) {
                                 $type->selected = 'selected';
-                                unset($type->device_type);
+
                                 break;
                             }
                         }
                     }
+
+                    unset($type->device_type);
                 }
             }
 
@@ -136,11 +142,13 @@ class DevicesCtrl extends MY_Controller
                         foreach ($tag->device_tag as $db) {
                             if ($db->device_id == $id) {
                                 $tag->selected = 'selected';
-                                unset($tag->device_tag);
+
                                 break;
                             }
                         }
                     }
+
+                    unset($tag->device_tag);
                 }
             }
 

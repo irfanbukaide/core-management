@@ -57,11 +57,11 @@ class VlansCtrl extends MY_Controller
                         foreach ($vendor->vlan_vendor as $db) {
                             if ($db->vlan_id == $id) {
                                 $vendor->selected = 'selected';
-                                unset($vendor->vlan_vendor);
                                 break;
                             }
                         }
                     }
+                    unset($vendor->vlan_vendor);
                 }
             }
 
@@ -76,14 +76,15 @@ class VlansCtrl extends MY_Controller
                 foreach ($locations as $location) {
                     $location->selected = '';
                     if (isset($location->vlan_location) && $location->vlan_location != NULL) {
+                        $location->selected = '';
                         foreach ($location->vlan_location as $db) {
                             if ($db->vlan_id == $id) {
                                 $location->selected = 'selected';
-                                unset($location->vlan_location);
                                 break;
                             }
                         }
                     }
+                    unset($location->vlan_location);
                 }
             }
 
@@ -92,15 +93,13 @@ class VlansCtrl extends MY_Controller
         };
         $this->page['locations'] = $locations();
         $this->page['vlan'] = $this->vlans->where('vlan_id', $id)
-            ->with_vlan_vendor()
-            ->with_vlan_location()
             ->get();
 
         // render
-//        $this->render('Vlans', $this->page);
-        echo '<pre>';
-        var_dump($this->page);
-        echo '</pre>';
+        $this->render('Vlans', $this->page);
+//        echo '<pre>';
+//        var_dump($this->page['locations']);
+//        echo '</pre>';
     }
 
     public function save()

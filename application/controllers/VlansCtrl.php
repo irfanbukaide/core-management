@@ -57,6 +57,7 @@ class VlansCtrl extends MY_Controller
                         foreach ($vendor->vlan_vendor as $db) {
                             if ($db->vlan_id == $id) {
                                 $vendor->selected = 'selected';
+                                unset($vendor->vlan_vendor);
                                 break;
                             }
                         }
@@ -78,6 +79,7 @@ class VlansCtrl extends MY_Controller
                         foreach ($location->vlan_location as $db) {
                             if ($db->vlan_id == $id) {
                                 $location->selected = 'selected';
+                                unset($location->vlan_location);
                                 break;
                             }
                         }

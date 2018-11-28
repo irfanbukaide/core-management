@@ -68,17 +68,14 @@ class DevicesCtrl extends MY_Controller
         $brands = function () use ($id, $brands) {
             if ($brands) {
                 foreach ($brands as $brand) {
+                    $brand->selected = '';
                     if (isset($brand->device_brand) && $brand->device_brand != NULL) {
                         foreach ($brand->device_brand as $db) {
                             if ($db->device_id == $id) {
                                 $brand->selected = 'selected';
                                 break;
-                            } else {
-                                $brand->selected = '';
                             }
                         }
-                    } else {
-                        $brand->selected = '';
                     }
                 }
             }
@@ -91,17 +88,14 @@ class DevicesCtrl extends MY_Controller
         $locations = function () use ($id, $locations) {
             if ($locations) {
                 foreach ($locations as $location) {
+                    $location->selected = '';
                     if (isset($location->device_location) && $location->device_location != NULL) {
                         foreach ($location->device_location as $db) {
                             if ($db->device_id == $id) {
                                 $location->selected = 'selected';
                                 break;
-                            } else {
-                                $location->selected = '';
                             }
                         }
-                    } else {
-                        $location->selected = '';
                     }
                 }
             }
@@ -114,17 +108,14 @@ class DevicesCtrl extends MY_Controller
         $types = function () use ($id, $types) {
             if ($types) {
                 foreach ($types as $type) {
+                    $type->selected = '';
                     if (isset($type->device_type) && $type->device_type != NULL) {
                         foreach ($type->device_type as $db) {
                             if ($db->device_id == $id) {
                                 $type->selected = 'selected';
                                 break;
-                            } else {
-                                $type->selected = '';
                             }
                         }
-                    } else {
-                        $type->selected = '';
                     }
                 }
             }
@@ -137,17 +128,14 @@ class DevicesCtrl extends MY_Controller
         $tags = function () use ($id, $tags) {
             if ($tags) {
                 foreach ($tags as $tag) {
+                    $tag->selected = '';
                     if (isset($tag->device_tag) && $tag->device_tag != NULL) {
                         foreach ($tag->device_tag as $db) {
                             if ($db->device_id == $id) {
                                 $tag->selected = 'selected';
                                 break;
-                            } else {
-                                $tag->selected = '';
                             }
                         }
-                    } else {
-                        $tag->selected = '';
                     }
                 }
             }

@@ -1,5 +1,5 @@
 <!-- begin #content -->
-<div id="content" class="content">
+<div id="content" class="content" ng-controller="hostsDownCtrl">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="<?= site_url('hosts'); ?>">Hosts</a></li>
@@ -28,15 +28,27 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="event" tabindex="-1" role="dialog" aria-labelledby="eventLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventLabel">Graph & Events</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- begin panel -->
     <div class="panel panel-inverse">
         <!-- begin panel-heading -->
         <div class="panel-heading">
             <div class="panel-heading-btn">
-                <button type="button" onclick="filter($(this))" data-url="<?= site_url('hosts/filter'); ?>"
-                        data-toggle="modal" data-target="#filter" class="btn btn-xs btn-primary"><i
-                            class="fas fa-filter"></i> Filter
-                </button>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default"
                    data-click="panel-expand"><i class="fa fa-expand"></i></a>
                 <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success"
@@ -50,104 +62,79 @@
 
         <!-- begin panel-body -->
         <div class="panel-body">
-            <table id="data-table-responsive" class="table">
-                <thead>
-                <tr>
-
-                    <th width="1%" data-orderable="false"></th>
-                    <th class="text-nowrap">Hostname</th>
-                    <th class="text-nowrap">IP Address</th>
-                    <th class="text-nowrap">Brand</th>
-                    <th class="text-nowrap">Type</th>
-                    <th class="text-nowrap">Locations</th>
-                    <th class="text-nowrap">Tags</th>
-                    <th class="text-nowrap">Status</th>
-                    <th class="text-nowrap">Event</th>
+            <div class="row">
+                <div class="col">
+                    <input type="text" class="form-control" ng-model="searching" placeholder="Search anything">
+                </div>
 
 
-                </tr>
-                </thead>
-                <tbody>
-                <?php if ($devices != NULL): ?>
-                    <?php foreach ($devices as $device) : ?>
-                        <?php if (isset($device->device_setting) && $device->device_setting != NULL): ?>
-                            <tr>
-                                <td>
-                                    <button type="button" class="btn btn-xs btn-primary">Re-ping</button>
-                                </td>
-                                <td><?= $device->device_name; ?></td>
-                                <td><?= $device->device_ipaddr; ?></td>
-                                <td>
-                                    <?php if (isset($device->device_brand) && $device->device_brand != NULL): ?>
-                                        <?php foreach ($device->device_brand as $db): ?>
-                                            <?php $brand = $this->brands->where('brand_id', $db->brand_id)->get(); ?>
-                                            <span class="label label-dark mb-2"><?= $brand->brand_name; ?></span>
-                                            <br>
-                                            <div class="mb-2"></div>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if (isset($device->device_type) && $device->device_type != NULL): ?>
-                                        <?php foreach ($device->device_type as $db): ?>
-                                            <?php $type = $this->types->where('type_id', $db->type_id)->get(); ?>
-                                            <span class="label label-dark mb-2"><?= $type->type_name; ?></span>
-                                            <br>
-                                            <div class="mb-2"></div>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if (isset($device->device_location) && $device->device_location != NULL): ?>
-                                        <?php foreach ($device->device_location as $db): ?>
-                                            <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
-                                            <span class="label label-dark mb-2"><?= $location->location_name; ?></span>
-                                            <br>
-                                            <div class="mb-2"></div>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <?php if (isset($device->device_tag) && $device->device_tag != NULL): ?>
-                                        <?php foreach ($device->device_tag as $db): ?>
-                                            <?php $tag = $this->tags->where('tag_id', $db->tag_id)->get(); ?>
-                                            <span class="label label-dark"><?= $tag->tag_name; ?></span>
-                                            <br>
-                                            <div class="mb-2"></div>
-                                        <?php endforeach; ?>
-                                    <?php endif; ?>
-                                </td>
-                                <td class="text-danger">DOWN</td>
-                                <td>
-                                    <div class="row">
-                                        <div class="col mb-2">
-                                            <b>Downtime :</b><br>
-                                            <span class="text-danger"><?= $this->secondstotime->generate($device->device_setting->device_downtime); ?></span>
-                                        </div>
-                                        <div class="col mb-2">
-                                            <b>Last down at :</b> <br>
-                                            <?= $device->device_setting->device_last_down; ?>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col mb-2">
-                                            <b>Last checked at :</b><br>
-                                            <?= $device->device_setting->device_last_checked; ?>
-                                        </div>
-                                        <div class="col mb-2">
-                                            <b>Next run at :</b><br>
-                                            <?= $device->device_setting->device_next_run; ?>
-                                        </div>
-                                    </div>
-                                </td>
+                <div class="col">
+                    <button type="button" onclick="filter($(this))" data-url="<?= site_url('hosts/filter'); ?>"
+                            data-toggle="modal" data-target="#filter" class="btn btn-sm btn-info pull-right mr-2"><i
+                                class="fas fa-filter"></i> Filter
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <table id="data-table-responsive" class="table">
+                    <thead>
+                    <tr>
+
+                        <th width="1%" data-orderable="false"></th>
+                        <th class="text-nowrap">Hostname</th>
+                        <th class="text-nowrap">IP Address</th>
+                        <th class="text-nowrap">Brand</th>
+                        <th class="text-nowrap">Type</th>
+                        <th class="text-nowrap">Locations</th>
+                        <th class="text-nowrap">Tags</th>
+                        <th class="text-nowrap">Status</th>
+                        <th class="text-nowrap">Event</th>
 
 
-                            </tr>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-                </tbody>
-            </table>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="host in hosts | filter : searching">
+                        <td>
+                            <button type="button" class="btn btn-xs btn-primary">Re-ping</button>
+                        </td>
+                        <td>
+                            {{ host.name }}
+                        </td>
+                        <td>
+                            {{ host.ipaddress }}
+                        </td>
+                        <td>
+                            <span ng-repeat="brand in host.brands"
+                                  class="label label-dark mb-2 mr-2">{{ brand.name }}</span><br>
+                        </td>
+                        <td>
+                            <span ng-repeat="type in host.types"
+                                  class="label label-dark mb-2 mr-2">{{ type.name }}</span><br>
+                        </td>
+                        <td>
+                            <span ng-repeat="location in host.locations" class="label label-dark mb-2 mr-2">{{ location.name }}</span><br>
+                        </td>
+                        <td>
+                            <span ng-repeat="tag in host.tags"
+                                  class="label label-dark mb-2 mr-2">{{ tag.name }}</span><br>
+                        </td>
+                        <td>
+                            <div ng-if="host.status == 1" class="text-success text-center"><i
+                                        class="fas fa-check fa-sm"></i></div>
+                            <div ng-if="host.status == 0" class="text-danger text-center"><i
+                                        class="fas fa-times fa-sm"></i></div>
+                        </td>
+                        <td>
+                            <button class="btn btn-xs btn-dark" onclick="show_event($(this))" type="button"
+                                    data-url="{{ host.event_url }}"
+                                    data-toggle="modal" data-target="#event">Graph & Events
+                            </button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <!-- end panel-body -->
     </div>

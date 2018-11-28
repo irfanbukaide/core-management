@@ -114,8 +114,10 @@ $route['hosts/stop/(:any)'] = 'HostsCtrl/stop/$1';
 $route['api'] = 'ApiCtrl/index';
 $route['api/vlan'] = 'VlansApiCtrl/index';
 $route['api/vlan/index'] = 'VlansApiCtrl/index';
-$route['api/all'] = 'ApiCtrl/hosts_all';
-$route['api/up'] = 'ApiCtrl/hosts_up';
+$route['api/host'] = 'HostsApiCtrl/hosts_all';
+$route['api/host/all'] = 'HostsApiCtrl/hosts_all';
+$route['api/host/up'] = 'HostsApiCtrl/hosts_up';
+$route['api/host/down'] = 'HostsApiCtrl/hosts_down';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -108,7 +108,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="host in hosts | filter : searching">
+                            <tr ng-repeat="host in hosts | orderBy:'-status':true">
                                 <td>
                                     <a ng-if="host.running == 0" href="{{ host.start_url }}"
                                        class="btn btn-xs btn-dark"><i class="fas fa-play-circle"></i>

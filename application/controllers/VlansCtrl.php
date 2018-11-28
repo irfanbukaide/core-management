@@ -52,17 +52,14 @@ class VlansCtrl extends MY_Controller
         $vendors = function () use ($id, $vendors) {
             if ($vendors) {
                 foreach ($vendors as $vendor) {
+                    $vendor->selected = '';
                     if (isset($vendor->vlan_vendor) && $vendor->vlan_vendor != NULL) {
                         foreach ($vendor->vlan_vendor as $db) {
                             if ($db->vlan_id == $id) {
                                 $vendor->selected = 'selected';
                                 break;
-                            } else {
-                                $vendor->selected = '';
                             }
                         }
-                    } else {
-                        $vendor->selected = '';
                     }
                 }
             }
@@ -76,17 +73,14 @@ class VlansCtrl extends MY_Controller
         $locations = function () use ($id, $locations) {
             if ($locations) {
                 foreach ($locations as $location) {
+                    $location->selected = '';
                     if (isset($location->vlan_location) && $location->vlan_location != NULL) {
                         foreach ($location->vlan_location as $db) {
                             if ($db->vlan_id == $id) {
                                 $location->selected = 'selected';
                                 break;
-                            } else {
-                                $location->selected = '';
                             }
                         }
-                    } else {
-                        $location->selected = '';
                     }
                 }
             }
@@ -101,10 +95,10 @@ class VlansCtrl extends MY_Controller
             ->get();
 
         // render
-        $this->render('Vlans', $this->page);
-//        echo '<pre>';
-//        var_dump($this->page['brands']);
-//        echo '</pre>';
+//        $this->render('Vlans', $this->page);
+        echo '<pre>';
+        var_dump($this->page);
+        echo '</pre>';
     }
 
     public function save()

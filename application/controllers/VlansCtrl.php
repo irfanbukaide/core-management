@@ -26,7 +26,7 @@ class VlansCtrl extends MY_Controller
 
     public function index()
     {
-        $this->master_css_js();
+        $this->vlans_css_js();
 
         // title segment
         $this->title('Vlans');
@@ -35,10 +35,6 @@ class VlansCtrl extends MY_Controller
         $this->page['mode'] = 'create';
         $this->page['vendors'] = $this->vendors->get_all();
         $this->page['locations'] = $this->locations->get_all();
-        $this->page['vlans'] = $this->vlans
-            ->with_vlan_vendor()
-            ->with_vlan_location()
-            ->get_all();
         $this->page['vlan_id'] = $this->uuid->v4();
 
         // render
@@ -48,7 +44,7 @@ class VlansCtrl extends MY_Controller
 
     public function edit($id)
     {
-        $this->master_css_js();
+        $this->vlans_css_js();
 
         // load data
         $this->page['mode'] = 'edit';

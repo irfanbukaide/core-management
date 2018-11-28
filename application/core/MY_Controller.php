@@ -161,7 +161,6 @@ class MY_Controller extends CI_Controller
         $this->template->add_js(base_url('color-admin/assets/plugins/jquery-simplecolorpicker/jquery.simplecolorpicker.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/plugins/clipboard/clipboard.min.js'), TRUE);
         $this->template->add_js(base_url('color-admin/assets/js/release/form-plugins.js'), TRUE);
-
         $this->template->add_js(base_url('color-admin/assets/plugins/parsley/dist/parsley.js'), TRUE);
 
         // load js datatable
@@ -188,6 +187,11 @@ class MY_Controller extends CI_Controller
     public function hosts_css_js()
     {
         $this->template->add_js(base_url('color-admin/assets/js/app/hosts-init.js'), TRUE);
+    }
+
+    public function vlans_css_js()
+    {
+        $this->template->add_js(base_url('color-admin/assets/js/app/vlans-init.js'), TRUE);
     }
 
     public function master_css_js()

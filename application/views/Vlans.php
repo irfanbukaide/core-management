@@ -11,7 +11,7 @@ if ($mode == 'create') {
 }
 ?>
 <!-- begin #content -->
-<div id="content" class="content">
+<div id="content" class="content" ng-controller="vlansCtrl">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item active">Vlans</li>
@@ -129,40 +129,21 @@ if ($mode == 'create') {
                             </tr>
                             </thead>
                             <tbody>
-                            <?php if ($vlans != NULL): ?>
-                                <?php foreach ($vlans as $vlan) : ?>
-                                    <tr>
-                                        <td><?= $vlan->vlan_name; ?></td>
-                                        <td><?= $vlan->vlan_bandwidth . ' ' . $vlan->vlan_speedtype; ?></td>
-                                        <td>
-                                            <?php if (isset($vlan->vlan_vendor) && $vlan->vlan_vendor != NULL): ?>
-                                                <?php foreach ($vlan->vlan_vendor as $db): ?>
-                                                    <?php $vendor = $this->vendors->where('vendor_id', $db->vendor_id)->get(); ?>
-                                                    <span class="label label-dark"><?= $vendor->vendor_name; ?></span>
-                                                    <br>
-                                                    <div class="mb-2"></div>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <?php if (isset($vlan->vlan_location) && $vlan->vlan_location != NULL): ?>
-                                                <?php foreach ($vlan->vlan_location as $db): ?>
-                                                    <?php $location = $this->locations->where('location_id', $db->location_id)->get(); ?>
-                                                    <span class="label label-dark"><?= $location->location_name; ?></span>
-                                                    <br>
-                                                    <div class="mb-2"></div>
-                                                <?php endforeach; ?>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td><a class="btn btn-xs btn-primary"
-                                               href="<?= site_url('vlan/edit/' . $vlan->vlan_id); ?>">Edit</a>
-                                            <a class="btn btn-xs btn-danger"
-                                               href="<?= site_url('vlan/delete/' . $vlan->vlan_id); ?>">Delete</a>
-                                        </td>
-
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <tr ng-repeat="vlan in vlans">
+                                <td>{{ vlan.name }}</td>
+                                <td>{{ vlan.bandwidth + ' ' + vlan.speedtype }}</td>
+                                <td>
+                                    <span ng-repeat="vendor in vlan.vendors" class="label label-dark mb-2 mr-2">{{ vendor.name }}</span>
+                                </td>
+                                <td>
+                                    <span ng-repeat="location in vlan.locations" class="label label-dark mb-2 mr-2">{{ location.name }}</span>
+                                </td>
+                                <td><a class="btn btn-xs btn-primary"
+                                       href="{{ vlan.vlan_edit }}">Edit</a>
+                                    <a class="btn btn-xs btn-danger"
+                                       href="{{ vlan.vlan_delete }}">Delete</a>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>

@@ -34,7 +34,7 @@ class DevicesCtrl extends MY_Controller
 
     public function index()
     {
-        $this->master_css_js();
+        $this->devices_css_js();
 
         // title segment
         $this->title('Devices');
@@ -45,12 +45,6 @@ class DevicesCtrl extends MY_Controller
         $this->page['locations'] = $this->locations->get_all();
         $this->page['types'] = $this->types->get_all();
         $this->page['tags'] = $this->tags->get_all();
-        $this->page['devices'] = $this->devices
-            ->with_device_brand()
-            ->with_device_type()
-            ->with_device_location()
-            ->with_device_tag()
-            ->get_all();
         $this->page['device_id'] = $this->uuid->v4();
 
         // render
@@ -60,7 +54,7 @@ class DevicesCtrl extends MY_Controller
 
     public function edit($id)
     {
-        $this->master_css_js();
+        $this->devices_css_js();
 
         // load data
         $this->page['mode'] = 'edit';

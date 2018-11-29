@@ -7,7 +7,7 @@ if ($mode == 'create') {
 }
 ?>
 <!-- begin #content -->
-<div id="content" class="content">
+<div id="content" class="content" ng-controller="vendorsCtrl">
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
         <li class="breadcrumb-item"><a href="<?= site_url('master'); ?>">Master</a></li>
@@ -77,25 +77,43 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th class="text-nowrap">Vendor Name</th>
-                                <th class="text-nowrap">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="vendor in vendors">
-                                <td>{{ vendor.vendor_name }}</td>
-                                <td>
-                                    <a class="btn btn-xs btn-primary"
-                                       href="{{ vendor.vendor_edit }}">Edit</a>
-                                    <a class="btn btn-xs btn-danger"
-                                       href="{{ vendor.vendor_delete }}">Delete</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" ng-model="searching"
+                                       placeholder="Search anything">
+                            </div>
+                            <div class="col">
+                                <button type="button" onclick="filter($(this))"
+                                        data-url="<?= site_url('hosts/filter'); ?>"
+                                        data-toggle="modal" data-target="#filter"
+                                        class="btn btn-sm btn-info pull-right mr-2"><i
+                                            class="fas fa-filter"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-nowrap">Vendor Name</th>
+                                        <th class="text-nowrap">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="vendor in vendors | filter:searching  | orderBy:'vendor.vendor_name'">
+                                        <td>{{ vendor.vendor_name }}</td>
+                                        <td>
+                                            <a class="btn btn-xs btn-primary"
+                                               href="{{ vendor.vendor_edit }}">Edit</a>
+                                            <a class="btn btn-xs btn-danger"
+                                               href="{{ vendor.vendor_delete }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <!-- end panel-body -->
                 </div>

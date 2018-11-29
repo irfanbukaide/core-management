@@ -27,11 +27,11 @@ class VendorsApiCtrl extends CI_Controller
         $vendors = $this->vendors->get_all();
         $vendors = function () use ($vendors) {
             foreach ($vendors as $vendor) {
-                $vendor->vendor_edit = site_url('master/edit/' . $vendor->vendor_id);
-                $vendor->vendor_delete = site_url('master/delete/' . $vendor->vendor_id);
+                $vendor->vendor_edit = site_url('master/vendor/edit/' . $vendor->vendor_id);
+                $vendor->vendor_delete = site_url('master/vendor/delete/' . $vendor->vendor_id);
             }
 
-            return $vendors;
+            return (array)$vendors;
         };
         $resp['vendors'] = $vendors();
 

@@ -124,9 +124,6 @@ if ($mode == 'create') {
                                        placeholder="Search anything">
                             </div>
                             <div class="col">
-                                <div ng-repeat="host in hosts">
-
-                                </div>
                             </div>
                             <div class="col">
                                 <button type="button" onclick="filter($(this))"

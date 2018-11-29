@@ -150,7 +150,7 @@ if ($mode == 'create') {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr ng-repeat="vlan in vlans | filter:searching">
+                                    <tr ng-repeat="vlan in vlans | filter:searching | orderBy:'-name'">
                                         <td>{{ vlan.name }}</td>
                                         <td>{{ vlan.bandwidth + ' ' + vlan.speedtype }}</td>
                                         <td>

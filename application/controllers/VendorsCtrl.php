@@ -23,7 +23,7 @@ class VendorsCtrl extends MY_Controller
 
     public function index()
     {
-        $this->master_css_js();
+        $this->vendors_css_js();
 
         // title segment
         $this->title('Vendors');
@@ -40,7 +40,7 @@ class VendorsCtrl extends MY_Controller
 
     public function edit($id)
     {
-        $this->master_css_js();
+        $this->vendors_css_js();
 
         // load data
         $this->page['mode'] = 'edit';

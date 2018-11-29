@@ -71,9 +71,6 @@
                         <input type="text" class="form-control" ng-model="searching" placeholder="Search anything">
                     </div>
                     <div class="col">
-                        <div ng-repeat="host in hosts">
-
-                        </div>
                     </div>
                     <div class="col">
                         <?php if ($running): ?>
@@ -89,6 +86,9 @@
                                     class="fas fa-filter"></i> Filter
                         </button>
                     </div>
+                </div>
+                <div class="row">
+
                 </div>
                 <div class="row">
                     <div class="col">
@@ -108,7 +108,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="host in hosts | orderBy:'-status':true">
+                            <tr ng-repeat="host in hosts | filter:searching | orderBy:'-status':true">
                                 <td>
                                     <a ng-if="host.running == 0" href="{{ host.start_url }}"
                                        class="btn btn-xs btn-dark"><i class="fas fa-play-circle"></i>

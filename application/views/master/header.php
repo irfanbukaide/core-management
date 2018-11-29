@@ -22,31 +22,35 @@
         <ul class="nav navbar-nav">
             <li class="dropdown">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fas fa-heartbeat fa-fw"></i>
+                    <i class="fas fa-chart-area fa-fw"></i>
                     <span>Hosts</span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu" role="menu">
                     <li>
                         <a href="<?= site_url('hosts'); ?>">
+                            <i class="fas fa-chart-area fa-fw"></i>
                             <span class="badge badge-info pull-right"><?= $hosts_total_count; ?></span>
                             Host
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_up'); ?>">
+                            <i class="fas fa-chart-area fa-fw"></i>
                             <span class="badge badge-success pull-right"><?= $hosts_up_count; ?></span>
                             Host Up
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_down'); ?>">
+                            <i class="fas fa-chart-area fa-fw"></i>
                             <span class="badge badge-danger pull-right"><?= $hosts_down_count; ?></span>
                             Host Down
                         </a>
                     </li>
                     <li>
                         <a href="<?= site_url('hosts/host_log'); ?>">
+                            <i class="fas fa-th-list fa-fw"></i>
                             <span class="badge badge-danger pull-right"><?= $hosts_log_count; ?></span>
                             Host Log
                         </a>

@@ -184,6 +184,11 @@ class MY_Controller extends CI_Controller
         $this->template->add_js(base_url('color-admin/assets/js/angularjs/angular.min.js'), TRUE);
     }
 
+    public function vendors_css_js()
+    {
+        $this->template->add_js(base_url('color-admin/assets/js/app/vendors-init.js'), TRUE);
+    }
+
     public function hosts_css_js()
     {
         $this->template->add_js(base_url('color-admin/assets/js/app/hosts-init.js'), TRUE);

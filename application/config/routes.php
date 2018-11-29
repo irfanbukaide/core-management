@@ -112,6 +112,7 @@ $route['hosts/stop/(:any)'] = 'HostsCtrl/stop/$1';
 
 
 $route['api'] = 'ApiCtrl/index';
+$route['api/vendor'] = 'VendorsApiCtrl/index';
 $route['api/vlan'] = 'VlansApiCtrl/index';
 $route['api/vlan/index'] = 'VlansApiCtrl/index';
 $route['api/device'] = 'DevicesApiCtrl/index';

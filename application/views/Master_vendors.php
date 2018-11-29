@@ -77,7 +77,7 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table id="data-table-responsive" class="table">
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th class="text-nowrap">Vendor Name</th>
@@ -85,19 +85,15 @@ if ($mode == 'create') {
                             </tr>
                             </thead>
                             <tbody>
-                            <?php if ($vendors != NULL): ?>
-                                <?php foreach ($vendors as $vendor) : ?>
-                                    <tr>
-                                        <td><?= $vendor->vendor_name; ?></td>
-                                        <td><a class="btn btn-xs btn-primary"
-                                               href="<?= site_url('master/vendor/edit/' . $vendor->vendor_id); ?>">Edit</a>
-                                            <a class="btn btn-xs btn-danger"
-                                               href="<?= site_url('master/vendor/delete/' . $vendor->vendor_id); ?>">Delete</a>
-                                        </td>
-
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
+                            <tr ng-repeat="vendor in vendors">
+                                <td>{{ vendor.vendor_name }}</td>
+                                <td>
+                                    <a class="btn btn-xs btn-primary"
+                                       href="{{ vendor.vendor_edit }}">Edit</a>
+                                    <a class="btn btn-xs btn-danger"
+                                       href="{{ vendor.vendor_delete }}">Delete</a>
+                                </td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>

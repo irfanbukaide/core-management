@@ -118,34 +118,58 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table id="data-table-responsive" class="table">
-                            <thead>
-                            <tr>
-                                <th class="text-nowrap">Vlan ID</th>
-                                <th class="text-nowrap">Bandwidth</th>
-                                <th class="text-nowrap">Vendor</th>
-                                <th class="text-nowrap">Location</th>
-                                <th class="text-nowrap">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="vlan in vlans">
-                                <td>{{ vlan.name }}</td>
-                                <td>{{ vlan.bandwidth + ' ' + vlan.speedtype }}</td>
-                                <td>
-                                    <span ng-repeat="vendor in vlan.vendors" class="label label-dark mb-2 mr-2">{{ vendor.name }}</span>
-                                </td>
-                                <td>
-                                    <span ng-repeat="location in vlan.locations" class="label label-dark mb-2 mr-2">{{ location.name }}</span>
-                                </td>
-                                <td><a class="btn btn-xs btn-primary"
-                                       href="{{ vlan.vlan_edit }}">Edit</a>
-                                    <a class="btn btn-xs btn-danger"
-                                       href="{{ vlan.vlan_delete }}">Delete</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" ng-model="searching"
+                                       placeholder="Search anything">
+                            </div>
+                            <div class="col">
+                                <div ng-repeat="host in hosts">
+
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" onclick="filter($(this))"
+                                        data-url="<?= site_url('hosts/filter'); ?>"
+                                        data-toggle="modal" data-target="#filter"
+                                        class="btn btn-sm btn-info pull-right mr-2"><i
+                                            class="fas fa-filter"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-nowrap">Vlan ID</th>
+                                        <th class="text-nowrap">Bandwidth</th>
+                                        <th class="text-nowrap">Vendor</th>
+                                        <th class="text-nowrap">Location</th>
+                                        <th class="text-nowrap">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="vlan in vlans | filter:searching">
+                                        <td>{{ vlan.name }}</td>
+                                        <td>{{ vlan.bandwidth + ' ' + vlan.speedtype }}</td>
+                                        <td>
+                                            <span ng-repeat="vendor in vlan.vendors" class="label label-dark mb-2 mr-2">{{ vendor.name }}</span>
+                                        </td>
+                                        <td>
+                                            <span ng-repeat="location in vlan.locations"
+                                                  class="label label-dark mb-2 mr-2">{{ location.name }}</span>
+                                        </td>
+                                        <td><a class="btn btn-xs btn-primary"
+                                               href="{{ vlan.vlan_edit }}">Edit</a>
+                                            <a class="btn btn-xs btn-danger"
+                                               href="{{ vlan.vlan_delete }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <!-- end panel-body -->
                 </div>

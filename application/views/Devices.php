@@ -127,54 +127,74 @@ if ($mode == 'create') {
 
                     <!-- begin panel-body -->
                     <div class="panel-body">
-                        <table class="table table-responsive">
-                            <thead>
-                            <tr>
-                                <th class="text-nowrap">Hostname</th>
-                                <th class="text-nowrap">IP Address</th>
-                                <th class="text-nowrap">Brand</th>
-                                <th class="text-nowrap">Type</th>
-                                <th class="text-nowrap">Locations</th>
-                                <th class="text-nowrap">Tags</th>
-                                <th class="text-nowrap">Action</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="device in devices | filter : searching">
-                                <td>{{ device.name }}</td>
-                                <td>{{ device.ipaddress }}</td>
-                                <td>
-                                    <div ng-repeat="brand in device.brands">
-                                        <span class="label label-dark mb-2">{{ brand.name }}</span>
-                                        <br>
-                                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" ng-model="searching"
+                                       placeholder="Search anything">
+                            </div>
+                            <div class="col">
+                                <div ng-repeat="host in hosts">
 
-                                </td>
-                                <td>
-                                    <div ng-repeat="type in device.types">
-                                        <span class="label label-dark mb-2">{{ type.name }}</span>
-                                        <br>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div ng-repeat="location in device.locations">
-                                        <span class="label label-dark mb-2">{{ location.name }}</span>
-                                        <br>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div ng-repeat="tag in device.tags">
-                                        <span class="label label-dark mb-2">{{ tag.name }}</span>
-                                    </div>
-                                </td>
-                                <td><a class="btn btn-xs btn-primary"
-                                       href="{{ device.device_edit }}">Edit</a>
-                                    <a class="btn btn-xs btn-danger"
-                                       href="{{ device.device_delete }}">Delete</a>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <button type="button" onclick="filter($(this))"
+                                        data-url="<?= site_url('hosts/filter'); ?>"
+                                        data-toggle="modal" data-target="#filter"
+                                        class="btn btn-sm btn-info pull-right mr-2"><i
+                                            class="fas fa-filter"></i> Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-nowrap">Hostname</th>
+                                        <th class="text-nowrap">IP Address</th>
+                                        <th class="text-nowrap">Brand</th>
+                                        <th class="text-nowrap">Type</th>
+                                        <th class="text-nowrap">Locations</th>
+                                        <th class="text-nowrap">Tags</th>
+                                        <th class="text-nowrap">Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr ng-repeat="device in devices | filter : searching">
+                                        <td>{{ device.name }}</td>
+                                        <td>{{ device.ipaddress }}</td>
+                                        <td>
+                                            <div class="mb-2" ng-repeat="brand in device.brands">
+                                                <span class="label label-dark mb-2">{{ brand.name }}</span>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <div class="mb-2" ng-repeat="type in device.types">
+                                                <span class="label label-dark mb-2">{{ type.name }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="mb-2" ng-repeat="location in device.locations">
+                                                <span class="label label-dark mb-2">{{ location.name }}</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="mb-2" ng-repeat="tag in device.tags">
+                                                <span class="label label-dark mb-2">{{ tag.name }}</span>
+                                            </div>
+                                        </td>
+                                        <td><a class="btn btn-xs btn-primary"
+                                               href="{{ device.device_edit }}">Edit</a>
+                                            <a class="btn btn-xs btn-danger"
+                                               href="{{ device.device_delete }}">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                     <!-- end panel-body -->
                 </div>

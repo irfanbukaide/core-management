@@ -49,10 +49,6 @@
             </select>
         </div>
 
-
-    </div>
-
-    <div class="row">
         <div class="form-group col">
             <label for="tags">Tags</label>
             <select id="tags" name="tags[]" class="filter-select form-control"

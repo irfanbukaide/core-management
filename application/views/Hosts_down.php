@@ -105,19 +105,24 @@
                             {{ host.ipaddress }}
                         </td>
                         <td>
-                            <span ng-repeat="brand in host.brands"
-                                  class="label label-dark mb-2 mr-2">{{ brand.name }}</span><br>
+                            <div class="mb-2" ng-repeat="brand in host.brands">
+                                <span class="label label-dark mb-2">{{ brand.name }}</span>
+                            </div>
                         </td>
                         <td>
-                            <span ng-repeat="type in host.types"
-                                  class="label label-dark mb-2 mr-2">{{ type.name }}</span><br>
+                            <div class="mb-2" ng-repeat="type in host.types">
+                                <span class="label label-dark mb-2">{{ type.name }}</span>
+                            </div>
                         </td>
                         <td>
-                            <span ng-repeat="location in host.locations" class="label label-dark mb-2 mr-2">{{ location.name }}</span><br>
+                            <div class="mb-2" ng-repeat="location in host.locations">
+                                <span class="label label-dark mb-2">{{ location.name }}</span>
+                            </div>
                         </td>
                         <td>
-                            <span ng-repeat="tag in host.tags"
-                                  class="label label-dark mb-2 mr-2">{{ tag.name }}</span><br>
+                            <div class="mb-2" ng-repeat="tag in host.tags">
+                                <span class="label label-dark mb-2">{{ tag.name }}</span>
+                            </div>
                         </td>
                         <td>
                             <div ng-if="host.status == 1" class="text-success text-center"><i
@@ -147,6 +152,15 @@
         var d = data,
             url = d.data('url'),
             modal = $('#filter'),
+            modalbody = modal.find('.modal-body');
+
+        modalbody.load(url);
+    }
+
+    function show_event(data) {
+        var d = data,
+            url = d.data('url'),
+            modal = $('#event'),
             modalbody = modal.find('.modal-body');
 
         modalbody.load(url);
